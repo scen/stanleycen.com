@@ -1,9 +1,7 @@
-title: "Hello"
-slug: "hello-world"
+title: "westviewcoders.org"
+slug: "westview-coders"
 summary: "test summary"
 tags:
-  - c++
-  - java
   - c
 content: "test content"
 repo: "github.com"

@@ -2,7 +2,23 @@
 	<h3>Projects</h3>
 	
 	<ul>
-		
+		<% Project.all.each do |slug, proj| %>
+		<li>
+			<div class="header">
+				<h4>
+					<a href="/project/<%= slug %>"><%= proj.title %></a>
+				</h4>
+				<ul class="tags">
+					<% proj.tags.each do |tag| %>
+					<li class="<%= tag.downcase == "c++" ? "cpp" : tag %>"><%= tag %></li>
+					<% end %>
+				</ul>
+			</div>
+			<p>
+				<%= proj.summary %>
+			</p>
+		</li>
+		<% end %>
 	</ul>
 
 </div>

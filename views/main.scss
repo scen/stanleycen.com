@@ -122,7 +122,50 @@ section {
 
     .project_wrapper
     {
-    	
+    	ul {
+            margin-left:0px;
+        }
+        li {
+            display:block;
+        }
+        .header {
+            display:block;
+            height:24px;
+            h4 {
+                display:block;
+                float:left;
+            }
+            .date {
+                display:block;
+                float:right;
+            }
+            ul.tags {
+                display:block;
+                float:right;
+                margin-bottom:8px;
+                li {
+                    float:left;
+                    display:inline;
+                    list-style:none;
+                    margin-left:8px;
+                    margin-top:-6px;
+                    padding:4px 8px;
+                    color:#ffffff;
+                    
+                    &.c         { background-color:#FE6960; }
+                    &.cpp          { background-color:#CEE9EF; color:#333333; }
+                    &.java   { background-color:#F8F087; color:#333333; }
+                    &.coffeescript { background-color:#E1B866; }
+                }
+            }
+        }
+        p {
+            clear:both;
+        }
+        & > ul > li {
+            border-bottom:1px solid #efefef;
+            margin-bottom:16px;
+        }
     }
     
     code {

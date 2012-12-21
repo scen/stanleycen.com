@@ -10,7 +10,6 @@ class Post
 	end
 
 
-
 	def Post.all
 		@@all_posts ||= nil
 	end
