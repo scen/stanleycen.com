@@ -1,9 +1,30 @@
 <!doctype html>
 <html>
 <head>
-	I'm from layout
+	<title>
+		<% if @title %>
+			<%= @title %> &mdash; Stanley Cen
+		<% else %>
+			Stanley Cen
+		<% end %>
+	</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'/>
+	<link href="/main.css" rel="stylesheet"/>
+	<script type="text/javascript" src="ga.js"></script>
 </head>
 <body>
-	<%= yield %>
+	<header>
+		<h1><a href="/">stanley cen</a></h1>
+		<nav>
+			<a href="/blog" class="blog">blog</a>
+			<a href="/projects" class="projects">projects</a>
+			<a href="http://github.com/scen/" class="github">github</a>
+			<a href="/contact" class="contact">contact</a>
+			<a href="/about" class="about">about</a>
+		</nav>
+	</header>
+	<section>
+		<%= yield %>
+	</section>
 </body>
 </html>
