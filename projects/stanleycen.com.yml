@@ -1,9 +1,16 @@
-title: "Hello"
-slug: "hello-world"
-summary: "test summary"
+title: "stanleycen.com"
+slug: "stanley-cen-com"
+summary: "The n-th iteration of this website. This time redesigned with Ruby instead of PHP."
 tags:
-  - c++
-  - java
-  - c
-content: "test content"
+  - ruby
+  - html
+  - css
+content: >
+  Some [markdown](http://google.com)
+
+      \cpp
+      int main(int argc, char* argv[])
+      {
+      	test(1, 2, "Hi");
+      }
 repo: "github.com"

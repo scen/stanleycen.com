@@ -10,8 +10,9 @@ class Project
 	end
 
 	def Project.load_projects
-		Dir["./projects/*.yml"].inject([]) do |result, file|
-			data = YAML.load_file file
+		order = YAML.load_file "./projects/order.yml"
+		order.inject([]) do |result, file|
+			data = YAML.load_file("./projects/" + file + ".yml")
 
 			title = data['title']
 			tags = data['tags'].inject([]) do |result, tag|
@@ -28,7 +29,7 @@ class Project
 	end
 
 	def Project.find(slug)
-		@@all[slug] or raise NotFound
+		all[slug] or raise Project::NotFound
 	end
 
 	def Project.all

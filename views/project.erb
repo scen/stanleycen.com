@@ -1,0 +1,14 @@
+<% proj = @proj %>
+<div class="project_wrapper">
+	<div class="header">
+		<h3><%= proj.title %></h3>
+		<ul class="tags">
+			<% proj.tags.each do |tag| %>
+			<% %>
+		</ul>
+	</div>
+	<p>
+		<%= format_post proj.content %>
+		<style><%= Pygments.css %></style>
+	</p>
+</div>

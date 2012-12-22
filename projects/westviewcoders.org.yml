@@ -1,7 +1,12 @@
 title: "westviewcoders.org"
 slug: "westview-coders"
-summary: "test summary"
+summary: "Official website of the Westview Computer Science Club. Includes an online judge for grading problem solutions, a blog, and lectures. 
+	The evaluator can execute code written in C and C++."
 tags:
-  - c
-content: "test content"
+  - c++
+  - php
+  - html
+  - css
+  - javascript
+content: "**test content**"
 repo: "github.com"

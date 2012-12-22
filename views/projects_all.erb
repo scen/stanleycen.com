@@ -10,7 +10,7 @@
 				</h4>
 				<ul class="tags">
 					<% proj.tags.each do |tag| %>
-					<li class="<%= tag.downcase == "c++" ? "cpp" : tag %>"><%= tag %></li>
+					<li class="<%= tag.downcase == "c++" ? "cpp" : tag.delete(" ") %>"><%= tag %></li>
 					<% end %>
 				</ul>
 			</div>

@@ -152,10 +152,14 @@ section {
                     padding:4px 8px;
                     color:#ffffff;
                     
-                    &.c         { background-color:#FE6960; }
-                    &.cpp          { background-color:#CEE9EF; color:#333333; }
-                    &.java   { background-color:#F8F087; color:#333333; }
-                    &.coffeescript { background-color:#E1B866; }
+                    &.cpp        { background-color:#BDD5FF; color: #333333;}
+                    &.ruby {background-color: #BDFFC6; color: #333333;}
+                    &.reverseengineering          { background-color:#CEE9EF; color:#333333; }
+                    &.css   { background-color:#FFFBBD; color:#333333; }
+                    &.javascript { background-color:#FFE0BD;color:#333333; }
+                    &.php {background-color: #E2BDFF; color:#333333;}
+                    &.html {background-color: #FFBDBD;color:#333333;}
+                    &.lua {background-color: #F4BDFF; color:#333333;}
                 }
             }
         }
