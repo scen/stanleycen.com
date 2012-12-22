@@ -6,11 +6,5 @@ tags:
   - html
   - css
 content: >
-  Some [markdown](http://google.com)
-
-      \cpp
-      int main(int argc, char* argv[])
-      {
-      	test(1, 2, "Hi");
-      }
-repo: "github.com"
+  The n-th iteration of this website. This time redesigned with Ruby instead of PHP. It was written with the rack framework `Sinatra` and is hosted on Heroku.
+repo: "http://github.com/scen/stanleycen.com/"
