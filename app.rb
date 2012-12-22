@@ -19,11 +19,20 @@ helpers do
 	def get_tag_class(tag)
 		tag.downcase == "c++" ? "cpp" : tag.delete(" ")
 	end
+
+	def post_slug_url(slug)
+		"/blog/" + slug
+	end
+
+	def abbrev_post(source)
+		format_post source.split("\n\n").take(3).join("\n\n")
+	end
 end
 
 before do
 	if development?
 		Project.clear_projects!
+		Post.clear_posts!
 	end
 end
 
@@ -37,10 +46,13 @@ get '/' do
 end
 
 get '/blog/?' do
+	@posts = Post.all
 	erb :blog
 end
 
-get '/blog/:url' do
+get '/blog/:slug' do |slug|
+	@post = Post.find slug
+	@title = @post.title
 	erb :blog_post
 end
 

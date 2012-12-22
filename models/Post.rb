@@ -5,7 +5,7 @@ require 'date'
 class Post
 	class NotFound < StandardError; end
 
-	attr_accessor :title, :slug, :tags, :summary, :content, :repo
+	attr_accessor :title, :slug, :content, :created_at
 
 	def initialize(args = {})
 		args.each do |x, y|
@@ -16,23 +16,16 @@ class Post
 	def Post.load_posts
 		order = YAML.load_file "./posts/order.yml"
 		order.inject([]) do |result, line|
-			slug = line.first
+			arr = line.split " "
+			slug = arr.first
 			filename = "./posts/#{slug}.md"
       		content = File.read(filename).force_encoding "utf-8"
 
-			the_date = line.last || Time.now.strftime("%Y-%m-%d")
-			title = data['title']
-			
-			# tags = data['tags'].inject([]) do |result, tag|
-			# 	result << tag
-			# end unless data['tags'].nil?
+			created_at = arr.last || Time.now.strftime("%Y-%m-%d")
 
-			summary = data['summary']
-			content = data['content']
-			slug = data['slug']
-			repo = data['repo']
+			next unless content =~ /\A# (.*)$/
 
-			result << (Post.new title: title, tags: tags, summary: summary, content: content, slug: slug, repo: repo)
+			result << (Post.new slug: slug, title: $1, content: $'.strip, created_at: created_at)
 		end
 	end
 
