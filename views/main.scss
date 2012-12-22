@@ -133,12 +133,17 @@ section {
         li {
             display:block;
         }
+
         .header {
             display:block;
             height:24px;
             h4 {
                 display:block;
                 float:left;
+            }
+            .repo
+            {
+                border-bottom: none;
             }
             .src
             {
@@ -148,13 +153,22 @@ section {
                 font-size: 16px;
                 width: 16px;
                 height: 16px;
-                margin-left: 6px;
-                margin-top: -4px;
+                margin-left: 10px;
+                margin-top: -4px; /* ff */
+                margin-bottom: 2px; /* chrome... */
                 display:inline-block;
                 color: #333;
+                transition: color .12s;
+                -moz-transition: color .12s; 
+                -webkit-transition: color .12s; 
+                -o-transition: color .12s;
                 &:before 
                 {
                     content:"\f009";
+                }
+                &:hover
+                {
+                    color: #2A92C9;
                 }
             }
             h5 {
@@ -196,9 +210,16 @@ section {
         p {
             clear:both;
         }
-        & > ul > li {
-            border-bottom:1px solid #efefef;
-            margin-bottom:16px;
+        .proj {
+            border-bottom:1px solid #efefef !important;
+            margin-bottom:16px !important;
+        }
+        .proj-content  {
+            width: 100%;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            li {display: list-item !important; margin-left: 20px !important; line-height: 24px;}
+            ul {margin: auto !important; margin-left: 5px !important; margin-bottom: 16px !important;}
         }
     }
     

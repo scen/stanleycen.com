@@ -3,13 +3,13 @@
 	
 	<ul>
 		<% Project.all.each do |slug, proj| %>
-		<li>
+		<li class="proj">
 			<div class="header">
 				<h4>
 					<a href="/project/<%= slug %>"><%= proj.title %></a>
 				</h4>
 				<% if proj.repo %>
-				<span class="src"></span>
+				<a title="Git Repository" class="repo" href="<%= proj.repo %>"><span class="src"></span></a>
 				<% end %>
 				<ul class="tags">
 					<% proj.tags.each do |tag| %>

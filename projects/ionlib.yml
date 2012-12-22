@@ -1,10 +1,59 @@
-title: "ion Reverse Engineering Library"
-slug: "ionlib"
-summary: "A library that bootstraps and accelerates the reverse engineering process. Hook functions, set breakpoints, signature scanning, draw
-	APIs and more. Provides a Lua API for even faster development."
+title: ion Reverse Engineering Library
+slug: ionlib
+summary: >
+  A library that bootstraps and accelerates the reverse engineering process. Provides a C++ API to hook functions,
+  set breakpoints, signature scan, draw APIs and more. It also exposes an equivalent Lua API for on-the-fly development.
+content: >
+  A library that bootstraps and accelerates the reverse engineering process. Provides a C++ API to hook functions,
+  set breakpoints, signature scan, draw APIs and more. It also exposes an equivalent Lua API for on-the-fly development. Built in live-reloading
+  decreases prototyping time further by removing the need to relaunch the application.
+
+  ### Notable Features
+  
+  * Instantly draw into DirectX 9 - 11, OpenGL, and Source Engine scenes
+
+  * JMP Detours, Midfunction Hooks, Virtual Method Table hooks, and HWBP hooks
+
+  * Flexible memory management API
+
+  * Call any C++/ASM function with any of the following calling conventions
+      * `__stdcall`
+      * `__thiscall`
+      * `__fastcall`
+      * `__cdecl`
+  * Easy to use event handling system
+
+  * All C++ functionality is available to Lua via a convenient wrapper
+
+  * Lua wrapper has access to registers during a trampoline call
+
+  * Advanced LoadLibrary emulation to hide module from scanners
+         
+  ### Example Counter Strike: Global Offensive Hook
+  
+
+      \cpp
+      namespace ion
+      {
+          interfaces* csgo;
+          class ioncsgo : public ionbase
+          {
+          public:
+          	ioncsgo(const std::string& proj)
+      	    {
+      	    	csgo = new interfaces();
+      		    instance = this;
+      		    auto root = superInit(proj);
+      		    if (root.isNull()) return;
+      		    finishInit(root);
+      	    }
+          	static ioncsgo* instance;
+          };
+          ioncsgo* ioncsgo::instance;
+      }
+
 tags:
   - c++
   - reverse engineering
   - lua
-content: "test content"
 repo: "github.com"
