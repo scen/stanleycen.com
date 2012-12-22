@@ -8,12 +8,17 @@ Dir["./models/*.rb"].each &method(:require)
 helpers do
 	def insert_google_analytics
 	end
+
 	def format_post(source)
     	markdown source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$))*/) { |snippet|
     		lang, *source = snippet.lines.to_a
     		Pygments.highlight source.map { |x| x[4..-1] }.join("\n"), lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
    		}
-  end
+	end
+
+	def get_tag_class(tag)
+		tag.downcase == "c++" ? "cpp" : tag.delete(" ")
+	end
 end
 
 before do

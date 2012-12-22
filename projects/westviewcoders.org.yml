@@ -8,5 +8,6 @@ tags:
   - html
   - css
   - javascript
-content: "**test content**"
+content: >
+  github
 repo: "github.com"

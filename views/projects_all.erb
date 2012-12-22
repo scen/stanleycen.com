@@ -8,9 +8,12 @@
 				<h4>
 					<a href="/project/<%= slug %>"><%= proj.title %></a>
 				</h4>
+				<% if proj.repo %>
+				<span class="src"></span>
+				<% end %>
 				<ul class="tags">
 					<% proj.tags.each do |tag| %>
-					<li class="<%= tag.downcase == "c++" ? "cpp" : tag.delete(" ") %>"><%= tag %></li>
+					<li class="<%= get_tag_class tag %>"><%= tag %></li>
 					<% end %>
 				</ul>
 			</div>

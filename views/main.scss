@@ -3,6 +3,11 @@
 	padding: 0px;
 }
 
+@font-face {
+    font-family: "Octicons";
+    src: url("/octicons.woff") format("woff");
+}
+
 body {
 	font-family: "Open Sans";
 	font-size: 14px;
@@ -132,6 +137,31 @@ section {
             display:block;
             height:24px;
             h4 {
+                display:block;
+                float:left;
+            }
+            .src
+            {
+                font-family: "Octicons";
+                font-weight: normal;
+                font-style: normal;
+                font-size: 16px;
+                width: 16px;
+                height: 16px;
+                margin-left: 6px;
+                margin-top: -4px;
+                display:inline-block;
+                color: #333;
+                &:before 
+                {
+                    content:"\f009";
+                }
+            }
+            h5 {
+                display:block;
+                float:left;
+            }
+            h3 {
                 display:block;
                 float:left;
             }

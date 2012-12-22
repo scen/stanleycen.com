@@ -4,7 +4,8 @@
 		<h3><%= proj.title %></h3>
 		<ul class="tags">
 			<% proj.tags.each do |tag| %>
-			<% %>
+			<li class="<%= get_tag_class tag %>"><%= tag %></li>
+			<% end %>
 		</ul>
 	</div>
 	<p>
