@@ -38,12 +38,18 @@ error Project::NotFound do
 	redirect "/"
 end
 
+error Post::NotFound do
+	redirect "/"
+end
+
 get '/' do
+	@title = nil
 	erb :index
 end
 
 get '/blog/?' do
 	@posts = Post.all
+	@title = "Blog"
 	erb :blog
 end
 
@@ -59,14 +65,17 @@ end
 
 get '/project/:slug' do |slug|
 	@proj = Project.find(slug)
+	@title = @proj.title
 	erb :project
 end
 
 get '/about/?' do
+	@title = "About"
 	erb :about
 end
 
 get '/contact/?' do
+	@title = "Contact"
 	erb :contact
 end
 
