@@ -29,9 +29,7 @@ content: >
 
   * Advanced LoadLibrary emulation to hide module from scanners
          
-  ### Example Counter Strike: Global Offensive Hook
-  
-
+         
       \cpp
       namespace ion
       {
