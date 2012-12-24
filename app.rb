@@ -26,7 +26,7 @@ helpers do
 	def get_tag_name(tag)
 		case tag
 		when "csharp"
-			'C#'
+			'c#'
 		else
 			tag
 		end
