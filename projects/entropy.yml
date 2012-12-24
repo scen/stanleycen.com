@@ -1,0 +1,11 @@
+title: "Assembly Entropy Generator"
+slug: "entropy"
+summary: >
+  This utility randomly generates and inserts assembly into marked segments of your code, making it harder for signature scans to find code in memory. It can generate an infinite number of unique instructions.
+content: >
+  This utility randomly generates and inserts assembly into marked segments of your code, making it harder for signature scans to find code in memory. It can generate an infinite number of unique instructions.
+tags:
+  - c++
+  - csharp
+  - reverse engineering
+repo: "http://github.com/scen/Entropy/"

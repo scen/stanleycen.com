@@ -44,7 +44,7 @@ Given these values, we can find the maximum matching with a variation of Kuhn's 
     	}
     	return false;
     }
-
+    
     memset(vmatch, -1, sizeof(vmatch));
     memset(hmatch, -1, sizeof(hmatch));
     bool path = false; //whether we were able to augment a path

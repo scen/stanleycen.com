@@ -254,6 +254,7 @@ section {
                     padding:4px 8px;
                     color:#ffffff;
                     
+                    &.csharp {background-color: #BDFFD5; color: #333333;}
                     &.cpp        { background-color:#BDD5FF; color: #333333;}
                     &.ruby {background-color: #BDFFC6; color: #333333;}
                     &.reverseengineering          { background-color:#CEE9EF; color:#333333; }

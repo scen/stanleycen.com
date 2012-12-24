@@ -1,0 +1,11 @@
+title: "Desktop Problem Grader"
+slug: "desktop-problem-grader"
+summary: >
+  This was my first attempt at creating a solution grader programming contest problems. This is now superceded by the web based version (see [here](http://stanleycen.com/project/westview-coders), however I've kept this project up for 
+  posterity.
+content: >
+  This was my first attempt at creating a solution grader programming contest problems. This is now superceded by the web based version (see [here](http://stanleycen.com/project/westview-coders), however I've kept this project up for 
+  posterity.
+tags:
+  - csharp
+repo: "http://github.com/scen/Problem-Grader/"

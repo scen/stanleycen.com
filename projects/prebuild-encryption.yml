@@ -1,0 +1,15 @@
+title: "Prebuild String XOR Encrypter"
+slug: "prebuild-encryption"
+summary: >
+  By using a prebuild event, this utility randomly generates XOR encryption keys and encrypts all string literals found in a project's source code.
+content: >
+  By using a prebuild event, this utility randomly generates XOR encryption keys and encrypts all string literals found in a project's source code.
+
+    
+    
+  This utility exists because reverse engineerings and anti cheats typically dump string constants from your module. This just adds a layer of obfuscation to the mix.
+tags:
+  - c++
+  - csharp
+  - reverse engineering
+repo: "http://github.com/scen/PreStrEnc/"

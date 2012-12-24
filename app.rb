@@ -14,7 +14,22 @@ helpers do
 	end
 
 	def get_tag_class(tag)
-		tag.downcase == "c++" ? "cpp" : tag.delete(" ")
+		case tag.downcase
+		when "cpp"
+			ret = "cpp"
+		else
+			ret = tag.downcase
+		end
+		ret.delete(" ")
+	end
+
+	def get_tag_name(tag)
+		case tag
+		when "csharp"
+			'C#'
+		else
+			tag
+		end
 	end
 
 	def post_slug_url(slug)

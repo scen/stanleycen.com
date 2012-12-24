@@ -13,7 +13,7 @@
 				<% end %>
 				<ul class="tags">
 					<% proj.tags.each do |tag| %>
-					<li class="<%= get_tag_class tag %>"><%= tag %></li>
+					<li class="<%= get_tag_class tag %>"><%= get_tag_name tag %></li>
 					<% end %>
 				</ul>
 			</div>
