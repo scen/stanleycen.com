@@ -5,7 +5,7 @@ Bundler.require :default
 
 Dir["./models/*.rb"].each &method(:require)
 
-helpers do
+helpers do 
 	def format_post(source)
     	markdown source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$))*/) { |snippet|
     		lang, *source = snippet.lines.to_a
