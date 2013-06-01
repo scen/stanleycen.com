@@ -15,7 +15,7 @@ class Post
 
   def Post.load_posts
     order = YAML.load_file "./posts/order.yml"
-    order.inject([]) do |result, line|
+    order.reduce([]) do |result, line|
       arr = line.split " "
       slug = arr.first
       filename = "./posts/#{slug}.md"
