@@ -19,7 +19,7 @@ class Post
       arr = line.split " "
       slug = arr.first
       filename = "./posts/#{slug}.md"
-          content = File.read(filename).force_encoding "utf-8"
+      content = File.read(filename).force_encoding "utf-8"
 
       created_at = arr.last || Time.now.strftime("%Y-%m-%d")
 
