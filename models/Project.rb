@@ -11,11 +11,11 @@ class Project
 
   def Project.load_projects
     order = YAML.load_file "./projects/order.yml"
-    order.inject([]) do |result, file|
+    order.reduce([]) do |result, file|
       data = YAML.load_file("./projects/" + file + ".yml")
 
       title = data['title']
-      tags = data['tags'].inject([]) do |result, tag|
+      tags = data['tags'].reduce([]) do |result, tag|
         result << tag
       end unless data['tags'].nil?
 

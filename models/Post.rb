@@ -15,11 +15,11 @@ class Post
 
   def Post.load_posts
     order = YAML.load_file "./posts/order.yml"
-    order.inject([]) do |result, line|
+    order.reduce([]) do |result, line|
       arr = line.split " "
       slug = arr.first
       filename = "./posts/#{slug}.md"
-          content = File.read(filename).force_encoding "utf-8"
+      content = File.read(filename).force_encoding "utf-8"
 
       created_at = arr.last || Time.now.strftime("%Y-%m-%d")
 
