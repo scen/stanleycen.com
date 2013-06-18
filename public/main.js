@@ -1,12 +1,13 @@
 $(document).ready(function() {
-    console.log("running");
     $('a.lightbox').fancybox({
         padding: 0,
         openEffect: 'elastic',
         openSpeed: 150,
         closeEffect: 'elastic',
-        closeSpeed: 150
+        closeSpeed: 150,
+        helpers: {
+            overlay: null
+        }
     });
+    $('a.lightbox.center').wrap("<div style='text-align: center;'>");
 });
-
-alert("HI");
