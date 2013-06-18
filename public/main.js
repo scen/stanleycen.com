@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('a .lightbox').fancybox({
+    $('a.lightbox').fancybox({
         padding: 0,
         openEffect: 'elastic',
         openSpeed: 150,
