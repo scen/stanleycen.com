@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	console.log("running");
+    console.log("running");
     $('a.lightbox').fancybox({
         padding: 0,
         openEffect: 'elastic',
@@ -8,3 +8,5 @@ $(document).ready(function() {
         closeSpeed: 150
     });
 });
+
+alert("HI");
