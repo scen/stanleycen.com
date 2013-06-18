@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	console.log("running");
     $('a.lightbox').fancybox({
         padding: 0,
         openEffect: 'elastic',
