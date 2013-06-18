@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    newrelic_rpm (3.6.3.111)
     posix-spawn (0.3.6)
     pygments.rb (0.3.7)
       posix-spawn (~> 0.3.6)
@@ -22,7 +21,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  newrelic_rpm
   pygments.rb
   rdiscount
   sass
