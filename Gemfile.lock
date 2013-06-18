@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    cloudinary (1.0.59)
     posix-spawn (0.3.6)
     pygments.rb (0.3.7)
       posix-spawn (~> 0.3.6)
@@ -25,3 +26,4 @@ DEPENDENCIES
   rdiscount
   sass
   sinatra
+  cloudinary
