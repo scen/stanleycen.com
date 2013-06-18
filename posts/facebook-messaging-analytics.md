@@ -10,6 +10,7 @@ I wrote a purely client-side website to download all my data through the Faceboo
 
 
 
-
+<div class='center'><a class='lightbox' href='http://res.cloudinary.com/hazdcamql/image/upload/v1371584280/distribution_cuk8tr.png' title='Distribution'>
+	<img src='http://res.cloudinary.com/hazdcamql/image/upload/c_thumb,w_380/v1371584280/distribution_cuk8tr.png' alt></a></div>
 
 
