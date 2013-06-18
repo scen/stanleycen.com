@@ -5,6 +5,7 @@ $(document).ready(function() {
         openSpeed: 150,
         closeEffect: 'elastic',
         closeSpeed: 150,
+        closeClick: true,
         helpers: {
             overlay: null
         }
