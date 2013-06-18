@@ -1,3 +1,5 @@
+require 'yaml'
+
 class Project
   class NotFound < StandardError; end
 

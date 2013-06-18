@@ -1,6 +1,7 @@
 # imported posts
 
 require 'date'
+require 'yaml'
 
 class Post
   class NotFound < StandardError; end
