@@ -50,17 +50,17 @@ header, section {
 	margin-bottom: 16px;
 }
 
-a.lightbox {
-    padding: 4px;
-    margin: 0 0 18px 20px;
+a.lightbox > img {
     border: 1px solid #ddd !important;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+}
+
+a.lightbox > img:hover {
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
-    float: left;
 }
 
 header {
