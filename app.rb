@@ -39,6 +39,10 @@ helpers do
   def abbrev_post(source)
     format_post source.split("\n\n").take(3).join("\n\n")
   end
+
+  def remove_trailing_slashes(str)
+    str.gsub /\/*$/
+  end
 end
 
 before do
@@ -69,7 +73,7 @@ get '/blog/?' do
 end
 
 get '/blog/:slug' do |slug|
-  @post = Post.find slug
+  @post = Post.find(remove_trailing_slashes slug)
   @title = @post.title
   erb :blog_post
 end
@@ -79,7 +83,7 @@ get '/projects/?' do
 end
 
 get '/project/:slug' do |slug|
-  @proj = Project.find(slug)
+  @proj = Project.find(remove_trailing_slashes slug)
   @title = @proj.title
   erb :project
 end
