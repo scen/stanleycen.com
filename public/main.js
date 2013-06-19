@@ -10,6 +10,4 @@ $(document).ready(function() {
             overlay: null
         }
     });
-    $('a.lightbox').wrap('<span class="roll">');
-    $('a.lightbox.center').wrap("<div style='text-align: center;'>");
 });
