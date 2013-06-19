@@ -38,6 +38,18 @@ div.border-bottom {
     margin-bottom: 30px;
 }
 
+div.hover {
+    -webkit-transition: opacity .2s ease;
+    -moz-transition: opacity .2s ease;
+    -o-transition: opacity .2s ease;
+    -ms-transition: opacity .2s ease;
+    -transition: opacity .2s ease;
+}
+
+div.hover:hover {
+    opacity: 0.7;
+}
+
 .amp {
 	font-family: Baskerville, Palatino, "Book Antiqua", serif;
 	font-style: italic;

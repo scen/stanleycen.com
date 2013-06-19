@@ -5,7 +5,7 @@ A couple of days ago I had to urge to look at my activity over Facebook messagin
 I wrote a open-source and purely client-side tool to download all my data through the Facebook Graph API and compute statistics on it to provide insights into my chatting activity (GitHub repository as well as installation instructions are available [here](/project/facebook-messaging-analytics)). Here are a few examples of what it can show right now:
 
 #### Word cloud
-<div class='center border-bottom'><a class='lightbox' href='http://res.cloudinary.com/hazdcamql/image/upload/v1371580311/wordcloud_pardki.png' title='Word cloud'><img src='http://res.cloudinary.com/hazdcamql/image/upload/c_thumb,w_380/v1371580311/wordcloud_pardki.png' alt></a></div>
+<div class='center border-bottom hover'><a class='lightbox' href='http://res.cloudinary.com/hazdcamql/image/upload/v1371580311/wordcloud_pardki.png' title='Word cloud'><img src='http://res.cloudinary.com/hazdcamql/image/upload/c_thumb,w_380/v1371580311/wordcloud_pardki.png' alt></a></div>
 
 
 
@@ -13,14 +13,14 @@ I wrote a open-source and purely client-side tool to download all my data throug
 
 
 #### Message distribution
-<div class='center border-bottom'><a class='lightbox' href='http://res.cloudinary.com/hazdcamql/image/upload/v1371584280/distribution_cuk8tr.png' title='Distribution'>
+<div class='center border-bottom hover'><a class='lightbox' href='http://res.cloudinary.com/hazdcamql/image/upload/v1371584280/distribution_cuk8tr.png' title='Distribution'>
 	<img src='http://res.cloudinary.com/hazdcamql/image/upload/c_thumb,w_380/v1371584280/distribution_cuk8tr.png' alt></a></div>
 
 
 #### Trends over time
-<div class='center border-bottom'><a class='lightbox' href='http://res.cloudinary.com/hazdcamql/image/upload/v1371585409/trends_z0fvlo.png' title='Trends over time'>
+<div class='center border-bottom hover'><a class='lightbox' href='http://res.cloudinary.com/hazdcamql/image/upload/v1371585409/trends_z0fvlo.png' title='Trends over time'>
 	<img src='http://res.cloudinary.com/hazdcamql/image/upload/c_thumb,w_380/v1371585409/trends_z0fvlo.png' alt></a></div>
 
 #### Most active time
-<div class='center border-bottom'><a class='lightbox' href='http://res.cloudinary.com/hazdcamql/image/upload/v1371598011/mostactive_icmony.png' title='Most active time'>
+<div class='center border-bottom hover'><a class='lightbox' href='http://res.cloudinary.com/hazdcamql/image/upload/v1371598011/mostactive_icmony.png' title='Most active time'>
 	<img src='http://res.cloudinary.com/hazdcamql/image/upload/c_thumb,w_380/v1371598011/mostactive_icmony.png' alt></a></div>
