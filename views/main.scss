@@ -46,7 +46,7 @@ div.hover > a > img {
     -transition: opacity .2s ease;
 }
 
-div.hover:hover > a > img {
+div.hover > a > img:hover {
     opacity: 0.7;
 }
 
