@@ -38,18 +38,6 @@ div.border-bottom {
     margin-bottom: 30px;
 }
 
-div.hover > a > img {
-    -webkit-transition: opacity .2s ease;
-    -moz-transition: opacity .2s ease;
-    -o-transition: opacity .2s ease;
-    -ms-transition: opacity .2s ease;
-    -transition: opacity .2s ease;
-}
-
-div.hover > a > img:hover {
-    opacity: 0.7;
-}
-
 .amp {
 	font-family: Baskerville, Palatino, "Book Antiqua", serif;
 	font-style: italic;
@@ -60,6 +48,18 @@ header, section {
 	width: 790px;
 	margin: 0px auto;
 	margin-bottom: 16px;
+}
+
+a.lightbox {
+    padding: 4px;
+    margin: 0 0 18px 20px;
+    border: 1px solid #ddd !important;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 header {
