@@ -24,3 +24,10 @@ I wrote a open-source and purely client-side tool to download all my data throug
 #### Most active time
 <div class='center border-bottom hover'><a class='lightbox' href='http://res.cloudinary.com/hazdcamql/image/upload/v1371598011/mostactive_icmony.png' title='Most active time'>
 	<img src='http://res.cloudinary.com/hazdcamql/image/upload/c_thumb,w_380/v1371598011/mostactive_icmony.png' alt></a></div>
+
+
+In order to download all of the messages, I had to use the Facebook API. The Facebook Graph API slow and generally hard to use. You have to traverse each conversation page-by-page, loading at most 25 messages per API call. Facebook also limits API calls to around 300 per second this specific table. In order to store the sheer amount (5 MB+) of text data, I store the collected data as a JSON string inside of a permanent sandboxed file system (it won't fit into `localStorage`). As a result, only Google Chrome is supported at this time. The user can download the collected data as a file into the actual filesystem and upload a backup data file into the tool.
+
+The tool written in HTML, CSS, and Javascript. Anyone can easily deploy it by downloading the zip and starting a local file server. The tool uses my Facebook application to authenticate and acquire the `read_mailbox` permission needed to download messages. If you'd rather use your own application id (even though the source code is available) online, you can alter `visualizer.js`.
+
+The tool is currently still in development. If there are any bugs, let me know by reporting an issue on GitHub.
