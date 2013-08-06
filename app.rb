@@ -41,12 +41,12 @@ helpers do
   end
 end
 
-before do
-  if development?
-    Project.clear_projects!
-    Post.clear_posts!
-  end
-end
+# before do
+#   if development?
+#     Project.clear_projects!
+#     Post.clear_posts!
+#   end
+# end
 
 # Error handling
 error Project::NotFound do
