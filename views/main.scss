@@ -3,6 +3,12 @@
 	padding: 0px;
 }
 
+html {
+    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
 @font-face {
     font-family: "Octicons";
     src: url("/octicons.woff") format("woff");
@@ -318,7 +324,7 @@ section {
     }
     
     pre, code {
-        font-family:Monaco, Consolas, "Courier New", monospace;
+        font-family:Consolas, Monaco, "Courier New", monospace;
         font-size:12px;
     }
 }

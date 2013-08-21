@@ -74,13 +74,13 @@ Looking at this disassembly here is the equivalent C++ code I have reversed (com
 
 
     \cpp
-    CUserCmd* GetUserCmd(void* thisptr, int nSlot, int sequence_number)
+    CUserCmd* GetUserCmd(void *thisptr, int nSlot, int sequence_number)
     {
-        CUserCmd* pCircularBuffer = 0;
+        CUserCmd *pCircularBuffer = 0;
         if (nSlot == -1)
-            pCircularBuffer = (CUserCmd*)((char*)thisptr + 0xE4);
+            pCircularBuffer = (CUserCmd *)((char *)thisptr + 0xE4);
         else
-            pCircularBuffer = (CUserCmd*)((char*)thisptr + (nSlot * 212) + 0xE4);
+            pCircularBuffer = (CUserCmd *)((char *)thisptr + (nSlot * 212) + 0xE4);
         return &pCircularBuffer[sequence_number % 150];
     }
 
@@ -93,8 +93,8 @@ Now by hooking CreateMove, you can alter the viewangles of your player, your but
     class CInput
     {
         //...
-        CUserCmd* pCircBuf;
-        CVerifiedUserCmd* pCircBuf2;
+        CUserCmd *pCircBuf;
+        CVerifiedUserCmd *pCircBuf2;
         //...
     };
 
