@@ -72,6 +72,7 @@ before do
     if is_heroku?
       puts @heroku
       @heroku = @heroku || Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS'])
+      puts @heroku
       @last_commit = @last_commit || @heroku.releases("stanleycen").last['commit'] if @heroku
       @the_commit = @the_commit || Octokit.commit('scen/stanleycen.com', @last_commit) if @last_commit
     end
