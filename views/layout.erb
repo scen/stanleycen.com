@@ -38,7 +38,7 @@
 		<%= yield %>
 	</section>
 	<footer>
-		&copy; 2013; deployed commit <a href="https://github.com/scen/stanleycen.com/commit/<%= @git.log.first.sha %>"><%= @git.log.first.sha[0...7] %></a>: <%= @git.log.first.message.split(/\n/)[0] %> (<%= @git.log.first.date.strftime("%Y-%m-%d %H:%M:%S %z") %>)
+		&copy; 2013 Stanley Cen; deployed commit <a href="https://github.com/scen/stanleycen.com/commit/<%= @git.log.first.sha %>"><%= @git.log.first.sha[0...7] %></a>: <%= @git.log.first.message.split(/\n/)[0] %> (<%= @git.log.first.date.strftime("%Y-%m-%d %H:%M:%S %z") %>)
 	</footer>
 </body>
 </html>

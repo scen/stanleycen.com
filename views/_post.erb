@@ -1,7 +1,7 @@
 <div class="post">
     <div class="masthead">
         <h2><a href="<%= post_slug_url post.slug %>"><%= post.title %></a></h2>
-        <span><%= post.created_at %></span>
+        <span><%= post.created_at.strftime("%B %d, %Y") %></span>
         <div class="clear"></div>
     </div>
     <% if defined? abbrev %>

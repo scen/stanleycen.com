@@ -2,6 +2,7 @@
 
 require 'date'
 require 'yaml'
+require 'time'
 
 class Post
   class NotFound < StandardError; end
@@ -22,7 +23,7 @@ class Post
       filename = "./posts/#{slug}.md"
       content = File.read(filename).force_encoding "utf-8"
 
-      created_at = arr.last || Time.now.strftime("%Y-%m-%d")
+      created_at = Time.parse(arr.last) || Time.now
 
       next unless content =~ /\A# (.*)$/
 
