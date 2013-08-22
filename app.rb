@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'bundler/setup'
+require 'time'
 
 Bundler.require :default
 
@@ -21,6 +22,22 @@ helpers do
       ret = tag.downcase
     end
     ret.delete(" ")
+  end
+
+  def is_heroku?
+    ENV['NEW_RELIC_ID'] != nil
+  end
+
+  def get_commit_sha
+    is_heroku? ? ENV['COMMIT_SHA'] : @git.log.first.sha
+  end
+
+  def get_commit_msg
+    is_heroku? ? ENV['COMMIT_MSG'] : @git.log.first.message
+  end
+
+  def get_commit_time
+    is_heroku? ? Time.parse(ENV['COMMIT_TIME']) : @git.log.first.date
   end
 
   def get_tag_name(tag)
@@ -47,7 +64,7 @@ before do
     Post.clear_posts!
     @git = nil
   end
-  @git = @git || Git.open(Dir.pwd)
+  @git = @git || Git.open(Dir.pwd) unless is_heroku?
 end
 
 # Error handling
@@ -100,5 +117,3 @@ end
 get '/main.css' do
   scss :main
 end
-
-
