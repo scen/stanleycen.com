@@ -65,14 +65,14 @@ before do
   if Sinatra::Base.development?
     Project.clear_projects!
     Post.clear_posts!
-    @@git = nil
+    @git = nil
   end
   begin
-    @@git = @@git || Git.open(Dir.pwd) unless is_heroku?
+    @git = @git || Git.open(Dir.pwd) unless is_heroku?
     if is_heroku?
-      @@heroku = @@heroku || Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS'])
-      @@last_commit = @@last_commit || @@heroku.releases("stanleycen").last['commit'] if @@heroku
-      @@the_commit = @@the_commit || Octokit.commit('scen/stanleycen.com', @last_commit) if @@last_commit
+      @heroku = @heroku || Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS'])
+      @last_commit = @last_commit || @heroku.releases("stanleycen").last['commit'] if @heroku
+      @the_commit = @the_commit || Octokit.commit('scen/stanleycen.com', @last_commit) if @last_commit
     end
   rescue
   end
