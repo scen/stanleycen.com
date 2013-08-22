@@ -25,19 +25,21 @@ helpers do
   end
 
   def is_heroku?
-    ENV['NEW_RELIC_ID'] != nil
+    ENV['HEROKU_USER'] != nil
   end
 
   def get_commit_sha
-    is_heroku? ? ENV['COMMIT_SHA'] : @git.log.first.sha
+    return @git.log.first.sha unless is_heroku?
   end
 
   def get_commit_msg
-    is_heroku? ? ENV['COMMIT_MSG'] : @git.log.first.message
+    return @git.log.first.message unless is_heroku?
+
   end
 
   def get_commit_time
-    is_heroku? ? Time.parse(ENV['COMMIT_TIME']) : @git.log.first.date
+    return @git.log.first.date unless is_heroku?
+
   end
 
   def get_tag_name(tag)
@@ -65,6 +67,8 @@ before do
     @git = nil
   end
   @git = @git || Git.open(Dir.pwd) unless is_heroku?
+  @heroku = @heroku || Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS']) if is_heroku?
+  @last_commit = @last_commit || c.releases("stanleycen").last['commit'] if @heroku
 end
 
 # Error handling
