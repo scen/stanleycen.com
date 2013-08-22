@@ -29,18 +29,18 @@ helpers do
   end
 
   def get_commit_sha
-    return @git.log.first.sha unless is_heroku?
-    @commit_sha ||= @the_commit.sha
+    return $git.log.first.sha unless is_heroku?
+    $commit_sha ||= $the_commit.sha
   end
 
   def get_commit_msg
-    return @git.log.first.message unless is_heroku?
-    @commit_msg ||= @the_commit.commit.message
+    return $git.log.first.message unless is_heroku?
+    $commit_msg ||= $the_commit.commit.message
   end
 
   def get_commit_time
-    return @git.log.first.date unless is_heroku?
-    @commit_time ||= Time.parse(@the_commit.commit.author.date).utc.localtime
+    return $git.log.first.date unless is_heroku?
+    $commit_time ||= Time.parse($the_commit.commit.author.date).utc.localtime
   end
 
   def get_tag_name(tag)
@@ -65,19 +65,19 @@ before do
   if Sinatra::Base.development?
     Project.clear_projects!
     Post.clear_posts!
-    @git = nil
+    $git = nil
   end
   begin
-    @git ||= Git.open(Dir.pwd) unless is_heroku?
+    $git ||= Git.open(Dir.pwd) unless is_heroku?
     if is_heroku?
-      puts @heroku
-      puts (@heroku == nil)
-      @heroku ||= Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS'])
-      puts @heroku
+      puts $heroku
+      puts ($heroku == nil)
+      $heroku ||= Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS'])
+      puts $heroku
       puts "Hello"
-      puts "world" + @heroku.to_s
-      @last_commit ||= @heroku.releases("stanleycen").last['commit'] if @heroku
-      @the_commit ||= Octokit.commit('scen/stanleycen.com', @last_commit) if @last_commit
+      puts "world" + $heroku.to_s
+      $last_commit ||= $heroku.releases("stanleycen").last['commit'] if $heroku
+      $the_commit ||= Octokit.commit('scen/stanleycen.com', $last_commit) if $last_commit
     end
   rescue
   end
