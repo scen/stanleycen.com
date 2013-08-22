@@ -2,8 +2,8 @@
 	<h3>Projects</h3>
 	
 	<ul>
-		<% Project.all.each do |slug, proj| %>
-		<li class="proj">
+		<% Project.all.each_with_index do |(slug, proj), idx| %>
+		<li class="proj <%= 'bottom' if idx == Project.all.length - 1 %>">
 			<div class="header">
 				<h4>
 					<a href="/project/<%= slug %>"><%= proj.title %></a>

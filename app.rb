@@ -41,12 +41,14 @@ helpers do
   end
 end
 
-# before do
-#   if development?
-#     Project.clear_projects!
-#     Post.clear_posts!
-#   end
-# end
+before do
+  if Sinatra::Base.development?
+    Project.clear_projects!
+    Post.clear_posts!
+    @git = nil
+  end
+  @git = @git || Git.open(Dir.pwd)
+end
 
 # Error handling
 error Project::NotFound do
