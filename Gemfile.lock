@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    git (1.2.6)
     posix-spawn (0.3.6)
     pygments.rb (0.5.2)
       posix-spawn (~> 0.3.6)
@@ -21,6 +22,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  git
   pygments.rb
   rdiscount
   sass
