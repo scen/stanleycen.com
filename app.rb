@@ -68,7 +68,7 @@ before do
   end
   @git = @git || Git.open(Dir.pwd) unless is_heroku?
   @heroku = @heroku || Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS']) if is_heroku?
-  @last_commit = @last_commit || c.releases("stanleycen").last['commit'] if @heroku
+  @last_commit = @last_commit || @heroku.releases("stanleycen").last['commit'] if @heroku
 end
 
 # Error handling
