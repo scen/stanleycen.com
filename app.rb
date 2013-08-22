@@ -30,17 +30,17 @@ helpers do
 
   def get_commit_sha
     return @git.log.first.sha unless is_heroku?
-    @the_commit.sha
+    @commit_sha = @commit_sha || @the_commit.sha
   end
 
   def get_commit_msg
     return @git.log.first.message unless is_heroku?
-    @the_commit.commit.message
+    @commit_msg = @commit_msg || @the_commit.commit.message
   end
 
   def get_commit_time
     return @git.log.first.date unless is_heroku?
-    Time.parse(@the_commit.commit.author.date)
+    @commit_time = @commit_time || Time.parse(@the_commit.commit.author.date).utc.localtime
   end
 
   def get_tag_name(tag)
