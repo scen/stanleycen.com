@@ -30,17 +30,17 @@ helpers do
 
   def get_commit_sha
     return @git.log.first.sha unless is_heroku?
-    @commit_sha = @commit_sha or @the_commit.sha
+    @commit_sha ||= @the_commit.sha
   end
 
   def get_commit_msg
     return @git.log.first.message unless is_heroku?
-    @commit_msg = @commit_msg or @the_commit.commit.message
+    @commit_msg ||= @the_commit.commit.message
   end
 
   def get_commit_time
     return @git.log.first.date unless is_heroku?
-    @commit_time = @commit_time or Time.parse(@the_commit.commit.author.date).utc.localtime
+    @commit_time ||= Time.parse(@the_commit.commit.author.date).utc.localtime
   end
 
   def get_tag_name(tag)
@@ -68,16 +68,16 @@ before do
     @git = nil
   end
   begin
-    @git = @git or Git.open(Dir.pwd) unless is_heroku?
+    @git ||= Git.open(Dir.pwd) unless is_heroku?
     if is_heroku?
       puts @heroku
       puts (@heroku == nil)
-      @heroku = @heroku or Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS'])
+      @heroku ||= Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS'])
       puts @heroku
       puts "Hello"
       puts "world" + @heroku.to_s
-      @last_commit = @last_commit or @heroku.releases("stanleycen").last['commit'] if @heroku
-      @the_commit = @the_commit or Octokit.commit('scen/stanleycen.com', @last_commit) if @last_commit
+      @last_commit ||= @heroku.releases("stanleycen").last['commit'] if @heroku
+      @the_commit ||= Octokit.commit('scen/stanleycen.com', @last_commit) if @last_commit
     end
   rescue
   end
