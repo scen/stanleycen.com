@@ -67,10 +67,13 @@ before do
     Post.clear_posts!
     @git = nil
   end
-  @git = @git || Git.open(Dir.pwd) unless is_heroku?
-  @heroku = @heroku || Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS']) if is_heroku?
-  @last_commit = @last_commit || @heroku.releases("stanleycen").last['commit'] if is_heroku?
-  @the_commit = @the_commit || Octokit.commit('scen/stanleycen.com', @last_commit) if is_heroku?
+  begin
+    @git = @git || Git.open(Dir.pwd) unless is_heroku?
+    @heroku = @heroku || Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS']) if is_heroku?
+    @last_commit = @last_commit || @heroku.releases("stanleycen").last['commit'] if is_heroku?
+    @the_commit = @the_commit || Octokit.commit('scen/stanleycen.com', @last_commit) if is_heroku?
+  rescue
+  end
 end
 
 # Error handling
