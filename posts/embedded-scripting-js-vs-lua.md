@@ -1,4 +1,4 @@
-# Embedded Scriptping: Javascript vs. Lua
+# Embedded Scripting: Javascript vs. Lua
 
 A while back I boiled my considerations for an embedded scripting language for ionlib to 2 options: _Lua_ and _Javascript_.
   
