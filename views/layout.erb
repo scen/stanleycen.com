@@ -38,7 +38,7 @@
 		<%= yield %>
 	</section>
 	<footer>
-		&copy; 2013 Stanley Cen; deployed commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>"><%= get_commit_sha[0...7] %></a>: <%= get_commit_msg.split(/\n/)[0] %> (<%= get_commit_time.strftime("%Y-%m-%d %H:%M:%S %z") %>)
+		&copy; 2013 Stanley Cen; deployed commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>"><%= get_commit_sha[0...7] %></a>: <%= get_commit_msg.split(/\n/).first %> (<%= get_commit_time.strftime("%Y-%m-%d %H:%M:%S %z") %>)
 	</footer>
 </body>
 </html>
