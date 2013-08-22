@@ -30,16 +30,17 @@ helpers do
 
   def get_commit_sha
     return @git.log.first.sha unless is_heroku?
+    @the_commit.sha
   end
 
   def get_commit_msg
     return @git.log.first.message unless is_heroku?
-
+    @the_commit.commit.message
   end
 
   def get_commit_time
     return @git.log.first.date unless is_heroku?
-
+    Time.parse(@the_commit.commit.author.date)
   end
 
   def get_tag_name(tag)
@@ -68,7 +69,8 @@ before do
   end
   @git = @git || Git.open(Dir.pwd) unless is_heroku?
   @heroku = @heroku || Heroku::Client.new(ENV['HEROKU_USER'], ENV['HEROKU_PASS']) if is_heroku?
-  @last_commit = @last_commit || @heroku.releases("stanleycen").last['commit'] if @heroku
+  @last_commit = @last_commit || @heroku.releases("stanleycen").last['commit'] if is_heroku?
+  @the_commit = @the_commit || Octokit.commit('scen/stanleycen.com', @last_commit) if is_heroku?
 end
 
 # Error handling
