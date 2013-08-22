@@ -6,12 +6,43 @@ Bundler.require :default
 
 Dir["./models/*.rb"].each &method(:require)
 
+DEFAULT_WIDTH = 380
+CLOUDINARY_BASE = 'http://res.cloudinary.com/hazdcamql/image/upload/'
+
 helpers do 
   def format_post(source)
-      markdown source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$))*/) { |snippet|
-        lang, *source = snippet.lines.to_a
-        Pygments.highlight source.map { |x| x[4..-1] }.join("\n"), lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
-      }
+    html = markdown source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$))*/) { |snippet|
+      lang, *source = snippet.lines.to_a
+      Pygments.highlight source.map { |x| x[4..-1] }.join("\n"), lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
+    }
+    noko = Nokogiri::HTML.fragment(html)
+    noko.css('photo').each do |photo|
+      if photo.attribute('cloudinary')
+        img_name = photo.attribute('src')
+        title = photo.text
+        width = photo.attribute('width') || DEFAULT_WIDTH
+
+        div = Nokogiri::XML::Node.new 'div', noko
+        div['class'] = 'center border-bottom hover'
+
+        a = Nokogiri::XML::Node.new 'a', noko
+        a['class'] = 'lightbox'
+        a['href'] = CLOUDINARY_BASE + img_name
+        a['title'] = title
+        
+        img = Nokogiri::XML::Node.new 'img', noko
+        img['src'] = CLOUDINARY_BASE + 'c_thumb,w_' + width.to_s + '/' + img_name
+        img['alt'] = title
+        img['width'] = width.to_s
+
+        a << img
+        div << a
+        photo.replace div
+      else
+        raise NotImplementedError
+      end
+    end
+    noko.to_html
   end
 
   def get_tag_class(tag)
