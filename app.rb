@@ -45,6 +45,10 @@ helpers do
     noko.to_html
   end
 
+  def get_nav_classes(nav)
+    nav + (nav == @nav ? ' selected' : '')
+  end
+
   def get_tag_class(tag)
     case tag.downcase
     when "cpp"
@@ -126,32 +130,38 @@ end
 get '/blog/?' do
   @posts = Post.all
   @title = "Blog"
+  @nav = "blog"
   erb :blog
 end
 
 get '/blog/:slug/?' do |slug|
   @post = Post.find(slug)
   @title = @post.title
+  @nav = "blog"
   erb :blog_post
 end
 
 get '/projects/?' do
+  @nav = "projects"
   erb :projects_all
 end
 
 get '/project/:slug/?' do |slug|
   @proj = Project.find(slug)
   @title = @proj.title
+  @nav = "projects"
   erb :project
 end
 
 get '/about/?' do
   @title = "About"
+  @nav = "about"
   erb :about
 end
 
 get '/contact/?' do
   @title = "Contact"
+  @nav = "contact"
   erb :contact
 end
 

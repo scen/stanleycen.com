@@ -28,11 +28,11 @@
 	<header>
 		<h1><a href="/">stanley cen</a></h1>
 		<nav>
-			<a href="/blog" class="blog">blog</a>
-			<a href="/projects" class="projects">projects</a>
-			<a href="http://github.com/scen/" class="github">github</a>
-			<a href="/contact" class="contact">contact</a>
-			<a href="/about" class="about">about</a>
+			<a href="/blog" class="<%= get_nav_classes 'blog' %>">blog</a>
+			<a href="/projects" class="<%= get_nav_classes 'projects' %>">projects</a>
+			<a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a>
+			<a href="/contact" class="<%= get_nav_classes 'contact' %>">contact</a>
+			<a href="/about" class="<%= get_nav_classes 'about' %>">about</a>
 		</nav>
 	</header>
 	<section>
