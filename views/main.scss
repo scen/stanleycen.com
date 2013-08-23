@@ -354,7 +354,7 @@ section {
       border-bottom: 1px solid #efefef !important;
       margin-bottom: 16px !important;
     }
-    .proj.bottom {
+    .proj:last-of-type {
       border-bottom: none !important;
       margin-bottom: 0px !important;
     }
