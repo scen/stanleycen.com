@@ -154,6 +154,7 @@ footer {
   font-size: 12px;
   margin-bottom: 16px;
   color: #bbbbbb;
+  text-align: center;
   a {
     color: #99A5F7;
     text-decoration: none;
@@ -165,6 +166,7 @@ section {
   padding: 0px 16px;
   width: 760px;
   border-bottom: 1px solid #efefef;
+  margin-bottom: 6px !important;
   a {
     color: #5368f7;
     text-decoration: none;
@@ -379,5 +381,23 @@ section {
   pre, code {
     font-family: Consolas, Monaco, "Courier New", monospace;
     font-size: 12px;
+  }
+}
+
+#contacts {
+  padding: 0px 16px;
+  
+  .contact {
+    margin-bottom: 8px;
+    display: block;
+    clear: both;
+    
+    span {
+      margin-left: 6px;
+    }
+  }
+
+  .contact:last-of-type {
+    margin-bottom: 16px !important;
   }
 }
