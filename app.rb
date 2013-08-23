@@ -8,6 +8,7 @@ Dir["./models/*.rb"].each &method(:require)
 
 DEFAULT_WIDTH = 380
 CLOUDINARY_BASE = 'http://res.cloudinary.com/hazdcamql/image/upload/'
+GREETINGS = ['Hey there!', 'Hello there!', 'Hi there!', 'Hello folks!']
 
 helpers do 
   def format_post(source)
