@@ -1,14 +1,18 @@
 require 'sinatra'
 require 'bundler/setup'
 require 'time'
+require 'rubygems'
+require 'action_view'
 
 Bundler.require :default
 
 Dir["./models/*.rb"].each &method(:require)
 
+include ActionView::Helpers::DateHelper
+
 DEFAULT_WIDTH = 380
 CLOUDINARY_BASE = 'http://res.cloudinary.com/hazdcamql/image/upload/'
-GREETINGS = ['Hey there!', 'Hello there!', 'Hi there!', 'Hello folks!']
+GREETINGS = ['Hey there!', 'Hello there!', 'Hi there!']
 
 helpers do 
   def format_post(source)

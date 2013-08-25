@@ -8,7 +8,7 @@
 			Stanley Cen
 		<% end %>
 	</title>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'/>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'/>
 	<link href='/fontello.css' rel="stylesheet" type="text/css" />
 	<link href="/main.css" rel="stylesheet"/>
 	<link type="text/css" rel="stylesheet" href="//cdn.jsdelivr.net/fancybox/2.1.5/helpers/jquery.fancybox-buttons.css" />
@@ -41,7 +41,7 @@
 	</section>
 	<footer>
 		&copy; 2013 Stanley Cen<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>; deployed commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">
-		<%= get_commit_sha[0...7] %></a>: <%= get_commit_msg.split(/\n/).first %> (<%= get_commit_time.strftime("%Y-%m-%d %H:%M:%S %Z") %>)<% end %>
+		<%= get_commit_sha[0...7] %></a> <%= time_ago_in_words(get_commit_time) + " ago" %>: <%= '"' + get_commit_msg.split(/\n/).first + '"' %><% end %>
 	</footer>
 </body>
 </html>
