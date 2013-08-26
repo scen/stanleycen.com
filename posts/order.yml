@@ -3,9 +3,9 @@
 - implicit-treaps 2013-04-23
 - treaps 2013-01-23
 - reverse-engineering-cusercmd 2012-10-03
-- fixing-unhandled-exceptions-luajit-luabind 2012-09-14
+# - fixing-unhandled-exceptions-luajit-luabind 2012-09-14
 - executing-untrusted-code-safely 2012-09-05
-- embedded-scripting-js-vs-lua 2012-09-04
+# - embedded-scripting-js-vs-lua 2012-09-04
 - directx11-hooking 2012-04-13
 - maximum-bipartite-matching 2012-03-18
 - segment-trees 2012-03-17

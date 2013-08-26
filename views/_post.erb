@@ -8,9 +8,12 @@
         <p>
             <%= abbrev_post post.content %>
         </p>
-        <p>
-            <a href="<%= post_slug_url post.slug %>">Read more...</a>
-        </p>
+        <div class="footer">
+            <span class="read-more">
+                <a href="<%= post_slug_url post.slug %>">Read more &rarr;</a>
+                <div style="clear: both;"></div>
+            </span>
+        </div>
     <% else %>
         <p>
             <%= format_post post.content %>

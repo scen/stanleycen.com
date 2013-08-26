@@ -1,6 +1,8 @@
-<%= erb :_post, locals: {post: @posts.first.last, abbrev: true} %>
+<% @posts.each do |post| %>
+	<%= erb :_post, locals: {post: post.last, abbrev: true} %>
+<% end %>
 
-<ul class="previous-posts">
+<!-- <ul class="previous-posts">
 	<% @posts.drop(1).each_with_index do |post, idx| post = post.last %>
 	<li <%= 'class="bottom"' if idx >= @posts.length - (@posts.length.even? ? 2 : 3) %> >
 		<h3><a href="<%= post_slug_url post.slug %>"><%= post.title %></a></h3>
@@ -11,4 +13,4 @@
 	<% end %>
 	<% end %>
 	<div style="clear:both;"></div>
-</ul>
+</ul> -->

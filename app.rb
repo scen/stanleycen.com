@@ -24,7 +24,7 @@ helpers do
     noko.css('photo').each do |photo|
       if photo.attribute('cloudinary')
         img_name = photo.attribute('src')
-        title = photo.text
+        title = photo.text || ""
         width = photo.attribute('width') || DEFAULT_WIDTH
 
         div = Nokogiri::XML::Node.new 'div', noko
