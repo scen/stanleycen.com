@@ -6,10 +6,10 @@ This circular buffer is part of the CInput class, which we can get the global in
 
 
     \cpp
-    void* pClient = 0xDEADBEEF; //you should already have this pointer
-    DWORD** pClientVtable = *(DWORD***)(*pClient); //client+0x0 contains the vtable pointer
-    DWORD* pIN_ACTIVATEMOUSE = pClientVtable[16]; //16th vfunc
-    CInput* pgInput = *(CInput**)(pIN_ACTIVATEMOUSE + 0x2);
+    void *pClient = 0xDEADBEEF; //you should already have this pointer
+    DWORD **pClientVtable = *(DWORD ***)(*pClient); //client+0x0 contains the vtable pointer
+    DWORD *pIN_ACTIVATEMOUSE = pClientVtable[16]; //16th vfunc
+    CInput *pgInput = *(CInput **)(pIN_ACTIVATEMOUSE + 0x2);
 
 
 
