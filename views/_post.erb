@@ -6,7 +6,7 @@
     </div>
     <% if defined? abbrev %>
         <p>
-            <%= abbrev_post post.content %>
+            <%= post.cache_abbrev ||= abbrev_post post.content %>
         </p>
         <div class="footer">
             <span class="read-more">
@@ -16,8 +16,8 @@
         </div>
     <% else %>
         <p>
-            <%= format_post post.content %>
+            <%= post.cache_full ||= format_post post.content %>
         </p>
     <% end %>
 </div>
-<style><%= Pygments.css %></style>
+<style><%= post.cache_css ||= Pygments.css %></style>

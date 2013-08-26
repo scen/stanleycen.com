@@ -1,5 +1,3 @@
-# imported posts
-
 require 'date'
 require 'yaml'
 require 'time'
@@ -8,6 +6,7 @@ class Post
   class NotFound < StandardError; end
 
   attr_accessor :title, :slug, :content, :created_at
+  attr_accessor :cache_css, :cache_abbrev, :cache_full
 
   def initialize(args = {})
     args.each do |x, y|
