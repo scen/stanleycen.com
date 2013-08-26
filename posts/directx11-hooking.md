@@ -4,7 +4,7 @@ After my bout with reverse engineering with the Source Engine, and reverse engin
 
 Although I have experience with DirectX 9 hooking and rendering, DirectX 11 turned out to be completely different. Instead of having built in font and line interfaces, a person would have to either build his own, or use external libraries. For font rendering I used [FW1FontWrapper](http://fw1.codeplex.com/), but I wrote my own interfaces for drawing some primitives such as lines and rectangles.
 
-There isn't much documentation on `D3D11` hooking, so I was on my own a lot of the time. Turns out there's two main functions you can hook for rendering, although there are plenty more. The first one is `IDXGISwapChain::Present`, and the other is `ID3D11Device::ClearRenderTargetView`. I chose to go with doing a Virtual Method Table hook on IDXGISwapChain::Present, which should be undetected because it resides in `dxgi.dll`, which PB or VAC does not scan anyways.
+There isn't much documentation on `D3D11` hooking, so I was on my own a lot of the time. Turns out there's two main functions you can hook for rendering, although there are plenty more. The first one is `IDXGISwapChain::Present`, and the other is `ID3D11Device::ClearRenderTargetView`. I chose to go with doing a Virtual Method Table hook on `IDXGISwapChain::Present`, which should be undetected because it resides in `dxgi.dll`, which PB or VAC does not scan anyways.
 
 
 
