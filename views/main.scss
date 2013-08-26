@@ -64,19 +64,32 @@ a.lightbox {
 a.lightbox > img {
   padding: 4px;
   border: 1px solid #ddd;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-transition: border .2s ease-in-out;
+  -moz-transition: border .2s ease-in-out;
+  -ms-transition: border .2s ease-in-out;
+  -o-transition: border .2s ease-in-out;
+  transition: border .2s ease-in-out;
+
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+
+  // -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+  // -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+  // box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
 }
 
 a.lightbox > img:hover {
   border-color: #0069d6;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
-  -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
-  box-shadow: 0 1px 4px rgb(0, 105, 214);
+  // -webkit-box-shadow: 0 1px 2px rgba(0, 105, 214, 0.25);
+  // -moz-box-shadow: 0 1px 2px rgba(0, 105, 214, 0.25);
+  // box-shadow: 0 1px 2px rgb(0, 105, 214);
 }
 
 header {
@@ -178,6 +191,20 @@ section {
       color: #334cf5;
     }
   }
+  div.quote {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .quote {
+    // text-align: center;
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    line-height: 40px !important;
+  }
+  p.center {
+    text-align: center;
+  }
   .highlight {
     padding: 16px;
     background-color: #f9f9f9;
@@ -189,6 +216,16 @@ section {
   .post {
     border-bottom: 1px solid #efefef;
     margin-bottom: 16px;
+    li {
+        display: list-item !important;
+        margin-left: 16px !important;
+        line-height: 24px;
+    }
+    ul, ol {
+      margin: auto !important;
+      margin-left: 16px !important;
+      margin-bottom: 16px !important;
+    }
     .masthead {
       display: block;
       line-height: 32px;
@@ -367,12 +404,12 @@ section {
       margin-right: auto !important;
       li {
         display: list-item !important;
-        margin-left: 20px !important;
+        margin-left: 16px !important;
         line-height: 24px;
       }
-      ul {
+      ul, ol {
         margin: auto !important;
-        margin-left: 5px !important;
+        margin-left: 16px !important;
         margin-bottom: 16px !important;
       }
     }
