@@ -6,8 +6,7 @@ We'll be taking a look at [USACO November 2011 Gold Problem #3](http://usaco.org
 
 This problem can be reduced to a maximum matching problem. WLOG, we'll place the horizontal lines in the left set, and the vertical lines into the right set. We will then draw an edge between a horizontal and vertical line iff they intersect.
 
-
-
+<!--more-->
 
 Since a maximum flow algorithm takes time to implement, taking into consideration the shape of the graph, we can reduce the complexity of the implementation. These following variables are declared:
 

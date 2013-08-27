@@ -5,9 +5,9 @@ Basic seg-trees allow for two operations:
 1. Toggle values in a given range
 2. Output a aggregate characteristic of a given range
 
-
-
 In general, it splits up each interval into two non-overlapping sub-intervals, all the way until an interval becomes `[a, a]`. Since it is arranged like a binary tree, querying takes `O(log n)` time. Naive updating can take up to `O(n)` time, but using a technique called lazy propagation, we can bring down time complexity to `O(log n)` too.
+
+<!--more-->
 
 The idea behind seg-trees is that any given interval can be broken up into sub-intervals. In fact, in a seg-tree of size N, each interval consists of _at most_ `2 * log(N)` sub-intervals.
 

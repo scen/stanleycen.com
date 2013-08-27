@@ -6,6 +6,8 @@ However, these data structures are ridiculously difficult to implement correctly
 
 <photo cloudinary noresize src="treap.png">A treap (Wikipedia)</photo>
 
+<!--more-->
+
 One beautiful data structure offers the perfect balance between efficiency and implementation effort: the *Treap*. The treap is a randomized data structure, and as the name suggests, is both a heap and a binary search tree. Each node stores two keys: a heap key (usually randomized or is a hash) and a tree key. Looking at the heap keys we see a heap (WLOG it's a max-heap); that is, each node has a heap key that is larger than its children's heap keys. Looking at the tree keys we see a binary search tree. Skipping all the theory, the expected height of the tree is proportional to `log n` which means most tree operations like `insert`, `find`, `remove`, `split`, and `merge` run in logarithmic time.
 
 ### Insertion

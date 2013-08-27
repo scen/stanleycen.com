@@ -11,9 +11,7 @@ This circular buffer is part of the CInput class, which we can get the global in
     DWORD *pIN_ACTIVATEMOUSE = pClientVtable[16]; //16th vfunc
     CInput *pgInput = *(CInput **)(pIN_ACTIVATEMOUSE + 0x2);
 
-
-
-
+<!--more-->
 
 Once we get this pointer, we can disassemble `pgInput->GetUserCmd(int, int)`. (The function now takes 2 parameters, rather than one, but after taking a look at it you should just pass `0` or `1` into the function). After dumping the virtual table in IDA, we see that `GetUserCmd` is now at vtable index `8`. We can get the pointer to the function like above, then disassemble it in IDA (or OllyDbg).
 

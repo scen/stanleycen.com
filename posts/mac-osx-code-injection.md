@@ -1,13 +1,13 @@
 # Mac OS X Code Injection and Reverse Engineering
 
 It turns out that injecting arbitrary native code into a process on OS X is almost as easy
-as it is on Windows. I wrote a small utility based on the *rentzsch/mach_star* project called [osxinj](/project/osxinj) which allows a user to inject a *.dylib* module into any running process. I also created [libembryo](/project/libembryo), a reverse engineering library for OS X.
+as it is on Windows. I wrote a small utility based on the *rentzsch/mach_star* project called [osxinj](http://github.com/scen/osxinj) which allows a user to inject a *.dylib* module into any running process. I also created [libembryo](http://github.com/scen/libembryo), a reverse engineering library for OS X.
 
 
 ### Code injection
 <photo cloudinary src="osxinj_yaxs7x.png">Injection logs</photo>
 
-
+<!--more-->
 
 Essentially, we manually map some bootstrapping code into the target process
 that will then invoke *dyld* to load our module. In preparation,

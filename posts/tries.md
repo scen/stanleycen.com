@@ -4,6 +4,7 @@ In order to solve the USACO December 2008 Gold Contest's #2 efficiently, I had t
 
 The node does not store the word itself - the word is inferred by the position of the vertex. (The edges contain the letters)
 
+<!--more-->
 
 A node should look something like this:
 

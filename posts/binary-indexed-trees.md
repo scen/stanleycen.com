@@ -1,11 +1,16 @@
 # Binary Indexed Trees
 
-One very useful data structure is the binary indexed tree. Binary Indexed Trees allow us to update and query in `O(log n)` time.
+One very useful data structure is the binary indexed tree. Binary Indexed Trees allow us to update and query cumulative range statistics in `O(log n)` time.
 
 Two basic queries are supported:
 
 1. Update value at position `i`
 2. Sum values from `0...i`
+
+Note that by simply replacing the addition operator with another, we can change the data structure's functionality. For example, replacing it with either *min* or *max* would allow
+us to execute range minimum or maximum queries.
+
+<!--more-->
 
 ### Corresponding code
 
