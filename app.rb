@@ -23,6 +23,7 @@ helpers do
         img_name = photo.attribute('src')
         title = photo.text || ""
         width = photo.attribute('width') || DEFAULT_WIDTH
+        noresize = photo.attribute('noresize')
 
         div = Nokogiri::XML::Node.new 'div', noko
         div['class'] = 'center border-bottom hover'
@@ -33,9 +34,13 @@ helpers do
         a['title'] = title
         
         img = Nokogiri::XML::Node.new 'img', noko
-        img['src'] = CLOUDINARY_BASE + 'c_thumb,w_' + width.to_s + '/' + img_name
+        if !noresize
+          img['src'] = CLOUDINARY_BASE + 'c_thumb,w_' + width.to_s + '/' + img_name
+        else
+          img['src'] = CLOUDINARY_BASE + img_name
+        end
         img['alt'] = title
-        img['width'] = width.to_s
+        img['width'] = width.to_s unless noresize
 
         a << img
         div << a

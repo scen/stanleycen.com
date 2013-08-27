@@ -23,7 +23,7 @@ Since a maximum flow algorithm takes time to implement, taking into consideratio
     bool vis[300]; //vis[i] = whether we've visited horizontal line i yet
 
 
-Given these values, we can find the maximum matching with a variation of Kuhn's Algorithm, described thoroughly on TopCoder.
+Given these values, we can find the maximum matching with a variation of Kuhn's Algorithm, which is described thoroughly on TopCoder.
 
 
     \cpp
