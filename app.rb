@@ -99,7 +99,7 @@ helpers do
   end
 
   def abbrev_post(source)
-    format_post source.split("<!--more-->").first
+    format_post source.split("<!--more-->").first || source
   end
 end
 
