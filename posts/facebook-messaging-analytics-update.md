@@ -10,9 +10,9 @@ are shown below:
 
 <photo cloudinary src="map1_nh3ytf.png">Example 1</photo>
 
-<photo cloudinary src="map2_isqjcf.png">Example 2</photo>
-
 <!--more-->
+
+<photo cloudinary src="map2_isqjcf.png">Example 2</photo>
 
 I also added a global date selector to let the user selectively
 analyze specific time spans. More to come...
