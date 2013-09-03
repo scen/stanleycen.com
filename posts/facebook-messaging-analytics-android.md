@@ -8,7 +8,7 @@ as closely as possible and even emulated Google's new card interface! Here's a c
 
 <!--more-->
 
-<photo cloudinary nolightbox src="b_lg3llw.png">Overview card</photo>
+<photo cloudinary nolightbox src="i_wpqqr4.png">Overview card</photo>
 <photo cloudinary nolightbox src="c_dbse7z.png">Character distribution</photo>
 <photo cloudinary nolightbox src="d_h6d0pn.png">Most active days</photo>
 <photo cloudinary nolightbox src="e_qk9d0s.png">Activity at night</photo>
