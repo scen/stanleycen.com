@@ -1,0 +1,9 @@
+title: "Android Facebook Messaging Analytics"
+slug: "fbanalytics-android"
+summary: >
+  Provides statistics and insights on your interactions with friends through facebook messenger. Track your trends over time, characters sent, most popular words, most active times, and more!
+tags:
+  - java
+content: >
+  See the corresponding [blog post](/blog/facebook-messaging-analytics-android) for images and explanations.
+repo: "http://github.com/scen/FacebookAnalytics/"

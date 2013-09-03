@@ -1,0 +1,10 @@
+title: "osxinj"
+slug: "osxinj"
+summary: >
+  Module injection library for Mac OS X.
+tags:
+  - reverse engineering
+  - c++
+content: >
+  See the corresponding [blog post](/blog/mac-osx-code-injection).
+repo: "http://github.com/scen/osxinj/"
