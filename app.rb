@@ -58,7 +58,7 @@ helpers do
 
   def get_tag_class(tag)
     case tag.downcase
-    when "cpp"
+    when "c++"
       ret = "cpp"
     else
       ret = tag.downcase
