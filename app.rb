@@ -24,12 +24,13 @@ helpers do
         title = photo.text || ""
         width = photo.attribute('width') || DEFAULT_WIDTH
         noresize = photo.attribute('noresize')
+        nolightbox = photo.attribute('nolightbox')
 
         div = Nokogiri::XML::Node.new 'div', noko
         div['class'] = 'center border-bottom hover'
 
         a = Nokogiri::XML::Node.new 'a', noko
-        a['class'] = 'lightbox'
+        a['class'] = 'lightbox' + (nolightbox ? '' : ' popout-lightbox')
         a['href'] = CLOUDINARY_BASE + img_name
         a['title'] = title
         
