@@ -1,6 +1,8 @@
 # Facebook Messaging Analytics Update!
 
-The original blog post is [here](/blog/facebook-messaging-analytics).
+Check out the newer android equivalent [here](/blog/facebook-messaging-analytics-android)!
+
+The original blog post for this version is [here](/blog/facebook-messaging-analytics).
 
 I made a couple of small updates to my Facebook Messaging Analytics project. 
 It now uses the the Google Maps Geocoding API to determine where each message

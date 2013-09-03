@@ -1,5 +1,7 @@
 # Facebook Messaging Analytics
 
+Check out the newer android equivalent [here](/blog/facebook-messaging-analytics-android)!
+
 A couple of days ago I had an urge to look at my activity over Facebook messaging, a service I use quite often. Facebook doesn't provide an interface to easily view information about my chats, nor do they provide a method to easily and quickly download your up-to-date chat data.
 
 I wrote a open-source and purely client-side tool to download all my data through the Facebook Graph API and compute statistics on it to provide insights into my chatting activity (GitHub repository as well as installation instructions are available [here](/project/facebook-messaging-analytics)). Here are a few examples of what it can show right now:
@@ -27,3 +29,5 @@ The tool written in HTML, CSS, and Javascript. Anyone can easily deploy it by do
 A copy of the `master` branch of the tool is hosted on my website [here](http://fbstats.stanleycen.com/fbstats). It is fully functional as the entire application does not rely on any server-side processing.
 
 The tool is currently still in development. If you find any bugs, please let me know by [reporting an issue](http://github.com/scen/fbstats/issues) on GitHub.
+
+The updated blog post for this version is [here](/blog/facebook-messaging-analytics-update).
