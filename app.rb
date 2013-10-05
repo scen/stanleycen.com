@@ -23,6 +23,7 @@ helpers do
         img_name = photo.attribute('src')
         title = photo.text || ""
         width = photo.attribute('width') || DEFAULT_WIDTH
+        height = photo.attribute('height')
         noresize = photo.attribute('noresize')
         nolightbox = photo.attribute('nolightbox')
 
