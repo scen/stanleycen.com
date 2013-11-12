@@ -1,5 +1,5 @@
 var glob = {
-    PARALLAX_SPEED: 3,
+    PARALLAX_SPEED: 10,
 
     resizeHomeParallax: function() {
         $("#home").height($(window).height());
