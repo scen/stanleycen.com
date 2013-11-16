@@ -1,5 +1,6 @@
 var glob = {
-    PARALLAX_SPEED: 10,
+    PARALLAX_SPEED: 3,
+    SCROLL_SPEED: 500,
 
     resizeHomeParallax: function() {
         $("#home").height($(window).height());
@@ -33,6 +34,17 @@ $(document).ready(function() {
     glob.updateHomeParallax();
     glob.updateScrollNotifier();
     glob.updateHomeShoutout();
+
+    $("#header > nav > a").click(function(event) {
+        var $a = $(this);
+        if ($a.attr('href')[0] == '#') {
+            $('html, body').stop().animate({
+                scrollTop: $($a.attr('href')).offset().top - $("#header").height()
+            }, glob.SCROLL_SPEED, 'easeInOutExpo');
+            event.preventDefault();
+        }
+    });
+
     $(window).scroll(function(event) {
         glob.updateHomeParallax();
         glob.updateScrollNotifier();

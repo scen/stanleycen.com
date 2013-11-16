@@ -139,10 +139,10 @@ header {
       &.github {
         @include menu-item(144);
       }
-      &.contact {
+      &.about {
         @include menu-item(216);
       }
-      &.about {
+      &.contact {
         @include menu-item(288);
       }
     }
@@ -196,6 +196,7 @@ span.highlight {
 }
 
 $timeline: #ddd;
+$timeline_pt: #69A6FF;
 
 #about {
   font-family: "Open Sans";
@@ -218,7 +219,7 @@ $timeline: #ddd;
   div.content {
     font-weight: 300;
     min-height: 500px;
-    @media screen and (max-width: 550px) {
+    @media screen and (max-width: 850px) {
       div.right, div.left {
         float: none !important;
         width: 100% !important;
@@ -239,17 +240,19 @@ $timeline: #ddd;
     div.left {
       margin-top: 30px;
       float: left;
-      width: 60%;
+      width: 50%;
       div.wrapper {
         width: 90%;
-        margin: 0 auto;
+        // margin: 0 auto;
         div.timeline {
          margin: 0 auto;
+         overflow: hidden;
          div.event {
           padding-top: 50px;
           padding-bottom: 50px;
           span.date {
             text-align: right;
+            font-weight: 400;
             width: 40%;
             margin-right: 20px;
             display: inline-block;
@@ -259,14 +262,31 @@ $timeline: #ddd;
             padding-bottom: 50px;
             padding-top: 50px;
             height: 100%;
+            z-index: -1;
           }
           span.label {
             margin-left: 20px;
-            padding-bottom: 50px;
-            padding-top: 50px;
+            position: absolute;
+            padding: 5px 10px;
+            border-color: $timeline;
+            border-width: 2px;
+            border-radius: 5px;
+            border-style: solid;
+            background-color: $timeline;
+            &:before {
+              height: 0px;
+              width:  0px;
+              content: "\00a0";
+              position: absolute;
+              margin-top: -7px;
+              margin-left: -20px;
+              border-width: 10px 10px 10px 0;
+              border-style: solid;
+              border-color: transparent $timeline transparent transparent;
+            }
           }
           span.circle {
-            background: #69A6FF;
+            background: $timeline_pt;
             border: 5px solid $timeline;
             height: 10px;
             width: 10px;
@@ -278,6 +298,26 @@ $timeline: #ddd;
          }
        }
       }
+    }
+  }
+}
+
+#contact {
+  font-family: "Open Sans";
+  div.header {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+    background: url(/parallax.jpg);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-attachment: fixed;
+    background-size: cover;
+    h1.header {
+      margin: 0 auto;
+      color: #2f2f2f;
+      font-weight: 300;
+      font-size: 50px;
     }
   }
 }
