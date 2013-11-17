@@ -37,6 +37,16 @@ var glob = {
         $a.find(".navicon").toggleClass('x');
         glob.menu_open = !glob.menu_open;
         $("#header").toggleClass('hide-nav', !glob.menu_open);
+    },
+    isScrolledIntoView: function(elem)
+    {
+        var docViewTop = $(window).scrollTop();
+        var docViewBottom = docViewTop + $(window).height();
+
+        var elemTop = $(elem).position().top;
+        var elemBottom = elemTop + $(elem).height();
+
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
     }
 };
 
