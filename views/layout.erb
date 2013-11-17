@@ -164,6 +164,9 @@
 									<input autocomplete="off" type="email" id="email" name="email" placeholder="email" required/>
 								</li>
 								<li>
+									<input autocomplete="off" type="text" id="subject" name="subject" placeholder="subject" required/>
+								</li>
+								<li>
 									<textarea autocomplete="off" id="message" name="message" placeholder="message" required></textarea>
 								</li>
 								<li>
@@ -173,15 +176,21 @@
 						</form>
 					</div>
 					<div class="icons">
-						<div class="email"><a href="mailto:me@stanleycen.com"></a></div>
-						<div class="github"><a href="http://github.com/scen/"></a></div>
-						<div class="skype"><a href="skype:priority_queue"></a></div>
+						<a href="mailto:me@stanleycen.com"><img src="/email.png"/></a>
+						<a href="http://github.com/scen/"><img src="/github.png"/></a>
+						<a href="skype:priority_queue"><img src="/skype.png"/></a>
 					</div>
 				</div>
 			</div>
 			<div id="about-site">
 				<div class="header parallax">
 					<h1 class="header">About this site</h1>
+				</div>
+				<div class="wrapper">
+					<div class="text">
+						<p>This website is an <span class="highlight">open-source</span> Sinatra web application running on Ruby 1.9.3 and lives somewhere in the Heroku cloud.</p>
+						<p>Check out <a href="/humans.txt">humans.txt</a>!</p>
+					</div>
 				</div>
 			</div>
 		</section>

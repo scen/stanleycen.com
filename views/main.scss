@@ -1,3 +1,5 @@
+$header_margin: 5.5em; //5em
+
 #home {
   background: url(/parallax.jpg);
   background-repeat: no-repeat;
@@ -19,6 +21,12 @@
   .subtitle > h1 {
     font-size: 1.1em !important;
   }
+}
+
+a {
+  text-decoration: none;
+  border-bottom: 1px dotted;
+  color: #69A6FF;
 }
 
 #home-shoutout {
@@ -75,6 +83,7 @@
   0%   { opacity: 0; bottom: 80px; }
   100% { opacity: 1; bottom: 10px; }
 }
+
 
 .hide-nav {
   height: 52px;
@@ -278,8 +287,8 @@ span.highlight {
     width: 90%;
     h1 {
       margin: 0 auto;
-      padding-top: 80px;
-      padding-bottom: 80px;
+      padding-top: (0.8 * $header_margin);
+      padding-bottom: (0.8 * $header_margin);
       color: #292929;
       font-family: "Open Sans";
       font-size: 1.56em;
@@ -290,8 +299,8 @@ span.highlight {
 
 #blog-recent {
   div.header {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: $header_margin;
+    padding-bottom: $header_margin;
     text-align: center;
     background: url(/parallax.jpg);
     background-repeat: no-repeat;
@@ -335,8 +344,8 @@ $timeline_collapse_width: 46em;
     // text-align: center;
   }
   div.header {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: $header_margin;
+    padding-bottom: $header_margin;
     text-align: center;
     background: url(/parallax1.jpg);
     background-repeat: no-repeat;
@@ -466,6 +475,9 @@ $timeline_collapse_width: 46em;
               color: #fff;
               border-bottom: 1px dotted;
               font-weight: 400;
+              &:hover {
+                color: #eee;
+              }
             }
             h2 {
               margin: 0;
@@ -517,8 +529,8 @@ $timeline_collapse_width: 46em;
   font-family: "Open Sans";
   margin-bottom: 30px;
   div.header {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: $header_margin;
+    padding-bottom: $header_margin;
     text-align: center;
     background: url(/parallax2.jpg);
     background-repeat: no-repeat;
@@ -621,48 +633,29 @@ $timeline_collapse_width: 46em;
       text-align: center;
       width: 90%;
       @media screen and (max-width: 34.37em) {
-        div {
+        a > img {
           width: 4em !important;
           height: 4em !important;
           margin-left: .6em !important;
           margin-right: .6em !important;
-          a {
-            width: 4em !important;
-            height: 4em !important;
-          }
         }
       }
-      div {
-        margin: 0 auto;
-        width: 7em;
-        height: 7em;
-        margin-left: 1em;
-        margin-right: 1em;
-        display: inline-block;
-        // position: relative;
-        background-size: cover !important;
-        a {
-          position: absolute;
+      a {
+        border: none;
+        img {
+          margin-left: 1em;
+          margin-right: 1em;
           width: 7em;
           height: 7em;
+          -webkit-transition: .25s;
+          -moz-transition: .25s;
+          -ms-transition: .25s;
+          -o-transition: .25s;
+          transition: .25s;
+          .no-touch &:hover {
+            opacity: .7;
+          }
         }
-        -webkit-transition: .25s;
-        -moz-transition: .25s;
-        -ms-transition: .25s;
-        -o-transition: .25s;
-        transition: .25s;
-        .no-touch &:hover {
-          opacity: .7;
-        }
-      }
-      .github {
-        background: url(/github.png) no-repeat center;
-      }
-      .skype {
-        background: url(/skype.png) no-repeat center;
-      }
-      .email {
-        background: url(/email.png) no-repeat center;
       }
     }
   }
@@ -672,8 +665,8 @@ $timeline_collapse_width: 46em;
   font-family: "Open Sans";
   font-weight: 300;
   div.header {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: $header_margin;
+    padding-bottom: $header_margin;
     text-align: center;
     background: url(/parallax3.jpg);
     background-repeat: no-repeat;
@@ -684,6 +677,22 @@ $timeline_collapse_width: 46em;
       margin: 0 auto;
       color: #fff;
       font-size: 3.125em;
+    }
+  }
+  @media screen and (max-width: $timeline_collapse_width) {
+    div.text {
+      font-size: .9em !important;
+    }
+  }
+  div.wrapper {
+    max-width: 55em;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    div.text {
+      font-size: 1em;
+      color: #292929;
+      width: 60%;
     }
   }
 }
@@ -701,11 +710,6 @@ footer {
   font-weight: 300;
   font-size: .7em;
   box-shadow: #777 0px 0px 7px 0px;
-  a {
-    text-decoration: none;
-    border-bottom: 1px dotted;
-    color: #69A6FF;
-  }
   @media screen and (max-width: 43.75em) {
     .wrapper {
       text-align: center;
