@@ -8,21 +8,24 @@
 		<link href="/main.css" rel="stylesheet" type="text/css"/>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="jquery.mobiledetect.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 		<script src="/main.js"></script>
 	</head>
 	<body>
-		<header id="header">
+		<header id="header" class="hide-nav">
 			<a class="navicon-button">
 				<div class="navicon"></div>
 			</a>
-			<h1><a href="/">stanley cen</a></h1>
+			<h1><a href="#home">stanley cen</a></h1>
 			<nav>
-				<a href="/blog" class="<%= get_nav_classes 'blog' %>">blog</a>
-				<a href="/projects" class="<%= get_nav_classes 'projects' %>">projects</a>
-				<a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a>
-				<a href="#about" class="<%= get_nav_classes 'about' %>">about</a>
-				<a href="#contact" class="<%= get_nav_classes 'contact' %>">contact</a>
+				<ul>
+					<li><a href="/blog" class="<%= get_nav_classes 'blog' %>">blog</a></li>
+					<li><a href="/projects" class="<%= get_nav_classes 'projects' %>">projects</a></li>
+					<li><a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a></li>
+					<li><a href="#about" class="<%= get_nav_classes 'about' %>">about</a></li>
+					<li><a href="#contact" class="<%= get_nav_classes 'contact' %>">contact</a></li>
+				</ul>
 			</nav>
 		</header>
 		<section id="home" class="parallax">
@@ -48,57 +51,53 @@
 			</div> -->
 			<div id="about">
 				<div class="header parallax">
-					<h1 class="header">About <span class="highlight">me</span></h1>
+					<h1 class="header">About</h1>
 				</div>
 				<div class="content">
-					<div class="row">
-						<div class="left">
-							<div class="wrapper">
-								<ul class="timeline">
-									<li>
-										<time>
-											<span>
-												11<sup>th</sup> grade
-											</span>
-											<span>
-												May '13
-											</span>
-										</time>
-										<div class="waypoint"></div>
-										<div class="label">
-											<h2>USACO</h2>
-											<p>Test test test</p>
-										</div>
-									</li>
-									<li>
-										<time>
-											<span>
-												11<sup>th</sup> grade
-											</span>
-											<span>
-												May '13
-											</span>
-										</time>
-										<div class="waypoint"></div>
-										<div class="label">
-											<h2>USACO</h2>
-											<p>Test test test</p>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="right">
-							<div class="content">
-								Hello world blah blah.
-							</div>
-						</div>
+					<div class="text">
+						<p>
+							Hello world
+						</p>
+					</div>
+					<div class="wrapper">
+						<ul class="timeline">
+							<li>
+								<time>
+									<span>
+										3<sup>rd</sup> grade
+									</span>
+									<span>
+										Mar '05
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>Started programming in C</h2>
+									<p>Test test test</p>
+								</div>
+							</li>
+							<li>
+								<time>
+									<span>
+										11<sup>th</sup> grade
+									</span>
+									<span>
+										May '13
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>USACO</h2>
+									<p>Test test test</p>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
 			<div id="contact">
 				<div class="header parallax">
-					<h1 class="header">Contact <span class="highlight">me</span></h1>
+					<h1 class="header">Contact</h1>
 				</div>
 			</div>
 		</section>
