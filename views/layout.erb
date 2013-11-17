@@ -206,14 +206,19 @@
 			</div>
 		</section>
 		<footer>
-			<div class="wrapper">
-				<span class="copyleft">
-					&copy; Stanley Cen 2013
-				</span>
-				<span class="latest-commit">
-					<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>Running latest commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">
-                <%= get_commit_sha[0...7] %></a> <%= get_commit_time.to_pretty %>: <%= '"' + get_commit_msg.split(/\n/).first + '"' %><% end %>
-				</span>
+			<div class="scrollup">
+				<a href="#home"></a>
+			</div>
+			<div class="bar">
+				<div class="wrapper">
+					<span class="copyleft">
+						&copy; Stanley Cen 2013
+					</span>
+					<span class="latest-commit">
+						<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>Running latest commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">
+	                <%= get_commit_sha[0...7] %></a> <%= get_commit_time.to_pretty %>: <%= '"' + get_commit_msg.split(/\n/).first + '"' %><% end %>
+					</span>
+				</div>
 			</div>
 		</footer>
 	</body>

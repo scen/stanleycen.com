@@ -713,32 +713,60 @@ $timeline_collapse_width: 46em;
 
 footer {
   margin-top: 30px;
-  font-family: "Open Sans";
-  background-color: #F9F9F9;
-  line-height: 40px;
-  height: 40px;
-  overflow: visible;
-  vertical-align: middle;
-  padding-bottom: 0;
-  width: 100%;
-  font-weight: 300;
-  font-size: .7em;
-  box-shadow: #777 0px 0px 7px 0px;
-  @media screen and (max-width: 43.75em) {
-    .wrapper {
-      text-align: center;
-      .latest-commit { display: none; }
-      .copyleft { float: none !important; margin: 0 auto;}
+  div.scrollup {
+    width: 1.2em;
+    height: 1.2em;
+    border: solid #898989;
+    border-width: 2px 0 0 2px;
+    margin: 0 auto;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: .25s;
+    -moz-transition: .25s;
+    -ms-transition: .25s;
+    -o-transition: .25s;
+    transition: .25s;
+    .no-touch &:hover {
+      opacity: .7;
+    }
+    a {
+      position: absolute;
+      width: 1.6em;
+      height: 1.6em;
+      border: none;
     }
   }
-  .wrapper {
-    width: 90%;
-    margin: 0 auto;
-    .copyleft {
-      float: left;
+  div.bar {
+    font-family: "Open Sans";
+    background-color: #F9F9F9;
+    line-height: 40px;
+    height: 40px;
+    overflow: visible;
+    vertical-align: middle;
+    padding-bottom: 0;
+    width: 100%;
+    font-weight: 300;
+    font-size: .7em;
+    box-shadow: #777 0px 0px 7px 0px;
+    @media screen and (max-width: 43.75em) {
+      .wrapper {
+        text-align: center;
+        .latest-commit { display: none; }
+        .copyleft { float: none !important; margin: 0 auto;}
+      }
     }
-    .latest-commit {
-      float: right;
+    .wrapper {
+      width: 90%;
+      margin: 0 auto;
+      .copyleft {
+        float: left;
+      }
+      .latest-commit {
+        float: right;
+      }
     }
   }
 }

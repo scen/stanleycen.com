@@ -57,7 +57,7 @@ $(document).ready(function() {
     glob.updateScrollNotifier();
     glob.updateHomeShoutout();
 
-    $("#header a").click(function(event) {
+    $("#header a, .scrollup a").click(function(event) {
         var $a = $(this);
         if ($a.attr('href') != null && $a.attr('href')[0] == '#') {
             if (glob.menu_open) {
