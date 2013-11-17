@@ -5,11 +5,14 @@ var glob = {
     resizeHomeParallax: function() {
         $("#home").height($(window).height());
     },
-    updateHomeParallax: function() {
+    updateParallax: function() {
         if ($.browser.mobile) return;
-        var y = -$(window).scrollTop() / glob.PARALLAX_SPEED;
-        $("#home").css({
-            backgroundPosition: 'center ' + y + 'px',
+        $(".parallax").each(function(idx) {
+            var $banner = $(this);
+            var y = -($(window).scrollTop() - $banner.position().top) / glob.PARALLAX_SPEED;
+            $banner.css({
+                backgroundPosition: 'center ' + y + 'px',
+            });
         });
     },
     updateScrollNotifier: function() {
@@ -31,7 +34,7 @@ var glob = {
 $(document).ready(function() {
 
     glob.resizeHomeParallax();
-    glob.updateHomeParallax();
+    glob.updateParallax();
     glob.updateScrollNotifier();
     glob.updateHomeShoutout();
 
@@ -46,7 +49,7 @@ $(document).ready(function() {
     });
 
     $(window).scroll(function(event) {
-        glob.updateHomeParallax();
+        glob.updateParallax();
         glob.updateScrollNotifier();
     });
     $(window).resize(function(event) {
