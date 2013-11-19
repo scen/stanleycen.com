@@ -28,7 +28,7 @@ helpers do
         nolightbox = photo.attribute('nolightbox')
 
         div = Nokogiri::XML::Node.new 'div', noko
-        div['class'] = 'center hover'
+        div['class'] = 'center hover expand photo'
 
         a = Nokogiri::XML::Node.new 'a', noko
         a['class'] = 'lightbox' + (nolightbox ? '' : ' popout-lightbox')
@@ -36,14 +36,14 @@ helpers do
         a['title'] = title
         
         img = Nokogiri::XML::Node.new 'img', noko
-        if !noresize
-          img['src'] = CLOUDINARY_BASE + 'c_thumb,w_' + width.to_s + '/' + img_name
+        if false and !noresize
+          # img['src'] = CLOUDINARY_BASE + 'c_thumb,w_' + width.to_s + '/' + img_name
         else
           img['src'] = CLOUDINARY_BASE + img_name
         end
         img['alt'] = title
-        img['width'] = width.to_s unless noresize
-
+        div['style'] = ('max-width: ' + width.to_s + 'px') unless noresize
+        img['style'] = ('max-width: 100%') unless noresize
         a << img
         div << a
         photo.replace div
@@ -85,6 +85,17 @@ helpers do
   def get_commit_time
     return $git.log.first.date unless is_heroku?
     $commit_time ||= Time.parse($the_commit.commit.author.date).utc.localtime
+  end
+
+  def nav_url(nav, title)
+    case nav
+    when 'home'
+      '#' + title
+    when title
+      '/' + title
+    else
+      '/#' + title
+    end
   end
 
   def get_tag_name(tag)

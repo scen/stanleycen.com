@@ -2,7 +2,7 @@ $header_margin: 5em; //5em
 $highlight: #69A6FF;
 $maxwidth: 55em;
 
-#home {
+#home_internal {
   background: url(/parallax.jpg);
   background-repeat: no-repeat;
   background-position: center 0px;
@@ -293,12 +293,19 @@ span.highlight {
   // font-weight: 400;
 }
 
+.photo.expand {
+  width: 100%;
+  margin: 0 auto;
+}
+
 div.blog-post {
   &.abbrev {
     .body {
       img {
-        max-height: 20em;
-        max-width: 10em;
+        max-height: 20em !important;
+        max-width: 20em !important;
+        width: auto !important;
+        height: auto !important;
       }
     }
   }
@@ -340,14 +347,14 @@ div.blog-post {
   }
 }
 
-#blog-recent {
+#blog_internal {
   font-family: "Open Sans";
   font-weight: 300;
   div.header {
     padding-top: $header_margin;
     padding-bottom: $header_margin;
     text-align: center;
-    background: url(/parallax4.jpg);
+    background: url(/parallax2.jpg);
     background-repeat: no-repeat;
     background-position: center 0px;
     background-attachment: fixed;
@@ -366,6 +373,10 @@ div.blog-post {
     margin-bottom: 30px;
   }
   .controls {
+    &.bottom {
+      border-bottom: 1px solid #dedede;
+      padding-bottom: 30px;
+    }
     margin: 0 auto;
     margin-bottom: 30px;
     max-width: $maxwidth;
@@ -526,7 +537,7 @@ div.blog-post {
   top: auto !important;
 }
 
-#projects-main {
+#projects_internal {
   font-family: "Open Sans";
   font-weight: 300;
   div.header {
@@ -661,7 +672,7 @@ $timeline_collapse_width: 46em;
   }
 }
 
-#about {
+#about_internal {
   font-family: "Open Sans";
   font-weight: 300;
   div.text {
@@ -854,14 +865,14 @@ $timeline_collapse_width: 46em;
   }
 }
 
-#contact {
+#contact_internal {
   font-family: "Open Sans";
   margin-bottom: 30px;
   div.header {
     padding-top: $header_margin;
     padding-bottom: $header_margin;
     text-align: center;
-    background: url(/parallax2.jpg);
+    background: url(/parallax4.jpg);
     background-repeat: no-repeat;
     background-position: center 0px;
     background-attachment: fixed;

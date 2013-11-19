@@ -1,23 +1,18 @@
-<div class="post">
+<div class="blog-post <%= 'abbrev' if defined? abbrev and abbrev %>">
     <div class="masthead">
-        <h2><a href="<%= post_slug_url post.slug %>"><%= post.title %></a></h2>
-        <span><%= post.created_at.strftime("%B %d, %Y") %></span>
-        <div class="clear"></div>
-    </div>
-    <% if defined? abbrev %>
-        <p>
-            <%= post.cache_abbrev ||= abbrev_post post.content %>
-        </p>
-        <div class="footer">
-            <span class="read-more">
-                <a href="<%= post_slug_url post.slug %>">Read more &rarr;</a>
-                <div style="clear: both;"></div>
-            </span>
+        <div class="title">
+            <h1><a href="<%= post_slug_url post.slug %>"><%= post.title %></a></h1>
         </div>
-    <% else %>
-        <p>
-            <%= post.cache_full ||= format_post post.content %>
-        </p>
-    <% end %>
+        <div class="date">
+            <time><%= post.created_at.strftime("%B %d, %Y") %></time>
+        </div>
+    </div>
+    <div class="body">
+        <% if defined? abbrev and abbrev %>
+        <%= post.cache_abbrev ||= abbrev_post post.content %>
+        <% else %>
+        <%= post.cache_full ||= format_post post.content %>
+        <% end %>
+    </div>
 </div>
 <style><%= post.cache_css ||= Pygments.css %></style>

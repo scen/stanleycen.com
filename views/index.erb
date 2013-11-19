@@ -1,4 +1,4 @@
-<section id="home" class="parallax">
+<section id="home_internal" class="parallax">
 			<div id="home-shoutout">
 				<div>
 					<h1><%= GREETINGS.sample %></h1>
@@ -14,7 +14,7 @@
 					<h1>I love <span class="highlight">making stuff</span> and here you'll find my projects and the stories behind them.</h1>
 				</div>
 			</div> -->
-			<div id="projects-main">
+			<div id="projects_internal">
 <!-- 				<div class="header parallax">
 					<h1 class="header">Featured Projects</h1>
 				</div> -->
@@ -42,35 +42,19 @@
 					</div>
 				</div>
 			</div>
-			<div id="blog-recent">
+			<div id="blog_internal">
 				<div class="header parallax">
 					<h1 class="header">Latest from the blog</h1>
 				</div>
-				<%
-				post = Post.all.first.last
-				%>
 				<div class="content">
-					<div class="blog-post abbrev">
-						<div class="masthead">
-							<div class="title">
-								<h1><a href="<%= post_slug_url post.slug %>"><%= post.title %></a></h1>
-							</div>
-							<div class="date">
-								<time><%= post.created_at.strftime("%B %d, %Y") %></time>
-							</div>
-						</div>
-						<div class="body">
-							<%= post.cache_abbrev ||= abbrev_post post.content %>
-						</div>
-					</div>
+					<%= erb :_post, locals: {post: Post.all.first.last, abbrev: true} %>
 				</div>
 				<div class="controls">
 					<span><a class="all-posts btn" href="/blog">See all posts</a></span>
-					<span><a class="btn read-more" href="<%= post_slug_url post.slug %>">Continue reading</a></span>
-					<!-- <span></span> -->
+					<span><a class="btn read-more" href="<%= post_slug_url Post.all.first.last.slug %>">Continue reading</a></span>
 				</div>
 			</div>
-			<div id="about">
+			<div id="about_internal">
 				<div class="header parallax">
 					<h1 class="header">About</h1>
 				</div>
@@ -167,7 +151,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="contact">
+			<div id="contact_internal">
 				<div class="header parallax">
 					<h1 class="header">Contact</h1>
 				</div>

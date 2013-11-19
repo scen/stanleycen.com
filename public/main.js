@@ -6,7 +6,7 @@ var glob = {
     menu_open: false,
 
     resizeHomeParallax: function() {
-        $("#home").height($(window).height());
+        $("#home_internal").height($(window).height());
     },
     updateParallax: function() {
         if ($.browser.mobile) return;
@@ -47,6 +47,12 @@ var glob = {
         var elemBottom = elemTop + $(elem).height();
 
         return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    },
+    scrollTo: function(to)
+    {
+        $('html, body').stop().animate({
+            scrollTop: $(to + "_internal").offset().top - $("#header").height()
+            }, glob.SCROLL_SPEED, 'easeInOutExpo');
     }
 };
 
@@ -87,9 +93,7 @@ $(document).ready(function() {
             if (glob.menu_open) {
                 glob.toggleNav();
             }
-            $('html, body').stop().animate({
-                scrollTop: $($a.attr('href')).offset().top - $("#header").height()
-            }, glob.SCROLL_SPEED, 'easeInOutExpo');
+            glob.scrollTo($a.attr('href'));
             event.preventDefault();
         }
     });
@@ -112,4 +116,9 @@ $(document).ready(function() {
         glob.updateHomeShoutout();
         glob.resizeHomeParallax();
     });
+
+    if (location.hash != "" && location.hash[0] == '#') {
+        glob.scrollTo(location.hash);
+        history.pushState("", document.title, window.location.pathname);
+    }
 });
