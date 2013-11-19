@@ -293,6 +293,53 @@ span.highlight {
   // font-weight: 400;
 }
 
+div.blog-post {
+  &.abbrev {
+    .body {
+      img {
+        max-height: 20em;
+        max-width: 10em;
+      }
+    }
+  }
+  div.masthead {
+    display: block;
+    line-height: 1.5em;
+    vertical-align: bottom;
+    div.title {
+      text-overflow: ellipsis;
+      text-align: center;
+      width: 100%;
+      h1 {
+        font-size: 1.5em;
+        font-weight: 400;
+        a {
+          text-decoration: none;
+          border: none;
+          color: #333333;
+        }
+        a:hover {
+          color: #666677;
+        }
+      }
+    }
+    div.date {
+      time::before {
+        content: '\e80f';
+        padding-right: .5em;
+        font-family: 'fontello';
+      }
+      width: 100%;
+      text-align: center;
+      line-height: 1.5em;
+    }
+  }
+  div.body {
+    font-weight: 300;
+    line-height: 1.5;
+  }
+}
+
 #blog-recent {
   font-family: "Open Sans";
   font-weight: 300;
@@ -317,52 +364,6 @@ span.highlight {
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    div.blog-post {
-      &.abbrev {
-        .body {
-          img {
-            max-height: 20em;
-            max-width: 10em;
-          }
-        }
-      }
-      div.masthead {
-        display: block;
-        line-height: 1.5em;
-        vertical-align: bottom;
-        div.title {
-          text-overflow: ellipsis;
-          text-align: center;
-          width: 100%;
-          h1 {
-            font-size: 1.5em;
-            font-weight: 400;
-            a {
-              text-decoration: none;
-              border: none;
-              color: #333333;
-            }
-            a:hover {
-              color: #666677;
-            }
-          }
-        }
-        div.date {
-          time::before {
-            content: '\e80f';
-            padding-right: .5em;
-            font-family: 'fontello';
-          }
-          width: 100%;
-          text-align: center;
-          line-height: 1.5em;
-        }
-      }
-      div.body {
-        font-weight: 300;
-        line-height: 1.5;
-      }
-    }
   }
   .controls {
     margin: 0 auto;

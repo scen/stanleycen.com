@@ -133,6 +133,7 @@ end
 
 get '/' do
   @title = nil
+  @nav = "home"
   erb :index
 end
 

@@ -1,15 +1,229 @@
-<div class="quote">
-	<p class="quote">
-		<strong><%= GREETINGS.sample %></strong>
-	</p>
-	<p class="quote">
-		I'm a high school senior and computer science enthusiast living in Portland, Oregon.
-	</p>
-	<p class="quote">
-		I love <em>making stuff</em> and here you'll find my projects and the stories behind them.
-	</p>
-</div>
-<div class="latest">
-	<h1>Latest blog post</h1>
-	<div class="inner"><%= erb :_post, locals: {post: Post.all.first.last, abbrev: true} %></div>
-</div>
+<section id="home" class="parallax">
+			<div id="home-shoutout">
+				<div>
+					<h1><%= GREETINGS.sample %></h1>
+					<h3>I'm <strong>Stanley Cen</strong>, a high school senior and computer science enthusiast living in Portland, Oregon.</h3>
+				</div>
+			</div>
+			<div id="scroll-notifier">
+			</div>
+		</section>
+		<section id="content">
+			<!-- <div id="mission">
+				<div class="subtitle">
+					<h1>I love <span class="highlight">making stuff</span> and here you'll find my projects and the stories behind them.</h1>
+				</div>
+			</div> -->
+			<div id="projects-main">
+<!-- 				<div class="header parallax">
+					<h1 class="header">Featured Projects</h1>
+				</div> -->
+				<div class="subtitle-wrap">
+					<div class="subtitle">
+						<h1>I love <span class="highlight">making stuff</span> and here you'll find my projects and their stories.</h1>
+						<a class="see-more" href="/projects">See all projects &rarr;</a>
+					</div>
+				</div>
+				<div class="wrapper">
+					<div class="slidewrapper">
+						<div class="royalSlider rsMinW">
+							<div class="rsContent">
+								<img class="rsImg" src="/project_res/fbanalytics-android/920.png"/>
+								<div class="infoBlock rsABlock rsAbsoluteEl infoBlockRight">analyze your facebook chat data!</div>
+								<div class="infoBlock rsABlock rsAbsoluteEl infoBlockBottom infoBlockLeft"> <span>more info</span></div>
+							</div>
+							<div class="rsContent">
+								<img class="rsImg" src="/project_res/libembryo/920.png"/>
+								<div class="infoBlock rsABlock rsAbsoluteEl infoBlockRight">mac os x reverse engineering</div>
+								<div class="infoBlock rsABlock rsAbsoluteEl infoBlockBottom infoBlockLeft"> <span>more info</sup></div>
+							</div>
+							<!-- <img class="rsImg" src="/test.jpg"/>	 -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="blog-recent">
+				<div class="header parallax">
+					<h1 class="header">Latest from the blog</h1>
+				</div>
+				<%
+				post = Post.all.first.last
+				%>
+				<div class="content">
+					<div class="blog-post abbrev">
+						<div class="masthead">
+							<div class="title">
+								<h1><a href="<%= post_slug_url post.slug %>"><%= post.title %></a></h1>
+							</div>
+							<div class="date">
+								<time><%= post.created_at.strftime("%B %d, %Y") %></time>
+							</div>
+						</div>
+						<div class="body">
+							<%= post.cache_abbrev ||= abbrev_post post.content %>
+						</div>
+					</div>
+				</div>
+				<div class="controls">
+					<span><a class="all-posts btn" href="/blog">See all posts</a></span>
+					<span><a class="btn read-more" href="<%= post_slug_url post.slug %>">Continue reading</a></span>
+					<!-- <span></span> -->
+				</div>
+			</div>
+			<div id="about">
+				<div class="header parallax">
+					<h1 class="header">About</h1>
+				</div>
+				<div class="content">
+					<div class="text">
+						<p>
+							I'm a 12<sup>th</sup> grade student attending Westview High School.
+						</p>
+						<p>
+							I <span class="highlight">love</span> computer science and am always trying to learn new things.
+						</p>
+						<p>
+							Currently, I'm proficient in <span class="highlight">15</span> programming languages, including C, C++, Java, C#, HTML, Javascript, CSS, PHP,
+							SQL, Ruby, Python, Lua, Coffeescript, Go, D, and Haskell.
+						</p>
+						<p>
+							I've complete projects in reverse engineering, robotics, computer vision, web development and mobile &amp; desktop application development.
+						</p>
+						<p>
+							Here's how it all started:
+						</p>
+					</div>
+					<div class="wrapper">
+						<ul class="timeline">
+							<li>
+								<time>
+									<span>
+										3<sup>rd</sup> grade
+									</span>
+									<span>
+										Mar '05
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>Started programming in C</h2>
+									<span class="more">
+										<p>I taught myself through reading <em>C How to Program</em> by Deitel.</p>
+									</span>
+								</div>
+							</li>
+							<li>
+								<time>
+									<span>
+										10<sup>th</sup> grade
+									</span>
+									<span>
+										May '12
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>USA Computing Olympiad Finalist Camp</h2>
+									<span class="more">
+										<p>After beginning competitive programming in 9<sup>th</sup> grade, I was <a href="http://www.usaco.org/index.php?page=finalists12">selected</a> as 1 of 16 high school students who attended the <a href="http://www.usaco.org/index.php?page=camp">2012 USACO finalist camp</a>.</p>
+									</span>
+								</div>
+							</li>
+							<li>
+								<time>
+									<span>
+										11<sup>th</sup> grade
+									</span>
+									<span>
+										May '13
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>USA Computing Olympiad Finalist Camp</h2>
+									<span class="more">
+										<p>Although I bombed the first two contests, I still managed to attend the <a href="http://www.usaco.org/index.php?page=finalists13">2013 USACO finalist camp</a>!</p>
+									</span>
+								</div>
+							</li>
+							<li>
+								<time>
+									<span>
+										11<sup>th</sup> grade
+									</span>
+									<span>
+										Jun '13
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>Research Science Institute</h2>
+									<span class="more">
+										<p>At <a href="http://www.cee.org/news/research-science-institute-mit-hosts-81-high-school-students">RSI</a>, I conducted research under Mr. Andrew Wang at the MIT Computer Science and Artificial Intelligence Laboratory (CSAIL). My project looked at visualization strategies in collaborative temporal planning.</p>
+									</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="contact">
+				<div class="header parallax">
+					<h1 class="header">Contact</h1>
+				</div>
+				<div class="content">
+					<div class="subtitle">
+						<h1>Feel free to <span class="highlight">contact me</span> through any of the following means!</h1>
+					</div>
+					<div class="form">
+						<form method="POST">
+							<ul>
+								<li>
+									<input autocomplete="off" type="text" id="name" name="name" placeholder="name" required/>
+								</li>
+								<li>
+									<input autocomplete="off" type="email" id="email" name="email" placeholder="email" required/>
+								</li>
+								<li>
+									<input autocomplete="off" type="text" id="subject" name="subject" placeholder="subject" required/>
+								</li>
+								<li>
+									<textarea autocomplete="off" id="message" name="message" placeholder="message" required></textarea>
+								</li>
+								<li>
+									<button id="submit_message" type="submit" class="submit">Send</button>
+								</li>
+							</ul>
+						</form>
+					</div>
+					<div class="icons">
+						<a href="mailto:me@stanleycen.com"><img src="/email.png"/></a>
+						<a href="http://github.com/scen/"><img src="/github.png"/></a>
+						<a href="skype:priority_queue"><img src="/skype.png"/></a>
+					</div>
+				</div>
+			</div>
+			<div id="about-site">
+				<div class="header parallax">
+					<h1 class="header">About this site</h1>
+				</div>
+				<div class="wrapper">
+					<div class="text">
+						<p>This website is an <span class="highlight">open-source</span> Sinatra web application running on Ruby 1.9.3 and lives somewhere in the Heroku cloud.</p>
+						<p>It's powered by lots of awesome things made by amazing people:
+							<ul>
+								<li>jQuery</li>
+								<li>Sass</li>
+								<li>Sinatra</li>
+								<li>Icons by <a href="http://vervex.deviantart.com/art/Somacro-40-300DPI-Social-Media-Icons-267955425">vervex</a></li>
+								<li>Splash images from <a href="http://unsplash.com">unsplash</a></li>
+							</ul>
+						</p>
+						<p>This is my latest (probably 6<sup>th</sup>) redesign of the site, featuring parallax scrolling and responsive design!</p>
+						<div class="humanstxt">
+							<a href="/humans.txt"><img src="/logo-humans.png"/></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
