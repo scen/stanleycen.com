@@ -3,17 +3,18 @@
 	<head>
 		<title>Stanley Cen</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-		<link rel="author" href="humans.txt" />
+		<link rel="author" href="/humans.txt" />
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'/>
 		<link href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css" rel="stylesheet" type="text/css"/>
 		<link href="/main.css" rel="stylesheet" type="text/css"/>
-		<link href="rs/royalslider.css" rel="stylesheet" type="text/css"/>
-		<link href="rs/skins/minimal-white/rs-minimal-white.css" rel="stylesheet" type="text/css"/>
+		<link href="/rs/royalslider.css" rel="stylesheet" type="text/css"/>
+		<link href="/fontello.css" rel="stylesheet" type="text/css"/>
+		<link href="/rs/skins/minimal-white/rs-minimal-white.css" rel="stylesheet" type="text/css"/>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="jquery.mobiledetect.js"></script>
+		<script src="/jquery.mobiledetect.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-		<script src="rs/jquery.royalslider.min.js"></script>
+		<script src="/rs/jquery.royalslider.min.js"></script>
 		<script src="/main.js"></script>
 	</head>
 	<body>
@@ -24,11 +25,11 @@
 			<h1><a href="#home">stanley cen</a></h1>
 			<nav>
 				<ul>
-					<li><a href="/blog" class="<%= get_nav_classes 'blog' %>">blog</a></li>
 					<li><a href="#projects-main" class="<%= get_nav_classes 'projects' %>">projects</a></li>
-					<li><a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a></li>
+					<li><a href="#blog-recent" class="<%= get_nav_classes 'blog' %>">blog</a></li>
 					<li><a href="#about" class="<%= get_nav_classes 'about' %>">about</a></li>
 					<li><a href="#contact" class="<%= get_nav_classes 'contact' %>">contact</a></li>
+					<li><a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -46,11 +47,6 @@
 			<!-- <div id="mission">
 				<div class="subtitle">
 					<h1>I love <span class="highlight">making stuff</span> and here you'll find my projects and the stories behind them.</h1>
-				</div>
-			</div> -->
-			<!-- <div id="blog-recent">
-				<div class="header">
-					<h1 class="header">Recent blog <span class="highlight">posts</span></h1>
 				</div>
 			</div> -->
 			<div id="projects-main">
@@ -79,6 +75,34 @@
 							<!-- <img class="rsImg" src="/test.jpg"/>	 -->
 						</div>
 					</div>
+				</div>
+			</div>
+			<div id="blog-recent">
+				<div class="header parallax">
+					<h1 class="header">Latest from the blog</h1>
+				</div>
+				<%
+				post = Post.all.first.last
+				%>
+				<div class="content">
+					<div class="blog-post abbrev">
+						<div class="masthead">
+							<div class="title">
+								<h1><a href="<%= post_slug_url post.slug %>"><%= post.title %></a></h1>
+							</div>
+							<div class="date">
+								<time><%= post.created_at.strftime("%B %d, %Y") %></time>
+							</div>
+						</div>
+						<div class="body">
+							<%= post.cache_abbrev ||= abbrev_post post.content %>
+						</div>
+					</div>
+				</div>
+				<div class="controls">
+					<span><a class="all-posts btn" href="/blog">See all posts</a></span>
+					<span><a class="btn read-more" href="<%= post_slug_url post.slug %>">Continue reading</a></span>
+					<!-- <span></span> -->
 				</div>
 			</div>
 			<div id="about">
@@ -119,7 +143,7 @@
 								<div class="label">
 									<h2>Started programming in C</h2>
 									<span class="more">
-										<p>I taught myself through reading <em>C How to Program</em> by Deitel, taken off of my dad's bookshelf.</p>
+										<p>I taught myself through reading <em>C How to Program</em> by Deitel.</p>
 									</span>
 								</div>
 							</li>
@@ -226,7 +250,7 @@
 								<li>jQuery</li>
 								<li>Sass</li>
 								<li>Sinatra</li>
-								<li>Somacro icons by <a href="http://vervex.deviantart.com/art/Somacro-40-300DPI-Social-Media-Icons-267955425">vervex</a></li>
+								<li>Icons by <a href="http://vervex.deviantart.com/art/Somacro-40-300DPI-Social-Media-Icons-267955425">vervex</a></li>
 								<li>Splash images from <a href="http://unsplash.com">unsplash</a></li>
 							</ul>
 						</p>
@@ -245,7 +269,7 @@
 			<div class="bar">
 				<div class="wrapper">
 					<span class="copyleft">
-						&copy; Stanley Cen 2013
+						Designed with &lt;3 by Stanley Cen
 					</span>
 					<span class="latest-commit">
 						<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>Running latest commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">

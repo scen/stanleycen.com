@@ -28,7 +28,7 @@ helpers do
         nolightbox = photo.attribute('nolightbox')
 
         div = Nokogiri::XML::Node.new 'div', noko
-        div['class'] = 'center border-bottom hover'
+        div['class'] = 'center hover'
 
         a = Nokogiri::XML::Node.new 'a', noko
         a['class'] = 'lightbox' + (nolightbox ? '' : ' popout-lightbox')

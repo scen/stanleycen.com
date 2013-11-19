@@ -1,5 +1,6 @@
 $header_margin: 5em; //5em
 $highlight: #69A6FF;
+$maxwidth: 55em;
 
 #home {
   background: url(/parallax.jpg);
@@ -254,24 +255,32 @@ header {
             transition: all 100ms ease-in-out;
           }
         }
-        &.blog {
+        &.projects {
           @include menu-item(0);
         }
-        &.projects {
+        &.blog {
           @include menu-item(72);
         }
-        &.github {
+        &.about {
           @include menu-item(144);
         }
-        &.about {
+        &.contact {
           @include menu-item(216);
         }
-        &.contact {
+        &.github {
           @include menu-item(288);
         }
       }
     }
   }
+}
+
+div.center {
+  text-align: center;
+}
+
+.lightbox {
+  border-bottom: none;
 }
 
 #content {
@@ -284,24 +293,141 @@ span.highlight {
   // font-weight: 400;
 }
 
-
 #blog-recent {
+  font-family: "Open Sans";
+  font-weight: 300;
   div.header {
     padding-top: $header_margin;
     padding-bottom: $header_margin;
     text-align: center;
-    background: url(/parallax.jpg);
+    background: url(/parallax4.jpg);
     background-repeat: no-repeat;
     background-position: center 0px;
     background-attachment: fixed;
     background-size: cover;
     h1.header {
       margin: 0 auto;
-      color: #2f2f2f;
-      font-family: "Open Sans";
-      font-weight: 300;
+      color: #fff;
       font-size: 3.125em;
     }
+  }
+  div.content {
+    max-width: $maxwidth;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    div.blog-post {
+      &.abbrev {
+        .body {
+          img {
+            max-height: 20em;
+            max-width: 10em;
+          }
+        }
+      }
+      div.masthead {
+        display: block;
+        line-height: 1.5em;
+        vertical-align: bottom;
+        div.title {
+          text-overflow: ellipsis;
+          text-align: center;
+          width: 100%;
+          h1 {
+            font-size: 1.5em;
+            font-weight: 400;
+            a {
+              text-decoration: none;
+              border: none;
+              color: #333333;
+            }
+            a:hover {
+              color: #666677;
+            }
+          }
+        }
+        div.date {
+          time::before {
+            content: '\e80f';
+            padding-right: .5em;
+            font-family: 'fontello';
+          }
+          width: 100%;
+          text-align: center;
+          line-height: 1.5em;
+        }
+      }
+      div.body {
+        font-weight: 300;
+        line-height: 1.5;
+      }
+    }
+  }
+  .controls {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    max-width: $maxwidth;
+    width: 90%;
+    text-align: right;
+    span {
+      // float: right;
+      @media screen and (max-width: 500px) {
+        font-size: .75em;
+      }
+    }
+  }
+  .btn {
+    margin-top: 1.75em;
+    font-family: "Open Sans";
+    font-weight: 300;
+    border: none;
+    outline: none;
+    // width: 40%;
+    // max-width: 10em;
+    background-color: #0078e7;
+    color: #fff;
+    padding: .5em 1.5em;
+    text-decoration: none;
+    border-radius: 2px;
+    -webkit-transition: .1s linear -webkit-box-shadow;
+    -moz-transition: .1s linear -moz-box-shadow;
+    -ms-transition: .1s linear box-shadow;
+    -o-transition: .1s linear box-shadow;
+    transition: .1s linear box-shadow;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    &:hover {
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
+      background-image: -webkit-gradient(linear,0 0,0 100%,from(transparent),color-stop(40%,rgba(0,0,0,.05)),to(rgba(0,0,0,.1)));
+      background-image: -webkit-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+      background-image: -moz-linear-gradient(top,rgba(0,0,0,.05) 0,rgba(0,0,0,.1));
+      background-image: -ms-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+      background-image: -o-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+      background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+    }
+  }
+  .all-posts {
+    &:before {
+      content: '\e801';
+      font-family: 'fontello';
+      padding-right: .5em;
+    }
+  }
+  .read-more {
+    &:before {
+      content: '\e800';
+      font-family: 'fontello';
+      padding-right: .5em;
+    }
+    background: rgb(28, 184, 65);
   }
 }
 
@@ -419,11 +545,16 @@ span.highlight {
   }
   .subtitle-wrap {
     padding-top: 3.125em;
-    max-width: 55em;
+    max-width: $maxwidth;
     margin: 0 auto;
     width: 90%;
     .subtitle {
       .see-more {
+        // &:before {
+        //   padding-right: .5em;
+        //   content: '\e802';
+        //   font-family: 'fontello';
+        // }
         margin-top: 1.75em;
         font-family: "Open Sans";
         font-weight: 300;
@@ -478,7 +609,7 @@ span.highlight {
   }
   div.text {
     font-size: 1em;
-    max-width: 55em;
+    max-width: $maxwidth;
     width: 90%;
     color: #292929;
     margin: 0 auto;
@@ -534,7 +665,7 @@ $timeline_collapse_width: 46em;
   font-weight: 300;
   div.text {
     font-size: 1em;
-    max-width: 55em;
+    max-width: $maxwidth;
     width: 90%;
     color: #292929;
     margin: 0 auto;
@@ -564,7 +695,7 @@ $timeline_collapse_width: 46em;
       clear: both;
       margin: 0 auto;
       margin-top: 30px;
-      max-width: 55em;
+      max-width: $maxwidth;
       @media screen and (max-width: $timeline_collapse_width) {
         ul.timeline {
           margin: 0 auto !important;
@@ -650,7 +781,7 @@ $timeline_collapse_width: 46em;
               &:last-child {
                 font-weight: 400;
                 font-size: 1.4em;
-                @media screen and (max-width: 55em) {
+                @media screen and (max-width: $maxwidth) {
                   font-size: 1em;
                 }
                 color: $timeline_time_bot_col;
@@ -871,7 +1002,7 @@ $timeline_collapse_width: 46em;
     padding-top: $header_margin;
     padding-bottom: $header_margin;
     text-align: center;
-    background: url(/parallax4.jpg);
+    background: url(/parallax3.jpg);
     background-repeat: no-repeat;
     background-position: center 0px;
     background-attachment: fixed;
@@ -883,7 +1014,7 @@ $timeline_collapse_width: 46em;
     }
   }
   div.wrapper {
-    max-width: 55em;
+    max-width: $maxwidth;
     width: 90%;
     margin: 0 auto;
     margin-top: 30px;
