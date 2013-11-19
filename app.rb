@@ -13,6 +13,7 @@ GREETINGS = ['Hey there!', 'Hello there!', 'Hi there!']
 
 helpers do 
   def format_post(source)
+    source = (source.split("<!--more-->").map { |s| s.strip }.reduce(:+) || source).strip
     html = markdown source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$))*/) { |snippet|
       lang, *source = snippet.lines.to_a
       Pygments.highlight source.map { |x| x[4..-1] }.join("\n"), lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
@@ -112,7 +113,7 @@ helpers do
   end
 
   def abbrev_post(source)
-    format_post source.split("<!--more-->").first || source
+    format_post (source.split("<!--more-->").first || source).strip
   end
 end
 
