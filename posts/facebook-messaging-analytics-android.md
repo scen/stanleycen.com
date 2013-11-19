@@ -4,17 +4,17 @@ For the past five days I've been working on an open source Android application f
 analyzing your Facebook messaging data. I tried to follow the Android UI guidelines
 as closely as possible and even emulated Google's new card interface! Here's a couple of screenshots:
 
-<photo cloudinary nolightbox src="a_z1rgtr.png">Daytime activity</photo>
+<photo width="150" cloudinary nolightbox src="a_z1rgtr.png">Daytime activity</photo>
 
 <!--more-->
 
-<photo cloudinary nolightbox src="i_wpqqr4.png">Overview card</photo>
-<photo cloudinary nolightbox src="c_dbse7z.png">Character distribution</photo>
-<photo cloudinary nolightbox src="d_h6d0pn.png">Most active days</photo>
-<photo cloudinary nolightbox src="e_qk9d0s.png">Activity at night</photo>
-<photo cloudinary nolightbox src="f_eiuuoq.png">Message trends over time</photo>
-<photo cloudinary nolightbox src="g_ffy6cr.png">More trends over time</photo>
-<photo cloudinary nolightbox src="h_vduduk.png">Mobile activity</photo>
+<photo width="150" cloudinary nolightbox src="i_wpqqr4.png">Overview card</photo>
+<photo width="150" cloudinary nolightbox src="c_dbse7z.png">Character distribution</photo>
+<photo width="150" cloudinary nolightbox src="d_h6d0pn.png">Most active days</photo>
+<photo width="150" cloudinary nolightbox src="e_qk9d0s.png">Activity at night</photo>
+<photo width="150" cloudinary nolightbox src="f_eiuuoq.png">Message trends over time</photo>
+<photo width="150" cloudinary nolightbox src="g_ffy6cr.png">More trends over time</photo>
+<photo width="150" cloudinary nolightbox src="h_vduduk.png">Mobile activity</photo>
 
 ## Technical details
 

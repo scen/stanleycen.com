@@ -7,13 +7,13 @@ Bundler.require :default
 
 Dir["./models/*.rb"].each &method(:require)
 
-DEFAULT_WIDTH = 380
+DEFAULT_WIDTH = 300
 CLOUDINARY_BASE = 'http://res.cloudinary.com/hazdcamql/image/upload/'
 GREETINGS = ['Hey there!', 'Hello there!', 'Hi there!']
 
 helpers do 
   def format_post(source)
-    source = (source.split("<!--more-->").map { |s| s.strip }.reduce(:+) || source).strip
+    source = (source.split("<!--more-->").map { |s| s.strip }.join("\n") || source).strip
     html = markdown source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$))*/) { |snippet|
       lang, *source = snippet.lines.to_a
       Pygments.highlight source.map { |x| x[4..-1] }.join("\n"), lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
@@ -28,6 +28,13 @@ helpers do
         noresize = photo.attribute('noresize')
         nolightbox = photo.attribute('nolightbox')
 
+        caption = Nokogiri::XML::Node.new 'div', noko
+        caption['class'] = 'caption'
+
+        span = Nokogiri::XML::Node.new 'span', noko
+        span.content = title
+        caption << span unless title == ''
+
         div = Nokogiri::XML::Node.new 'div', noko
         div['class'] = 'center hover expand photo'
 
@@ -35,6 +42,7 @@ helpers do
         a['class'] = 'lightbox' + (nolightbox ? '' : ' popout-lightbox')
         a['href'] = CLOUDINARY_BASE + img_name
         a['title'] = title
+        a['target'] = '_blank'
         
         img = Nokogiri::XML::Node.new 'img', noko
         if false and !noresize
@@ -45,8 +53,10 @@ helpers do
         img['alt'] = title
         div['style'] = ('max-width: ' + width.to_s + 'px') unless noresize
         img['style'] = ('max-width: 100%') unless noresize
+        
         a << img
         div << a
+        div << caption unless title == ''
         photo.replace div
       else
         raise NotImplementedError
@@ -165,6 +175,7 @@ end
 
 get '/projects/?' do
   @nav = "projects"
+  @title = "Projects"
   erb :projects_all
 end
 
@@ -176,15 +187,11 @@ get '/project/:slug/?' do |slug|
 end
 
 get '/about/?' do
-  @title = "About"
-  @nav = "about"
-  erb :about
+  redirect '/#about'
 end
 
 get '/contact/?' do
-  @title = "Contact"
-  @nav = "contact"
-  erb :contact
+  redirect '/#contact'
 end
 
 # helpers

@@ -13,6 +13,11 @@ $maxwidth: 55em;
   position: relative;
 }
 
+div.full,body,html {
+  height: 100%;
+  min-height: 100%;
+}
+
 @media screen and (max-width: 43.75em) {
   #home-shoutout {
     font-size: 70% !important;
@@ -295,19 +300,48 @@ span.highlight {
 
 .photo.expand {
   width: 100%;
+}
+
+pre, code {
+  font-family: Consolas, Monaco, "Courier New", monospace;
+}
+
+code {
+  padding: 4px;
+  background-color: #f3f3f3;
+}
+
+.photo {
   margin: 0 auto;
+  margin-bottom: 30px;
+  img {
+    -webkit-transition: .25s;
+    -moz-transition: .25s;
+    -ms-transition: .25s;
+    -o-transition: .25s;
+    transition: .25s;
+  }
+  &.hover img:hover {
+    opacity: .7;
+  }
 }
 
 div.blog-post {
   &.abbrev {
     .body {
-      img {
+      img,.center.photo {
         max-height: 20em !important;
         max-width: 20em !important;
-        width: auto !important;
-        height: auto !important;
+        @media screen and (max-width: 20em) {
+          max-width: 10em !important;
+          max-height: 10em !important;
+        }
       }
     }
+  }
+  img,.center.photo {
+    width: auto !important;
+    height: auto !important;
   }
   div.masthead {
     display: block;
@@ -344,6 +378,57 @@ div.blog-post {
   div.body {
     font-weight: 300;
     line-height: 1.5;
+    h1,h2,h3,h4,h5,h6 {
+      font-weight: 400 !important;
+      font-size: 1em;
+    }
+    h1 {
+      font-size: 1.4em;
+    }
+    h2 {
+      font-size: 1.25em;
+    }
+    h3 {
+      font-size: 1.15em;
+    }
+    h4 {
+      font-size: 1em;
+    }
+    .caption {
+      width: 100%;
+      // text-align: left;
+      span {
+        color: #666;
+        font-size: .8em;
+      }
+    }
+  }
+}
+
+#project_main {
+  font-family: "Open Sans";
+  font-weight: 300;
+  div.header {
+    padding-top: $header_margin;
+    padding-bottom: $header_margin;
+    text-align: center;
+    background: url(/parallax5.jpg);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-attachment: fixed;
+    background-size: cover;
+    h1.header {
+      margin: 0 auto;
+      color: #fff;
+      font-size: 3.125em;
+    }
+  }
+  div.content {
+    max-width: $maxwidth;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 }
 
@@ -376,6 +461,9 @@ div.blog-post {
     &.bottom {
       border-bottom: 1px solid #dedede;
       padding-bottom: 30px;
+      &:last-child {
+        border-bottom: none;
+      }
     }
     margin: 0 auto;
     margin-bottom: 30px;
@@ -637,10 +725,10 @@ div.blog-post {
       margin: 0 auto;
       padding: 0;
       @media screen and (max-width: 940px) {
-        max-width: 640px;
+        max-width: 640px !important;
       }
       @media screen and (max-width: 660px) {
-        max-width: 300px;
+        max-width: 300px !important;
       }
       max-width: 920px;
       .royalSlider {
@@ -1056,8 +1144,22 @@ $timeline_collapse_width: 46em;
   }
 }
 
+div.highlight {
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-top: 4px solid #eaeaea;
+  line-height: 10px;
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
 footer {
   margin-top: 30px;
+  bottom: 0;
+  // position: absolute;
+  // height: 40px;
+  width: 100%;
+
   div.scrollup {
     width: 1.2em;
     height: 1.2em;
@@ -1095,7 +1197,7 @@ footer {
     width: 100%;
     font-weight: 300;
     font-size: .8em;
-    box-shadow: #777 0px 0px 7px 0px;
+    // box-shadow: #777 0px -7px 7px -7px;
     @media screen and (max-width: 43.75em) {
       .wrapper {
         text-align: center;

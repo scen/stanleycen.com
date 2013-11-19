@@ -1,0 +1,29 @@
+<div id="project_main">
+    <div class="header parallax">
+        <h1 class="header">Projects</h1>
+    </div>
+    <div class="content">
+        <ul>
+            <% Project.all.each_with_index do |(slug, proj), idx| %>
+            <li class="proj">
+                <div class="heasder">
+                    <h4>
+                        <a href="/project/<%= slug %>"><%= proj.title %></a>
+                    </h4>
+                    <% if proj.repo %>
+                    <a title="Git Repository" class="repo" href="<%= proj.repo %>"><span class="src"></span></a>
+                    <% end %>
+                    <ul class="tags">
+                        <% proj.tags.each do |tag| %>
+                        <li class="<%= get_tag_class tag %>"><%= get_tag_name tag %></li>
+                        <% end %>
+                    </ul>
+                </div>
+                <p>
+                        <%= format_post proj.summary %>
+                </p>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+</div>

@@ -38,16 +38,6 @@ var glob = {
         glob.menu_open = !glob.menu_open;
         $("#header").toggleClass('hide-nav', !glob.menu_open);
     },
-    isScrolledIntoView: function(elem)
-    {
-        var docViewTop = $(window).scrollTop();
-        var docViewBottom = docViewTop + $(window).height();
-
-        var elemTop = $(elem).position().top;
-        var elemBottom = elemTop + $(elem).height();
-
-        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-    },
     scrollTo: function(to)
     {
         $('html, body').stop().animate({
@@ -63,7 +53,15 @@ $(document).ready(function() {
     glob.updateScrollNotifier();
     glob.updateHomeShoutout();
 
-    $(".royalSlider").royalSlider({
+    $('a.popout-lightbox').fancybox({
+        openEffect: 'elastic',
+        closeEffect: 'elastic',
+        closeClick: true,
+        openEasing: 'easeOutBack',
+        closingEasing: 'easeInBack',
+        helpers : { overlay : { locked : false } }
+    });
+    $("#project-slider").royalSlider({
         arrowsNav: true,
         loopRewind: true,
         keyboardNavEnabled: true,
