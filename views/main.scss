@@ -1,4 +1,5 @@
-$header_margin: 5.5em; //5em
+$header_margin: 5em; //5em
+$highlight: #69A6FF;
 
 #home {
   background: url(/parallax.jpg);
@@ -97,6 +98,9 @@ header {
     }
   }
   @media screen and (max-width: 40.625em) {
+    a {
+      border: none !important;
+    }
     nav {
       float: none !important;
       ul > li {
@@ -275,27 +279,11 @@ header {
 }
 
 span.highlight {
-  color: #69A6FF;
+  color: $highlight;
   font-weight: bold;
   // font-weight: 400;
 }
 
-#mission {
-  .subtitle {
-    text-align: center;
-    margin: 0 auto;
-    width: 90%;
-    h1 {
-      margin: 0 auto;
-      padding-top: (0.8 * $header_margin);
-      padding-bottom: (0.8 * $header_margin);
-      color: #292929;
-      font-family: "Open Sans";
-      font-size: 1.56em;
-      font-weight: 300;
-    }
-  }
-}
 
 #blog-recent {
   div.header {
@@ -313,6 +301,214 @@ span.highlight {
       font-family: "Open Sans";
       font-weight: 300;
       font-size: 3.125em;
+    }
+  }
+}
+
+.royalSlider,
+.royalSlider .rsOverflow,
+.royalSlider .rsSlide,
+.royalSlider .rsVideoFrameHolder,
+.royalSlider .rsThumbs {
+  background: none !important;
+}
+
+
+.rsOverflow {
+  overflow: visible !important;
+}
+
+.rsArrowIcn {
+  width: 20px !important;
+  height: 40px !important;
+  top: 50% !important;
+  left: 0 !important;
+  margin-top: -16px !important;
+  margin-left: 0 !important;
+  position: absolute !important;
+  cursor: pointer !important;
+  background: url(/whitearrows.png) 0 0 no-repeat !important;
+  border-radius: 2px !important;
+  -webkit-transform: translateZ(0) !important;
+}
+
+.rsArrow.rsArrowLeft {
+  display: block !important;
+  width: 20px !important;
+  height: 100% !important;
+  left: 8px !important;
+  position: absolute !important;
+  top: 0 !important;
+  -webkit-transform: translateZ(0) !important;
+}
+
+.rsBullets {
+  right: 8px !important;
+}
+
+.rsArrow.rsArrowRight {
+  display: block !important;
+  width: 20px !important;
+  height: 100% !important;
+  right: 8px !important;
+  position: absolute !important;
+  top: 0 !important;
+  -webkit-transform: translateZ(0) !important;
+}
+
+.rsArrow.rsArrowRight .rsArrowIcn {
+  background-position: -26px 0 !important;
+}
+
+.rsArrow.rsArrowLeft .rsArrowIcn {
+  background-position: 0 0 !important;
+}
+
+.infoBlock {
+  border: solid !important;
+  border-width: 1px !important;
+  border-color: #FFF !important;
+  background: none !important;
+  padding: 4px 11px !important;
+}
+
+.infoBlock a {
+  text-decoration: none !important;
+  // font-size: 12px !important;
+  font-weight: 100 !important;
+  float: left !important;
+}
+
+.infoBlock span {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin: 4px 0 !important;
+}
+
+.infoBlock:hover span {
+  color: #B5D3FF !important;
+}
+
+.infoBlock.infoBlockLeft {
+  left: 30px !important;
+  right: auto !important;
+}
+
+.infoBlock.infoBlockBottom {
+  bottom: 30px !important;
+  top: auto !important;
+}
+
+#projects-main {
+  font-family: "Open Sans";
+  font-weight: 300;
+  div.header {
+    padding-top: $header_margin;
+    padding-bottom: $header_margin;
+    text-align: center;
+    background: url(/parallax3.jpg);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-attachment: fixed;
+    background-size: cover;
+    h1.header {
+      margin: 0 auto;
+      color: #fff;
+      font-size: 3.125em;
+    }
+  }
+  .subtitle-wrap {
+    padding-top: 3.125em;
+    max-width: 55em;
+    margin: 0 auto;
+    width: 90%;
+    .subtitle {
+      .see-more {
+        margin-top: 1.75em;
+        font-family: "Open Sans";
+        font-weight: 300;
+        border: none;
+        outline: none;
+        // width: 40%;
+        // max-width: 10em;
+        background-color: #0078e7;
+        color: #fff;
+        padding: .5em 1.5em;
+        text-decoration: none;
+        border-radius: 2px;
+        -webkit-transition: .1s linear -webkit-box-shadow;
+        -moz-transition: .1s linear -moz-box-shadow;
+        -ms-transition: .1s linear box-shadow;
+        -o-transition: .1s linear box-shadow;
+        transition: .1s linear box-shadow;
+        display: inline-block;
+        zoom: 1;
+        line-height: normal;
+        white-space: nowrap;
+        vertical-align: baseline;
+        text-align: center;
+        cursor: pointer;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        &:hover {
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
+          background-image: -webkit-gradient(linear,0 0,0 100%,from(transparent),color-stop(40%,rgba(0,0,0,.05)),to(rgba(0,0,0,.1)));
+          background-image: -webkit-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+          background-image: -moz-linear-gradient(top,rgba(0,0,0,.05) 0,rgba(0,0,0,.1));
+          background-image: -ms-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+          background-image: -o-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+          background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+        }
+      }
+      text-align: center;
+      @media screen and (max-width: 660px) {
+        // font-size: 1em !important;
+        // max-width: 20em;
+      }
+      // max-width: 30em;
+      // margin-bottom: 1.875em;
+      h1 {
+        margin: 0 auto;
+        color: #292929;
+        font-family: "Open Sans";
+        font-size: 1.56em;
+        font-weight: 300;
+      }
+    }
+  }
+  div.text {
+    font-size: 1em;
+    max-width: 55em;
+    width: 90%;
+    color: #292929;
+    margin: 0 auto;
+    margin-top: 30px;
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+  div.wrapper {
+    overflow-x: hidden;
+    width: 100%;
+    div.slidewrapper {
+      margin: 0 auto;
+      padding: 0;
+      @media screen and (max-width: 940px) {
+        max-width: 640px;
+      }
+      @media screen and (max-width: 660px) {
+        max-width: 300px;
+      }
+      max-width: 920px;
+      .royalSlider {
+        width: 100%;
+        // margin-top: 30px !important;
+        // margin-bottom: 30px !important;
+      }
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
   }
 }
@@ -613,7 +809,13 @@ $timeline_collapse_width: 46em;
               -webkit-user-drag: none;
               -webkit-user-select: none;
               &:hover {
-                background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.0470588) 40%, rgba(0, 0, 0, 0.0980392));
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
+                background-image: -webkit-gradient(linear,0 0,0 100%,from(transparent),color-stop(40%,rgba(0,0,0,.05)),to(rgba(0,0,0,.1)));
+                background-image: -webkit-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+                background-image: -moz-linear-gradient(top,rgba(0,0,0,.05) 0,rgba(0,0,0,.1));
+                background-image: -ms-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+                background-image: -o-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+                background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
               }
             }
             textarea {
@@ -669,7 +871,7 @@ $timeline_collapse_width: 46em;
     padding-top: $header_margin;
     padding-bottom: $header_margin;
     text-align: center;
-    background: url(/parallax3.jpg);
+    background: url(/parallax4.jpg);
     background-repeat: no-repeat;
     background-position: center 0px;
     background-attachment: fixed;
@@ -749,7 +951,7 @@ footer {
     padding-bottom: 0;
     width: 100%;
     font-weight: 300;
-    font-size: .7em;
+    font-size: .8em;
     box-shadow: #777 0px 0px 7px 0px;
     @media screen and (max-width: 43.75em) {
       .wrapper {

@@ -57,6 +57,30 @@ $(document).ready(function() {
     glob.updateScrollNotifier();
     glob.updateHomeShoutout();
 
+    $(".royalSlider").royalSlider({
+        arrowsNav: true,
+        loopRewind: true,
+        keyboardNavEnabled: true,
+        controlsInside: true,
+        arrowsNavAutoHide: false,
+        arrowsNavHideOnTouch: true,
+        autoScaleSlider: true,
+        numImagesToPreload: 1,
+        controlNavigation: "bullets",
+        navigateByClick: true,
+        transitionType: "move",
+        globalCaption: false,
+        slidesSpacing: 4,
+        imageScalePadding: 0,
+        imgWidth: 1840,
+        imgHeight: 900
+    });
+
+    $("#submit_message").click(function(event) {
+        alert("Sorry, that's not implemented yet :(");
+        event.preventDefault();
+    });
+
     $("#header a, .scrollup a").click(function(event) {
         var $a = $(this);
         if ($a.attr('href') != null && $a.attr('href')[0] == '#') {

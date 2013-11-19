@@ -7,10 +7,13 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'/>
 		<link href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css" rel="stylesheet" type="text/css"/>
 		<link href="/main.css" rel="stylesheet" type="text/css"/>
+		<link href="rs/royalslider.css" rel="stylesheet" type="text/css"/>
+		<link href="rs/skins/minimal-white/rs-minimal-white.css" rel="stylesheet" type="text/css"/>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="jquery.mobiledetect.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<script src="rs/jquery.royalslider.min.js"></script>
 		<script src="/main.js"></script>
 	</head>
 	<body>
@@ -22,7 +25,7 @@
 			<nav>
 				<ul>
 					<li><a href="/blog" class="<%= get_nav_classes 'blog' %>">blog</a></li>
-					<li><a href="/projects" class="<%= get_nav_classes 'projects' %>">projects</a></li>
+					<li><a href="#projects-main" class="<%= get_nav_classes 'projects' %>">projects</a></li>
 					<li><a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a></li>
 					<li><a href="#about" class="<%= get_nav_classes 'about' %>">about</a></li>
 					<li><a href="#contact" class="<%= get_nav_classes 'contact' %>">contact</a></li>
@@ -40,16 +43,44 @@
 			</div>
 		</section>
 		<section id="content">
-			<div id="mission">
+			<!-- <div id="mission">
 				<div class="subtitle">
 					<h1>I love <span class="highlight">making stuff</span> and here you'll find my projects and the stories behind them.</h1>
 				</div>
-			</div>
+			</div> -->
 			<!-- <div id="blog-recent">
 				<div class="header">
 					<h1 class="header">Recent blog <span class="highlight">posts</span></h1>
 				</div>
 			</div> -->
+			<div id="projects-main">
+<!-- 				<div class="header parallax">
+					<h1 class="header">Featured Projects</h1>
+				</div> -->
+				<div class="subtitle-wrap">
+					<div class="subtitle">
+						<h1>I love <span class="highlight">making stuff</span> and here you'll find my projects and their stories.</h1>
+						<a class="see-more" href="/projects">See all projects &rarr;</a>
+					</div>
+				</div>
+				<div class="wrapper">
+					<div class="slidewrapper">
+						<div class="royalSlider rsMinW">
+							<div class="rsContent">
+								<img class="rsImg" src="/project_res/fbanalytics-android/920.png"/>
+								<div class="infoBlock rsABlock rsAbsoluteEl infoBlockRight">analyze your facebook chat data!</div>
+								<div class="infoBlock rsABlock rsAbsoluteEl infoBlockBottom infoBlockLeft"> <span>more info</span></div>
+							</div>
+							<div class="rsContent">
+								<img class="rsImg" src="/project_res/libembryo/920.png"/>
+								<div class="infoBlock rsABlock rsAbsoluteEl infoBlockRight">mac os x reverse engineering</div>
+								<div class="infoBlock rsABlock rsAbsoluteEl infoBlockBottom infoBlockLeft"> <span>more info</sup></div>
+							</div>
+							<!-- <img class="rsImg" src="/test.jpg"/>	 -->
+						</div>
+					</div>
+				</div>
+			</div>
 			<div id="about">
 				<div class="header parallax">
 					<h1 class="header">About</h1>
@@ -67,7 +98,7 @@
 							SQL, Ruby, Python, Lua, Coffeescript, Go, D, and Haskell.
 						</p>
 						<p>
-							I've complete projects in reverse engineering, robotics, computer vision, web development and mobile & desktop application development.
+							I've complete projects in reverse engineering, robotics, computer vision, web development and mobile &amp; desktop application development.
 						</p>
 						<p>
 							Here's how it all started:
@@ -171,7 +202,7 @@
 									<textarea autocomplete="off" id="message" name="message" placeholder="message" required></textarea>
 								</li>
 								<li>
-									<button type="submit" class="submit">Send</button>
+									<button id="submit_message" type="submit" class="submit">Send</button>
 								</li>
 							</ul>
 						</form>
@@ -195,6 +226,8 @@
 								<li>jQuery</li>
 								<li>Sass</li>
 								<li>Sinatra</li>
+								<li>Somacro icons by <a href="http://vervex.deviantart.com/art/Somacro-40-300DPI-Social-Media-Icons-267955425">vervex</a></li>
+								<li>Splash images from <a href="http://unsplash.com">unsplash</a></li>
 							</ul>
 						</p>
 						<p>This is my latest (probably 6<sup>th</sup>) redesign of the site, featuring parallax scrolling and responsive design!</p>
