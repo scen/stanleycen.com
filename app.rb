@@ -209,7 +209,6 @@ end
 
 post '/contact' do
   puts params
-  begin
   Mail.deliver do
     to 'me@stanleycen.com'
     from "#{params[:name]} <#{params[:email]}>"
