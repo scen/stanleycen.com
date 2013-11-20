@@ -208,6 +208,7 @@ get '/contact/?' do
 end
 
 post '/contact' do
+  puts params
   begin
   Mail.deliver do
     to 'me@stanleycen.com'
@@ -215,10 +216,7 @@ post '/contact' do
     subject params[:subject]
     body params[:message]
   end
-  "success"
-  rescue
   "error"
-  end
 end
 
 # helpers
