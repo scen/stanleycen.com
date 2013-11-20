@@ -50,6 +50,7 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 .icon-th-list:before { content: '\e801'; } /* '' */
+.icon-github-circled:before { content: '\e804'; } /* '' */
 .icon-book-open:before { content: '\e800'; } /* '' */
 .icon-laptop:before { content: '\e802'; } /* '' */
-.icon-calendar:before { content: '\e80f'; } /* '' */ 
+.icon-calendar:before { content: '\e80f'; } /* '' */

@@ -9,10 +9,10 @@
                 <div class="masthead">
                     <div class="title">
                         <h1><a href="/project/<%= slug %>"><%= proj.title %></a></h1>
+                        <% if proj.repo %>
+                        <a title="Git Repository" class="repo icon-github-circled" href="<%= proj.repo %>"><span class="src"></span></a>
+                        <% end %>
                     </div>
-                    <% if proj.repo %>
-                    <a title="Git Repository" class="repo" href="<%= proj.repo %>"><span class="src"></span></a>
-                    <% end %>
                     <ul class="tags">
                         <% proj.tags.each do |tag| %>
                         <li class="tag <%= get_tag_class tag %>"><%= get_tag_name tag %></li>

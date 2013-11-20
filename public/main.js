@@ -49,7 +49,6 @@ var glob = {
 
 $(document).ready(function() {
     glob.resizeHomeParallax();
-    glob.updateParallax();
     glob.updateScrollNotifier();
     glob.updateHomeShoutout();
 
@@ -119,4 +118,5 @@ $(document).ready(function() {
         glob.scrollTo(location.hash);
         history.pushState("", document.title, window.location.pathname);
     }
+    glob.updateParallax();
 });

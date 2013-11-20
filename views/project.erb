@@ -1,17 +1,17 @@
 <% proj = @proj %>
 <div id="project_main">
     <div class="header parallax">
-        <h1 class="header">Project</h1>
+        <h1 class="header">Projects</h1>
     </div>
     <div class="content">
         <div class="blog-post project">
             <div class="masthead">
                 <div class="title">
                     <h1><%= proj.title %></h1>
+                    <% if proj.repo %>
+	                <a title="Git Repository" class="repo icon-github-circled" href="<%= proj.repo %>"><span class="src"></span></a>
+	                <% end %>
                 </div>
-                <% if proj.repo %>
-                <a title="Git Repository" class="repo" href="<%= proj.repo %>"><span class="src"></span></a>
-                <% end %>
                 <ul class="tags">
                     <% proj.tags.each do |tag| %>
                     <li class="tag <%= get_tag_class tag %>"><%= get_tag_name tag %></li>
