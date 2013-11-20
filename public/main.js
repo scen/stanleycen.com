@@ -52,14 +52,6 @@ $(document).ready(function() {
     glob.updateScrollNotifier();
     glob.updateHomeShoutout();
 
-    $('a.popout-lightbox').fancybox({
-        openEffect: 'elastic',
-        closeEffect: 'elastic',
-        closeClick: true,
-        openEasing: 'easeOutBack',
-        closingEasing: 'easeInBack',
-        helpers : { overlay : { locked : false } }
-    });
     $("#project-slider").royalSlider({
         arrowsNav: true,
         loopRewind: true,
@@ -133,4 +125,13 @@ $(document).ready(function() {
         history.pushState("", document.title, window.location.pathname);
     }
     glob.updateParallax();
+
+    $('a.popout-lightbox').fancybox({
+        openEffect: 'elastic',
+        closeEffect: 'elastic',
+        closeClick: true,
+        openEasing: 'easeOutBack',
+        closingEasing: 'easeInBack',
+        helpers : { overlay : { locked : false } }
+    });
 });
