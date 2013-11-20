@@ -208,17 +208,20 @@ get '/contact/?' do
 end
 
 post '/contact' do
-  puts params
   froms = params[:name] + ' <' + params[:email] + '>'
   subjs = params[:subject]
   bodys = params[:message]
-  Mail.deliver do
-    to 'me@stanleycen.com'
-    from froms
-    subject subjs
-    body bodys
+  begin
+    Mail.deliver do
+      to 'me@stanleycen.com'
+      from froms
+      subject subjs
+      body bodys
+    end
+    "success"
+  rescue
+    "error"
   end
-  "error"
 end
 
 # helpers
