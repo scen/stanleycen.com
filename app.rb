@@ -213,7 +213,7 @@ post '/contact' do
   bodys = params[:message]
   begin
     Mail.deliver do
-      to 'jiecenzhao@gmail.com'
+      to 'jie.cen.zhao@gmail.com'
       from froms
       subject subjs
       body bodys
