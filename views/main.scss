@@ -30,6 +30,10 @@ div.full,body,html {
   }
 }
 
+.fancybox-item,.fancybox-close {
+  border-bottom: none;
+}
+
 a {
   text-decoration: none;
   border-bottom: 1px dotted;
@@ -60,7 +64,7 @@ a {
 
 #scroll-notifier {
   position: absolute;
-  z-index: 10000;
+  z-index: 1000;
   bottom: 10px;
   text-align: center;
   margin: 0 auto !important;
@@ -177,7 +181,7 @@ header {
           width: 2em;
           background: #898989;
           position: absolute;
-          z-index: 100;
+          z-index: 2000;
           border-radius: 1rem;
         }
         &:after { top: -.625rem; }
@@ -201,7 +205,7 @@ header {
   padding-bottom: 0;
   position: fixed;
   width: 100%;
-  z-index: 10000;
+  z-index: 1000;
   box-shadow: #777 0px 0px 7px 0px;
   .navicon-button {
     display: none;
