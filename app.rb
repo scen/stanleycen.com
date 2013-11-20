@@ -211,9 +211,10 @@ post '/contact' do
   froms = params[:name] + ' <' + params[:email] + '>'
   subjs = params[:subject]
   bodys = params[:message]
+  semail = ENV['EMAIL']
   begin
     Mail.deliver do
-      to 'jie.cen.zhao@gmail.com'
+      to semail
       from froms
       subject subjs
       body bodys
