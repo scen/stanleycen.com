@@ -210,11 +210,13 @@ end
 post '/contact' do
   puts params
   froms = params[:name] + ' <' + params[:email] + '>'
+  subjs = params[:subject]
+  bodys = params[:message]
   Mail.deliver do
     to 'me@stanleycen.com'
     from froms
-    subject params[:subject]
-    body params[:message]
+    subject subjs
+    body bodys
   end
   "error"
 end
