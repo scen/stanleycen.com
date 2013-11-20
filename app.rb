@@ -132,6 +132,7 @@ before do
   if Sinatra::Base.development?
     Project.clear_projects!
     Post.clear_posts!
+    $scss_cache = nil
     $git = nil
   end
   begin
@@ -227,5 +228,5 @@ end
 
 # helpers
 get '/main.css' do
-  scss :main
+  $css_cache ||= (scss :main, :style => :compressed)
 end
