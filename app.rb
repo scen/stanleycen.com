@@ -209,9 +209,10 @@ end
 
 post '/contact' do
   puts params
+  froms = params[:name] + ' <' + params[:email] + '>'
   Mail.deliver do
     to 'me@stanleycen.com'
-    from "#{params[:name]} <#{params[:email]}>"
+    from froms
     subject params[:subject]
     body params[:message]
   end
