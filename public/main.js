@@ -79,11 +79,6 @@ $(document).ready(function() {
         imgHeight: 900
     });
 
-    $("#submit_message").click(function(event) {
-        alert("Sorry, that's not implemented yet :(");
-        event.preventDefault();
-    });
-
     $("#header a, .scrollup a").click(function(event) {
         var $a = $(this);
         if ($a.attr('href') != null && $a.attr('href')[0] == '#') {
@@ -97,6 +92,25 @@ $(document).ready(function() {
 
     $(".navicon-button").click(function(event) {
         glob.toggleNav();
+    });
+
+    $("#submit_message").click(function(evt) {
+        $("#send-error").hide();
+        $("#contact_form").ajaxSubmit({
+            success: function(res) {
+                if (res == "success") {
+                    $("#submit_message").addClass("bueno");
+                    $("#submit_message").text("Message sent!");
+                    $("#contact_form :input").prop("disabled", true);
+                }
+                else {
+                    $("#send-error").fadeIn(200);
+                }
+            }
+        });
+
+        evt.preventDefault();
+        return false;
     });
 
     $(window).scroll(function(event) {

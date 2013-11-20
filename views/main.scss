@@ -642,6 +642,10 @@ code {
   }
 }
 
+.bueno {
+  background-color: rgb(28, 184, 65) !important;
+}
+
 #blog_internal {
   font-family: "Open Sans";
   font-weight: 300;
@@ -1159,6 +1163,20 @@ $timeline_collapse_width: 46em;
           list-style: none;
           margin: 0 auto;
           padding: 0;
+          #send-error {
+            margin: 20px 0;
+            padding: 20px;
+            border-left: 3px solid #eee;
+            background-color: #fdf7f7;
+            border-color: #eed3d7;
+            display: none;
+          }
+          #submit_message {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+          }
           li {
             margin: 0 auto;
             margin-bottom: .8em;

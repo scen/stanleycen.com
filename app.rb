@@ -2,6 +2,7 @@ require 'sinatra'
 require 'bundler/setup'
 require 'time'
 require 'rubygems'
+require 'mail'
 
 Bundler.require :default
 
@@ -144,6 +145,18 @@ before do
   end
 end
 
+Mail.defaults do
+  delivery_method :smtp, {
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :domain => 'heroku.com',
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+end
+
 # Error handling
 error Project::NotFound do
   redirect "/"
@@ -192,6 +205,20 @@ end
 
 get '/contact/?' do
   redirect '/#contact'
+end
+
+post '/contact' do
+  begin
+  Mail.deliver do
+    to 'me@stanleycen.com'
+    from "#{params[:name]} <#{params[:email]}>"
+    subject params[:subject]
+    body params[:message]
+  end
+  "success"
+  rescue
+  "error"
+  end
 end
 
 # helpers
