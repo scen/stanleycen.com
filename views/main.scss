@@ -326,7 +326,7 @@ code {
   }
 }
 
-div.blog-post {
+.blog-post {
   &.abbrev {
     .body {
       img,.center.photo {
@@ -373,6 +373,137 @@ div.blog-post {
       width: 100%;
       text-align: center;
       line-height: 1.5em;
+    }
+  }
+  &.project {
+    .controls {
+      width: 100% !important;
+      font-size: .74em;
+      max-width: none !important;
+    }
+    div.clear {
+      clear: both;
+    }
+    div.masthead {
+      .title {
+        text-align: left;
+        h1 {
+          font-size: 1.3em;
+          float: left;
+          display: block;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      .tags {
+        display: block;
+        float: right;
+        list-style: none;
+        margin: 0;
+        font-size: .9em;
+        overflow: hidden; 
+        padding: 0;
+        .tag {
+          background: #eee;
+          border-radius: 3px 0 0 3px;
+          color: #333;
+          display: inline-block;
+          height: 26px;
+          line-height: 26px;
+          padding: 0 20px 0 23px;
+          position: relative;
+          margin: 0 10px 10px 0;
+          text-decoration: none;
+          -webkit-transition: color 0.2s;
+        }
+
+        .tag::before {
+          background: #fff;
+          border-radius: 10px;
+          box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+          content: '';
+          height: 6px;
+          left: 10px;
+          position: absolute;
+          width: 6px;
+          top: 10px;
+        }
+
+        .tag::after {
+          background: #fff;
+          border-bottom: 13px solid transparent;
+          border-left: 10px solid #eee;
+          border-top: 13px solid transparent;
+          content: '';
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .tag:hover {
+          color: white;
+          &.csharp {
+            &::after {
+              border-left-color:#15E396;
+            }
+            background-color: #15E396;
+          }
+          &.cpp {
+            &::after {
+              border-left-color:#10D90B;
+            }
+            background-color: #10D90B;
+          }
+          &.ruby {
+            &::after {
+              border-left-color:#6A0BD9;
+            }
+            background-color: #6A0BD9;
+          }
+          &.reverseengineering {
+            &::after {
+              border-left-color: #0B2CE3;
+            }
+            background-color: #0B2CE3;
+          }
+          &.css {
+            &::after {
+              border-left-color:#E5BD00;
+            }
+            background-color: #E5BD00;
+          }
+          &.javascript {
+            &::after {
+              border-left-color:#007399;
+            }
+            background-color: #007399;
+          }
+          &.java {
+            &::after {
+              border-left-color: #00F096;
+            }
+            background-color: #00F096;
+          }
+          &.php {
+            &::after {
+              border-left-color:#00F096;
+            }
+            background-color: #00F096;
+          }
+          &.html {
+            &::after {
+              border-left-color:#00ACE5;
+            }
+            background-color: #00ACE5;
+          }
+          &.lua {
+            &::after {
+              border-left-color: #19C6FF;
+            }
+            background-color: #19C6FF;
+          }
+        }
+      }
     }
   }
   div.body {
@@ -429,41 +560,21 @@ div.blog-post {
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    & > ul {
+      list-style: none;
+    }
   }
 }
 
-#blog_internal {
-  font-family: "Open Sans";
-  font-weight: 300;
-  div.header {
-    padding-top: $header_margin;
-    padding-bottom: $header_margin;
-    text-align: center;
-    background: url(/parallax2.jpg);
-    background-repeat: no-repeat;
-    background-position: center 0px;
-    background-attachment: fixed;
-    background-size: cover;
-    h1.header {
-      margin: 0 auto;
-      color: #fff;
-      font-size: 3.125em;
-    }
-  }
-  div.content {
-    max-width: $maxwidth;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
+.controls.bottom:last-child {
+  border-bottom: none;
+}
+
+#project_main,#blog_internal {
   .controls {
     &.bottom {
       border-bottom: 1px solid #dedede;
       padding-bottom: 30px;
-      &:last-child {
-        border-bottom: none;
-      }
     }
     margin: 0 auto;
     margin-bottom: 30px;
@@ -528,6 +639,33 @@ div.blog-post {
       padding-right: .5em;
     }
     background: rgb(28, 184, 65);
+  }
+}
+
+#blog_internal {
+  font-family: "Open Sans";
+  font-weight: 300;
+  div.header {
+    padding-top: $header_margin;
+    padding-bottom: $header_margin;
+    text-align: center;
+    background: url(/parallax2.jpg);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-attachment: fixed;
+    background-size: cover;
+    h1.header {
+      margin: 0 auto;
+      color: #fff;
+      font-size: 3.125em;
+    }
+  }
+  div.content {
+    max-width: $maxwidth;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 }
 

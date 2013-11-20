@@ -1,18 +1,29 @@
 <% proj = @proj %>
-<div class="project_wrapper">
-	<div class="header">
-		<h3><%= proj.title %></h3>
-		<% if proj.repo %>
-		<a title="Git Repository" class="repo" href="<%= proj.repo %>"><span class="src"></span></a>
-		<% end %>
-		<ul class="tags">
-			<% proj.tags.each do |tag| %>
-			<li class="<%= get_tag_class tag %>"><%= get_tag_name tag %></li>
-			<% end %>
-		</ul>
-	</div>
-	<div class="proj-content">
-		<%= format_post proj.content %>
-		<style><%= Pygments.css %></style>
-	</div>
+<div id="project_main">
+    <div class="header parallax">
+        <h1 class="header">Project</h1>
+    </div>
+    <div class="content">
+        <div class="blog-post project">
+            <div class="masthead">
+                <div class="title">
+                    <h1><%= proj.title %></h1>
+                </div>
+                <% if proj.repo %>
+                <a title="Git Repository" class="repo" href="<%= proj.repo %>"><span class="src"></span></a>
+                <% end %>
+                <ul class="tags">
+                    <% proj.tags.each do |tag| %>
+                    <li class="tag <%= get_tag_class tag %>"><%= get_tag_name tag %></li>
+                    <% end %>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <p>
+                    <%= format_post proj.content %>
+            </p>
+            <div class="controls">
+            </div>
+        </div>
+    </div>
 </div>

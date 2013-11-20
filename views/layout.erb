@@ -32,23 +32,25 @@
 		<script src="/main.js"></script>
 	</head>
 	<body>
-		<header id="header" class="hide-nav">
-			<a class="navicon-button">
-				<div class="navicon"></div>
-			</a>
-			<h1><a href="<%= @nav == 'home' ? '#home' : '/'%>">stanley cen</a></h1>
-			<nav>
-				<ul>
-					<li><a href="<%= nav_url(@nav,'projects') %>" class="<%= get_nav_classes 'projects' %>">projects</a></li>
-					<li><a href="<%= nav_url(@nav,'blog')%>" class="<%= get_nav_classes 'blog' %>">blog</a></li>
-					<li><a href="#about" class="<%= get_nav_classes 'about' %>">about</a></li>
-					<li><a href="#contact" class="<%= get_nav_classes 'contact' %>">contact</a></li>
-					<li><a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a></li>
-				</ul>
-			</nav>
-		</header>
-		<%= "<div style='height:52px'></div>" if @nav != 'home' %>
-		<%= yield %>
+		<div id="content-wrap">
+			<header id="header" class="hide-nav">
+				<a class="navicon-button">
+					<div class="navicon"></div>
+				</a>
+				<h1><a href="<%= @nav == 'home' ? '#home' : '/'%>">stanley cen</a></h1>
+				<nav>
+					<ul>
+						<li><a href="<%= nav_url(@nav,'projects') %>" class="<%= get_nav_classes 'projects' %>">projects</a></li>
+						<li><a href="<%= nav_url(@nav,'blog')%>" class="<%= get_nav_classes 'blog' %>">blog</a></li>
+						<li><a href="<%= @nav == 'home' ? '#about' : '/#about'%>" class="<%= get_nav_classes 'about' %>">about</a></li>
+						<li><a href="<%= @nav == 'home' ? '#contact' : '/#contact'%>" class="<%= get_nav_classes 'contact' %>">contact</a></li>
+						<li><a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a></li>
+					</ul>
+				</nav>
+			</header>
+			<%= "<div style='height:52px'></div>" if @nav != 'home' %>
+			<%= yield %>
+		</div>
 		<footer>
 			<% if @nav == 'home' %>
 			<div class="scrollup">
