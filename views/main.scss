@@ -217,6 +217,7 @@ header {
     a {
       font-weight: bold;
       font-size: 24px;
+      border-bottom: none !important;
       width: 100%;
       display: block;
       // border-top: 4px solid #EAEAEA;
@@ -247,6 +248,7 @@ header {
         text-align: center;
         color: #333344;
         text-decoration: none;
+        border-bottom: none !important;
         // border-top: 4px solid;
         @mixin menu-item($theta) {
           color: hsl($theta, 50%, 65%);

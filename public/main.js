@@ -9,7 +9,7 @@ var glob = {
         $("#home_internal").height($(window).height());
     },
     updateParallax: function() {
-        if ($.browser.mobile) return;
+        if (!glob.shouldParallax()) return;
         $(".parallax").each(function(idx) {
             var $banner = $(this);
             var y = -($(window).scrollTop() - $banner.position().top) / glob.PARALLAX_SPEED;
@@ -43,6 +43,9 @@ var glob = {
         $('html, body').stop().animate({
             scrollTop: $(to + "_internal").offset().top - $("#header").height()
             }, glob.SCROLL_SPEED, 'easeInOutExpo');
+    },
+    shouldParallax: function() {
+        return !$.browser.mobile;
     }
 };
 
@@ -51,6 +54,13 @@ $(document).ready(function() {
     glob.resizeHomeParallax();
     glob.updateScrollNotifier();
     glob.updateHomeShoutout();
+
+    if (!glob.shouldParallax()) {
+        $('.parallax').css({
+            backgroundAttachment: 'scroll'
+        });
+    }
+
 
     $("#project-slider").royalSlider({
         arrowsNav: true,
