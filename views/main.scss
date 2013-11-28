@@ -1189,6 +1189,7 @@ $timeline_collapse_width: 46em;
             margin: 0 auto;
             margin-bottom: .8em;
             input, textarea {
+              -webkit-appearance: none;
               font-family: "Open Sans";
               font-weight: 400;
               width: 100%;
