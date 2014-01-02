@@ -1,6 +1,6 @@
 # Executing Untrusted Code Safely
 
-For my [online judge](/project/westviewcoders.org), I have a sandbox environment where I can execute untrusted code safely to grade solution submissions. Since I accept C/C++ code, the code if ran as a normal user could access any process, kill processes, open sockets, read/write to the file system, and possibly escalate privileges. There are a few ways to protect yourself from this.
+For my [online judge](/project/westview-coders), I have a sandbox environment where I can execute untrusted code safely to grade solution submissions. Since I accept C/C++ code, the code if ran as a normal user could access any process, kill processes, open sockets, read/write to the file system, and possibly escalate privileges. There are a few ways to protect yourself from this.
 
 <!--more-->
 
