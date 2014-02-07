@@ -210,9 +210,9 @@ end
 
 post '/contact' do
   froms = params[:name] + ' <' + params[:email] + '>'
-  subjs = params[:subject]
-  bodys = params[:message]
-  semail = ENV['EMAIL']
+  subjs = params[:subject] || ''
+  bodys = params[:message] || ''
+  semail = ENV['EMAIL'] || ''
   begin
     Mail.deliver do
       to semail
