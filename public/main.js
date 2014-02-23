@@ -98,8 +98,8 @@ $(document).ready(function() {
 
     $("#submit_message").click(function(evt) {
         $("#send-error").hide();
+        var old = $("#salt").val();
         $("#salt").val(CryptoJS.SHA1($("#salt").val()));
-        console.log($("#salt").val());
         $("#contact_form").ajaxSubmit({
             success: function(res) {
                 if (res == "success") {
@@ -109,6 +109,7 @@ $(document).ready(function() {
                 }
                 else {
                     $("#send-error").fadeIn(200);
+                    $("#salt").val(old);
                 }
             }
         });
