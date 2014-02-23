@@ -3,10 +3,14 @@ require 'bundler/setup'
 require 'time'
 require 'rubygems'
 require 'mail'
+require 'securerandom'
+require 'digest/sha1'
 
 Bundler.require :default
 
 Dir["./models/*.rb"].each &method(:require)
+
+enable :sessions
 
 DEFAULT_WIDTH = 300
 CLOUDINARY_BASE = 'http://res.cloudinary.com/hazdcamql/image/upload/'
@@ -170,6 +174,7 @@ end
 get '/' do
   @title = nil
   @nav = "home"
+  session[:salt] = SecureRandom.base64 # set salt on initial GET
   erb :index
 end
 
@@ -209,11 +214,13 @@ get '/contact/?' do
 end
 
 post '/contact' do
-  froms = params[:name] + ' <' + params[:email] + '>'
-  subjs = params[:subject] || ''
-  bodys = params[:message] || ''
-  semail = ENV['EMAIL'] || ''
   begin
+    # security check
+    raise "salt hash check fail" if params[:salt] != Digest::SHA1.hexdigest(session[:salt])
+    froms = params[:name] + ' <' + params[:email] + '>'
+    subjs = params[:subject] || ''
+    bodys = params[:message] || ''
+    semail = ENV['EMAIL'] || ''
     Mail.deliver do
       to semail
       from froms

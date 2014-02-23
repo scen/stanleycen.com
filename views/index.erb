@@ -178,6 +178,7 @@
 					</div>
 					<div class="form">
 						<form id="contact_form" action="/contact" method="POST">
+							<input type="hidden" name="salt" id="salt" value="<%= session[:salt] %>" />
 							<ul>
 								<li id="send-error"><span>Sorry! An error occured while sending.</span></li>
 								<li>
