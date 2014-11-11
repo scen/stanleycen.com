@@ -134,7 +134,6 @@ end
 
 before do
   if Sinatra::Base.development?
-    print "lol"
     Project.clear_projects!
     Post.clear_posts!
     $scss_cache = nil
