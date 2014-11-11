@@ -1,6 +1,23 @@
 $header_margin: 5em; //5em
 $highlight: #69A6FF;
 $maxwidth: 55em;
+$footerheight: 40px;
+$footermargintop: 30px;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#wrapall {
+  min-height: 100%;
+  position: relative;
+}
+
+#contentall {
+  padding-bottom: $footerheight + $footermargintop;
+}
 
 #home_internal {
   background: url(/parallax.jpg);
@@ -1348,10 +1365,11 @@ div.highlight {
 }
 
 footer {
-  margin-top: 30px;
+  margin-top: $footermargintop;
   bottom: 0;
-  // position: absolute;
-  // height: 40px;
+  left: 0;
+  position: absolute;
+  height: $footerheight;
   width: 100%;
 
   div.scrollup {

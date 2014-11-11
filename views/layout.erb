@@ -28,40 +28,44 @@
 		<script src="/main.js"></script>
 	</head>
 	<body>
-		<header id="header" class="hide-nav">
-			<a class="navicon-button">
-				<div class="navicon"></div>
-			</a>
-			<h1><a href="<%= @nav == 'home' ? '#home' : '/'%>">stanley cen</a></h1>
-			<nav>
-				<ul>
-					<li><a href="<%= nav_url(@nav,'projects') %>" class="<%= get_nav_classes 'projects' %>">projects</a></li>
-					<li><a href="<%= nav_url(@nav,'blog')%>" class="<%= get_nav_classes 'blog' %>">blog</a></li>
-					<li><a href="<%= @nav == 'home' ? '#about' : '/#about'%>" class="<%= get_nav_classes 'about' %>">about</a></li>
-					<li><a href="<%= @nav == 'home' ? '#contact' : '/#contact'%>" class="<%= get_nav_classes 'contact' %>">contact</a></li>
-					<li><a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a></li>
-				</ul>
-			</nav>
-		</header>
-		<%= "<div style='height:52px'></div>" if @nav != 'home' %>
-		<%= yield %>
-		<footer>
-			<% if @nav == 'home' %>
-			<!-- <div class="scrollup">
-				<a href="#home"></a>
-			</div> -->
-			<% end %>
-			<div class="bar">
-				<div class="wrapper">
-					<span class="copyleft">
-						Designed with &lt;3 by Stanley Cen
-					</span>
-					<span class="latest-commit">
-						<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>Running latest commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">
-	                <%= get_commit_sha[0...7] %></a> <%= get_commit_time.to_pretty %>: <%= '"' + get_commit_msg.split(/\n/).first + '"' %><% end %>
-					</span>
-				</div>
+		<div id="wrapall">
+			<header id="header" class="hide-nav">
+				<a class="navicon-button">
+					<div class="navicon"></div>
+				</a>
+				<h1><a href="<%= @nav == 'home' ? '#home' : '/'%>">stanley cen</a></h1>
+				<nav>
+					<ul>
+						<li><a href="<%= nav_url(@nav,'projects') %>" class="<%= get_nav_classes 'projects' %>">projects</a></li>
+						<li><a href="<%= nav_url(@nav,'blog')%>" class="<%= get_nav_classes 'blog' %>">blog</a></li>
+						<li><a href="<%= @nav == 'home' ? '#about' : '/#about'%>" class="<%= get_nav_classes 'about' %>">about</a></li>
+						<li><a href="<%= @nav == 'home' ? '#contact' : '/#contact'%>" class="<%= get_nav_classes 'contact' %>">contact</a></li>
+						<li><a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a></li>
+					</ul>
+				</nav>
+			</header>
+			<div id="contentall">
+				<%= "<div style='height:52px'></div>" if @nav != 'home' %>
+				<%= yield %>
 			</div>
-		</footer>
+			<footer>
+				<% if @nav == 'home' %>
+				<!-- <div class="scrollup">
+					<a href="#home"></a>
+				</div> -->
+				<% end %>
+				<div class="bar">
+					<div class="wrapper">
+						<span class="copyleft">
+							Designed with &lt;3 by Stanley Cen
+						</span>
+						<span class="latest-commit">
+							<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>Running latest commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">
+		                <%= get_commit_sha[0...7] %></a> <%= get_commit_time.to_pretty %>: <%= '"' + get_commit_msg.split(/\n/).first + '"' %><% end %>
+						</span>
+					</div>
+				</div>
+			</footer>
+		</div>
 	</body>
 </html>
