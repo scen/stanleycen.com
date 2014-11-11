@@ -1,223 +1,223 @@
 <section id="home_internal" class="parallax">
-			<div id="home-shoutout">
-				<div>
-					<h1><%= GREETINGS.sample %></h1>
-					<h3>I'm <strong>Stanley Cen</strong>, a computer science enthusiast studying Course 6 at MIT.</h3>
-				</div>
-			</div>
-			<div id="scroll-notifier">
-			</div>
-		</section>
-		<section id="content">
-			<!-- <div id="mission">
-				<div class="subtitle">
-					<h1>I love <span class="highlight">making stuff</span> and here you'll find my projects and the stories behind them.</h1>
-				</div>
-			</div> -->
-			<div id="projects_internal">
+	<div id="home-shoutout">
+		<div>
+			<h1><%= GREETINGS.sample %></h1>
+			<h3>I'm <strong>Stanley Cen</strong>, a computer science enthusiast studying Course 6 at MIT.</h3>
+		</div>
+	</div>
+	<div id="scroll-notifier">
+	</div>
+</section>
+<section id="content">
+	<!-- <div id="mission">
+		<div class="subtitle">
+			<h1>I love <span class="highlight">making stuff</span> and here you'll find my projects and the stories behind them.</h1>
+		</div>
+	</div> -->
+	<div id="projects_internal">
 <!-- 				<div class="header parallax">
-					<h1 class="header">Featured Projects</h1>
+			<h1 class="header">Featured Projects</h1>
+		</div> -->
+		<div class="subtitle-wrap">
+			<div class="subtitle">
+				<h1>I love <span class="highlight">making stuff</span> and here you'll find my projects and their stories.</h1>
+				<a class="see-more" href="/projects">See all projects &rarr;</a>
+			</div>
+		</div>
+		<div class="wrapper">
+			<div class="slidewrapper">
+				<!-- <div id="project-slider" class="royalSlider rsMinW">
+					<div class="rsContent">
+						<img class="rsImg" src="/project_res/fbanalytics-android/920.png"/>
+						<div class="infoBlock dark rsABlock rsAbsoluteEl infoBlockRight">analyze your facebook chat data!</div>
+						<div class="infoBlock dark rsABlock rsAbsoluteEl infoBlockBottom infoBlockLeft"><span><a href="/project/fbanalytics-android">more info</a></span></div>
+					</div>
+					<div class="rsContent">
+						<img class="rsImg" src="/project_res/libembryo/920.png"/>
+						<div class="infoBlock rsABlock rsAbsoluteEl infoBlockRight">mac os x reverse engineering library</div>
+						<div class="infoBlock rsABlock rsAbsoluteEl infoBlockBottom infoBlockLeft"><span><a href="/project/libembryo">more info</a></span></div>
+					</div>
 				</div> -->
-				<div class="subtitle-wrap">
-					<div class="subtitle">
-						<h1>I love <span class="highlight">making stuff</span> and here you'll find my projects and their stories.</h1>
-						<a class="see-more" href="/projects">See all projects &rarr;</a>
-					</div>
-				</div>
-				<div class="wrapper">
-					<div class="slidewrapper">
-						<!-- <div id="project-slider" class="royalSlider rsMinW">
-							<div class="rsContent">
-								<img class="rsImg" src="/project_res/fbanalytics-android/920.png"/>
-								<div class="infoBlock dark rsABlock rsAbsoluteEl infoBlockRight">analyze your facebook chat data!</div>
-								<div class="infoBlock dark rsABlock rsAbsoluteEl infoBlockBottom infoBlockLeft"><span><a href="/project/fbanalytics-android">more info</a></span></div>
-							</div>
-							<div class="rsContent">
-								<img class="rsImg" src="/project_res/libembryo/920.png"/>
-								<div class="infoBlock rsABlock rsAbsoluteEl infoBlockRight">mac os x reverse engineering library</div>
-								<div class="infoBlock rsABlock rsAbsoluteEl infoBlockBottom infoBlockLeft"><span><a href="/project/libembryo">more info</a></span></div>
-							</div>
-						</div> -->
-					</div>
-				</div>
 			</div>
-			<div id="blog_internal">
-				<div class="header parallax">
-					<h1 class="header">Latest from the blog</h1>
-				</div>
-				<div class="content">
-					<%= erb :_post, locals: {post: Post.all.first.last, abbrev: true} %>
-				</div>
-				<div class="controls">
-					<span><a class="all-posts btn" href="/blog">See all posts</a></span>
-					<span><a class="btn read-more" href="<%= post_slug_url Post.all.first.last.slug %>">Continue reading</a></span>
-				</div>
+		</div>
+	</div>
+	<div id="blog_internal">
+		<div class="header parallax">
+			<h1 class="header">Latest from the blog</h1>
+		</div>
+		<div class="content">
+			<%= erb :_post, locals: {post: Post.all.first.last, abbrev: true} %>
+		</div>
+		<div class="controls">
+			<span><a class="all-posts btn" href="/blog">See all posts</a></span>
+			<span><a class="btn read-more" href="<%= post_slug_url Post.all.first.last.slug %>">Continue reading</a></span>
+		</div>
+	</div>
+	<div id="about_internal">
+		<div class="header parallax">
+			<h1 class="header">About</h1>
+		</div>
+		<div class="content">
+			<div class="text">
+				<p>
+					I'm studying Computer Science at the Massachusetts Institute of Technology.
+				</p>
+				<p>
+					I <span class="highlight">love</span> computer science and am always trying to learn new things.
+				</p>
+				<p>
+					I've completed projects in reverse engineering, robotics, computer vision, web development and mobile &amp; desktop application development. Most of them are <a href="http://github.com/scen">open-source</a>!
+				</p>
+				<p>
+					Here's how it all started:
+				</p>
 			</div>
-			<div id="about_internal">
-				<div class="header parallax">
-					<h1 class="header">About</h1>
-				</div>
-				<div class="content">
-					<div class="text">
-						<p>
-							I'm studying Computer Science at the Massachusetts Institute of Technology.
-						</p>
-						<p>
-							I <span class="highlight">love</span> computer science and am always trying to learn new things.
-						</p>
-						<p>
-							I've completed projects in reverse engineering, robotics, computer vision, web development and mobile &amp; desktop application development. Most of them are <a href="http://github.com/scen">open-source</a>!
-						</p>
-						<p>
-							Here's how it all started:
-						</p>
-					</div>
-					<div class="wrapper">
-						<ul class="timeline">
-							<li>
-								<time>
-									<span>
-										3<sup>rd</sup> grade
-									</span>
-									<span>
-										Mar '05
-									</span>
-								</time>
-								<div class="waypoint"></div>
-								<div class="label">
-									<h2>Started programming in C</h2>
-									<span class="more">
-										<p>I taught myself by reading <em>C How to Program</em> by Deitel.</p>
-									</span>
-								</div>
-							</li>
-							<li>
-								<time>
-									<span>
-										9<sup>th</sup> grade
-									</span>
-									<span>
-										May '11
-									</span>
-								</time>
-								<div class="waypoint"></div>
-								<div class="label">
-									<h2>This website was born</h2>
-									<span class="more">
-										<p>The first version of this site was written in PHP (ew).</p>
-									</span>
-								</div>
-							</li>
-							<li>
-								<time>
-									<span>
-										10<sup>th</sup> grade
-									</span>
-									<span>
-										May '12
-									</span>
-								</time>
-								<div class="waypoint"></div>
-								<div class="label">
-									<h2>USA Computing Olympiad Finalist Camp</h2>
-									<span class="more">
-										<p>After beginning competitive programming in 9<sup>th</sup> grade, I was <a href="http://www.usaco.org/index.php?page=finalists12">selected</a> as 1 of 16 high school students who attended the <a href="http://www.usaco.org/index.php?page=camp">2012 USACO finalist camp</a>.</p>
-									</span>
-								</div>
-							</li>
-							<li>
-								<time>
-									<span>
-										11<sup>th</sup> grade
-									</span>
-									<span>
-										May '13
-									</span>
-								</time>
-								<div class="waypoint"></div>
-								<div class="label">
-									<h2>USA Computing Olympiad Finalist Camp</h2>
-									<span class="more">
-										<p>I attended the <a href="http://www.usaco.org/index.php?page=finalists13">2013 USACO finalist camp</a>!</p>
-									</span>
-								</div>
-							</li>
-							<li>
-								<time>
-									<span>
-										11<sup>th</sup> grade
-									</span>
-									<span>
-										Jun '13
-									</span>
-								</time>
-								<div class="waypoint"></div>
-								<div class="label">
-									<h2>Research Science Institute</h2>
-									<span class="more">
-										<p>At <a href="http://www.cee.org/news/research-science-institute-mit-hosts-81-high-school-students">RSI</a>, I conducted research under Mr. Andrew Wang at the MIT Computer Science and Artificial Intelligence Laboratory (CSAIL). My project looked at visualization strategies in collaborative temporal planning.</p>
-									</span>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div id="contact_internal">
-				<div class="header parallax">
-					<h1 class="header">Contact</h1>
-				</div>
-				<div class="content">
-					<div class="subtitle">
-						<h1>Got a question? I'll get back to you as soon as possible.</h1>
-					</div>
-					<div class="form">
-						<form id="contact_form" action="/contact" method="POST">
-							<input type="hidden" name="salt" id="salt" value="<%= session[:salt] %>" />
-							<ul>
-								<li id="send-error"><span>Sorry! An error occured while sending.</span></li>
-								<li>
-									<input autocomplete="off" type="text" id="name" name="name" placeholder="name" required/>
-								</li>
-								<li>
-									<input autocomplete="off" type="email" id="email" name="email" placeholder="email" required/>
-								</li>
-								<li>
-									<input autocomplete="off" type="text" id="subject" name="subject" placeholder="subject" required/>
-								</li>
-								<li>
-									<textarea autocomplete="off" id="message" name="message" placeholder="message" required></textarea>
-								</li>
-								<li>
-									<button id="submit_message" type="submit" class="submit">Send</button>
-								</li>
-							</ul>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div id="about-site">
-				<div class="header parallax">
-					<h1 class="header">About this site</h1>
-				</div>
-				<div class="wrapper">
-					<div class="text">
-						<p>This website is an <span class="highlight">open-source</span> Sinatra web application running on Ruby 1.9.3 and lives somewhere in the Heroku cloud.</p>
-						<p>It's powered by lots of awesome things made by amazing people:
-							<ul>
-								<li>jQuery</li>
-								<li>Sass</li>
-								<li>Fancybox</li>
-								<li>Sinatra</li>
-								<li>Splash images from <a href="http://unsplash.com">unsplash</a></li>
-							</ul>
-						</p>
-						<p>This is my latest (probably 6<sup>th</sup>) redesign of the site, featuring parallax scrolling and responsive design!</p>
-						<p>The design was pushed out on November 19<sup>th</sup> 2013. Let me know of any bugs you find!</p>
-						<div class="humanstxt">
-							<a href="/humans.txt"><img src="/logo-humans.png"/></a>
+			<div class="wrapper">
+				<ul class="timeline">
+					<li>
+						<time>
+							<span>
+								3<sup>rd</sup> grade
+							</span>
+							<span>
+								Mar '05
+							</span>
+						</time>
+						<div class="waypoint"></div>
+						<div class="label">
+							<h2>Started programming in C</h2>
+							<span class="more">
+								<p>I taught myself by reading <em>C How to Program</em> by Deitel.</p>
+							</span>
 						</div>
-					</div>
+					</li>
+					<li>
+						<time>
+							<span>
+								9<sup>th</sup> grade
+							</span>
+							<span>
+								May '11
+							</span>
+						</time>
+						<div class="waypoint"></div>
+						<div class="label">
+							<h2>This website was born</h2>
+							<span class="more">
+								<p>The first version of this site was written in PHP (ew).</p>
+							</span>
+						</div>
+					</li>
+					<li>
+						<time>
+							<span>
+								10<sup>th</sup> grade
+							</span>
+							<span>
+								May '12
+							</span>
+						</time>
+						<div class="waypoint"></div>
+						<div class="label">
+							<h2>USA Computing Olympiad Finalist Camp</h2>
+							<span class="more">
+								<p>After beginning competitive programming in 9<sup>th</sup> grade, I was <a href="http://www.usaco.org/index.php?page=finalists12">selected</a> as 1 of 16 high school students who attended the <a href="http://www.usaco.org/index.php?page=camp">2012 USACO finalist camp</a>.</p>
+							</span>
+						</div>
+					</li>
+					<li>
+						<time>
+							<span>
+								11<sup>th</sup> grade
+							</span>
+							<span>
+								May '13
+							</span>
+						</time>
+						<div class="waypoint"></div>
+						<div class="label">
+							<h2>USA Computing Olympiad Finalist Camp</h2>
+							<span class="more">
+								<p>I attended the <a href="http://www.usaco.org/index.php?page=finalists13">2013 USACO finalist camp</a>!</p>
+							</span>
+						</div>
+					</li>
+					<li>
+						<time>
+							<span>
+								11<sup>th</sup> grade
+							</span>
+							<span>
+								Jun '13
+							</span>
+						</time>
+						<div class="waypoint"></div>
+						<div class="label">
+							<h2>Research Science Institute</h2>
+							<span class="more">
+								<p>At <a href="http://www.cee.org/news/research-science-institute-mit-hosts-81-high-school-students">RSI</a>, I conducted research under Mr. Andrew Wang at the MIT Computer Science and Artificial Intelligence Laboratory (CSAIL). My project looked at visualization strategies in collaborative temporal planning.</p>
+							</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="contact_internal">
+		<div class="header parallax">
+			<h1 class="header">Contact</h1>
+		</div>
+		<div class="content">
+			<div class="subtitle">
+				<h1>Got a question? I'll get back to you as soon as possible.</h1>
+			</div>
+			<div class="form">
+				<form id="contact_form" action="/contact" method="POST">
+					<input type="hidden" name="salt" id="salt" value="<%= session[:salt] %>" />
+					<ul>
+						<li id="send-error"><span>Sorry! An error occured while sending.</span></li>
+						<li>
+							<input autocomplete="off" type="text" id="name" name="name" placeholder="name" required/>
+						</li>
+						<li>
+							<input autocomplete="off" type="email" id="email" name="email" placeholder="email" required/>
+						</li>
+						<li>
+							<input autocomplete="off" type="text" id="subject" name="subject" placeholder="subject" required/>
+						</li>
+						<li>
+							<textarea autocomplete="off" id="message" name="message" placeholder="message" required></textarea>
+						</li>
+						<li>
+							<button id="submit_message" type="submit" class="submit">Send</button>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="about-site">
+		<div class="header parallax">
+			<h1 class="header">About this site</h1>
+		</div>
+		<div class="wrapper">
+			<div class="text">
+				<p>This website is an <span class="highlight">open-source</span> Sinatra web application running on Ruby 1.9.3 and lives somewhere in the Heroku cloud.</p>
+				<p>It's powered by lots of awesome things made by amazing people:
+					<ul>
+						<li>jQuery</li>
+						<li>Sass</li>
+						<li>Fancybox</li>
+						<li>Sinatra</li>
+						<li>Splash images from <a href="http://unsplash.com">unsplash</a></li>
+					</ul>
+				</p>
+				<p>This is my latest (probably 6<sup>th</sup>) redesign of the site, featuring parallax scrolling and responsive design!</p>
+				<p>The design was pushed out on November 19<sup>th</sup> 2013. Let me know of any bugs you find!</p>
+				<div class="humanstxt">
+					<a href="/humans.txt"><img src="/logo-humans.png"/></a>
 				</div>
 			</div>
-		</section>
+		</div>
+	</div>
+</section>
