@@ -62,24 +62,24 @@ $(document).ready(function() {
     }
 
 
-    $("#project-slider").royalSlider({
-        arrowsNav: true,
-        loopRewind: true,
-        keyboardNavEnabled: true,
-        controlsInside: true,
-        arrowsNavAutoHide: false,
-        arrowsNavHideOnTouch: true,
-        autoScaleSlider: true,
-        numImagesToPreload: 1,
-        controlNavigation: "bullets",
-        navigateByClick: true,
-        transitionType: "move",
-        globalCaption: false,
-        slidesSpacing: 4,
-        imageScalePadding: 0,
-        imgWidth: 1840,
-        imgHeight: 900
-    });
+    // $("#project-slider").royalSlider({
+    //     arrowsNav: true,
+    //     loopRewind: true,
+    //     keyboardNavEnabled: true,
+    //     controlsInside: true,
+    //     arrowsNavAutoHide: false,
+    //     arrowsNavHideOnTouch: true,
+    //     autoScaleSlider: true,
+    //     numImagesToPreload: 1,
+    //     controlNavigation: "bullets",
+    //     navigateByClick: true,
+    //     transitionType: "move",
+    //     globalCaption: false,
+    //     slidesSpacing: 4,
+    //     imageScalePadding: 0,
+    //     imgWidth: 1840,
+    //     imgHeight: 900
+    // });
 
     $("#header a, .scrollup a").click(function(event) {
         var $a = $(this);
