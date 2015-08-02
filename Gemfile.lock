@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.3.5)
     excon (0.25.3)
+    execjs (2.5.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
@@ -17,6 +18,8 @@ GEM
       rubyzip
     heroku-api (0.3.15)
       excon (~> 0.25.1)
+    htmlcompressor (0.2.0)
+    json (1.8.1)
     launchy (2.3.0)
       addressable (~> 2.3)
     mail (2.5.4)
@@ -44,6 +47,8 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rake (10.1.0)
     rdiscount (2.1.6)
     rest-client (1.6.7)
@@ -58,6 +63,9 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    uglifier (2.7.1)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -66,11 +74,14 @@ PLATFORMS
 DEPENDENCIES
   git
   heroku
+  htmlcompressor
   mail
   nokogiri
   octokit
   pygments.rb
+  rack-test
   rake
   rdiscount
   sass
   sinatra
+  uglifier
