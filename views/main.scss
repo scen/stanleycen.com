@@ -27,6 +27,7 @@ html, body {
   background-size: cover;
   margin: 0 auto;
   width: 100%;
+  height: 100vh;
   position: relative;
 }
 
@@ -158,22 +159,22 @@ header {
         -ms-transform: scale(.7);
         -o-transform: scale(.7);
         transform: scale(.7);
-        &:after { 
+        &:after {
           -webkit-transform: rotate(45deg);
           -moz-transform: rotate(45deg);
           -ms-transform: rotate(45deg);
           -o-transform: rotate(45deg);
           transform: rotate(45deg);
           top: 0 !important;
-        }  
-        &:before { 
+        }
+        &:before {
           -webkit-transform: rotate(-45deg);
           -moz-transform: rotate(-45deg);
           -ms-transform: rotate(-45deg);
           -o-transform: rotate(-45deg);
           transform: rotate(-45deg);
           top: 0 !important;
-        }  
+        }
       }
       .navicon {
         position: relative;
@@ -424,7 +425,7 @@ code {
         list-style: none;
         margin: 0;
         font-size: .9em;
-        overflow: hidden; 
+        overflow: hidden;
         padding: 0;
         .tag {
           background: #eee;
@@ -771,7 +772,7 @@ code {
   text-decoration: none;
   border: none;
   color: #333;
-  -webkit-transition: .25s; 
+  -webkit-transition: .25s;
   -moz-transition: .25s;
   -ms-transition: .25s;
   -o-transition: .25s;
@@ -1166,8 +1167,8 @@ $timeline_collapse_width: 46em;
               width: 100%;
               border: 1px solid #ccc;
               border-radius: 2px;
-              -webkit-box-sizing: border-box; 
-              -moz-box-sizing: border-box;   
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
               box-sizing: border-box;
               padding: 6px;
               &:focus {
