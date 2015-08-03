@@ -5,21 +5,31 @@ var glob = {
 
     menu_open: false,
 
+    parallax_images: [],
+    parallax_len: 0,
+
     resizeHomeParallax: function() {
         $("#home_internal").height($(window).height());
     },
-    updateParallax: function() {
-        if (!glob.shouldParallax()) return;
-        $(".parallax").each(function(idx) {
-            var $banner = $(this);
-            var y = -($(window).scrollTop() - $banner.position().top) / glob.PARALLAX_SPEED;
-            $banner.css({
-                backgroundPosition: 'center ' + y + 'px',
-            });
+    initParallax: function() {
+        // Cache lookups
+        $('.parallax').each(function(idx) {
+            glob.parallax_images.push($(this));
+            glob.parallax_len++;
         });
     },
+    updateParallax: function() {
+        if (!glob.shouldParallax()) return;
+        var scrollTop = $(window).scrollTop();
+        for (var i = 0; i < glob.parallax_len; i++) {
+            var y = -(scrollTop - glob.parallax_images[i].position().top) / glob.PARALLAX_SPEED;
+            glob.parallax_images[i].css({
+                backgroundPosition: 'center ' + y + 'px',
+            });
+        }
+    },
     updateScrollNotifier: function() {
-        if ($(window).scrollTop() != 0) {
+        if ($(window).scrollTop() !== 0) {
             $("#scroll-notifier").hide();
         }
         else {
@@ -54,6 +64,8 @@ $(document).ready(function() {
     glob.resizeHomeParallax();
     glob.updateScrollNotifier();
     glob.updateHomeShoutout();
+
+    glob.initParallax();
 
     if (!glob.shouldParallax()) {
         $('.parallax').css({
