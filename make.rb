@@ -17,7 +17,7 @@ TOP_ROUTES = ['/', '/blog', '/projects']
 
 OUTPUT_DIR = 'scen.github.io/'
 
-CNAME = "gh.stanleycen.com"
+CNAME = "stanleycen.com"
 
 class Builder
   include Rack::Test::Methods
