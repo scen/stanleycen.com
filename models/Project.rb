@@ -3,7 +3,7 @@ require 'yaml'
 class Project
   class NotFound < StandardError; end
 
-  attr_accessor :title, :slug, :tags, :summary, :content, :repo
+  attr_accessor :title, :slug, :header_img, :tags, :summary, :content, :repo
 
   def initialize(args = {})
     args.each do |x, y|
@@ -26,7 +26,7 @@ class Project
       slug = data['slug']
       repo = data['repo']
 
-      result << (Project.new title: title, tags: tags, summary: summary, content: content, slug: slug, repo: repo)
+      result << (Project.new title: title, tags: tags, summary: summary, content: content, slug: slug, repo: repo, header_img: data['header_img'])
     end
   end
 
