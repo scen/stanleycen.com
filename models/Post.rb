@@ -5,7 +5,7 @@ require 'time'
 class Post
   class NotFound < StandardError; end
 
-  attr_accessor :title, :slug, :content, :created_at
+  attr_accessor :title, :slug, :header_img, :content, :created_at
   attr_accessor :cache_css, :cache_abbrev, :cache_full
 
   def initialize(args = {})
@@ -18,15 +18,15 @@ class Post
     order = YAML.load_file "./posts/order.yml"
     order.reduce([]) do |result, line|
       arr = line.split " "
-      slug = arr.first
+      slug = arr[0]
       filename = "./posts/#{slug}.md"
       content = File.read(filename).force_encoding "utf-8"
 
-      created_at = Time.parse(arr.last) || Time.now
+      created_at = Time.parse(arr[1]) || Time.now
 
       next unless content =~ /\A# (.*)$/
 
-      result << (Post.new slug: slug, title: $1, content: $'.strip, created_at: created_at)
+      result << (Post.new slug: slug, title: $1, content: $'.strip, created_at: created_at, header_img: arr[2])
     end
   end
 
