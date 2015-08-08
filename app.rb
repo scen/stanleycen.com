@@ -16,7 +16,7 @@ DEFAULT_WIDTH = 300
 CLOUDINARY_BASE = 'http://res.cloudinary.com/hazdcamql/image/upload/'
 GREETINGS = ['Hey there!', 'Hello there!', 'Hi there!']
 
-helpers do 
+helpers do
   def format_post(source)
     source = (source.split("<!--more-->").map { |s| s.strip }.join("\n") || source).strip
     html = markdown source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$))*/) { |snippet|
@@ -48,7 +48,7 @@ helpers do
         a['href'] = CLOUDINARY_BASE + img_name
         a['title'] = title
         a['target'] = '_blank'
-        
+
         img = Nokogiri::XML::Node.new 'img', noko
         if false and !noresize
           # img['src'] = CLOUDINARY_BASE + 'c_thumb,w_' + width.to_s + '/' + img_name
@@ -58,7 +58,7 @@ helpers do
         img['alt'] = title
         div['style'] = ('max-width: ' + width.to_s + 'px') unless noresize
         img['style'] = ('max-width: 100%') unless noresize
-        
+
         a << img
         div << a
         div << caption unless title == ''
@@ -174,6 +174,7 @@ end
 get '/' do
   @title = nil
   @nav = "home"
+  @header_img = 'parallax.jpg' # TODO: fix this
   session[:salt] = SecureRandom.base64 # set salt on initial GET
   erb :index
 end
@@ -188,6 +189,7 @@ end
 get '/blog/:slug/?' do |slug|
   @post = Post.find(slug)
   @title = @post.title
+  @header_img = @post.header_img
   @nav = "blog"
   erb :blog_post
 end
@@ -202,6 +204,7 @@ get '/project/:slug/?' do |slug|
   @proj = Project.find(slug)
   @title = @proj.title
   @nav = "projects"
+  @header_img = @proj.header_img
   erb :project
 end
 
