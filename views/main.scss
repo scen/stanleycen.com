@@ -1,0 +1,188 @@
+@import 'mixins';
+
+/*
+SASS can name breakpoints for media queries!!
+*/
+
+// Vars
+
+$header-height: 50px;
+
+// Colors
+
+$nothingness: #232428;
+$text-color: #6D665C;
+
+body {
+  background-color: $nothingness;
+  font-family: 'Raleway', sans-serif;
+}
+
+#page-outer {
+  padding-bottom: 40px;
+  padding-top: 40px;
+
+  // TODO: should these be fixed?
+  // padding-left: 4%;
+  // padding-right: 4%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+#page {
+  // position: relative;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 25px 5px #111;
+  -moz-box-shadow: 0 0 25px 5px #111;
+  box-shadow: 0 0 25px 5px #111;
+}
+
+// Header
+
+// some wrapper hack that someone randomly works.
+// does this lag the parallax? YES. it does.
+.rel {
+  position: relative;
+}
+
+#header {
+  height: $header-height;
+  position: absolute;
+  z-index: 100000;
+  left: 0;
+  right: 0;
+
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 50px;
+
+  & > .name {
+    display: inline;
+
+    a {
+      border-bottom: none !important;
+      text-decoration: none !important;
+
+      h1 {
+        display: inline;
+        color: white;
+        font-weight: 700;
+        font-size: 3.5rem;
+      }
+
+      h2 {
+        display: inline;
+        color: white;
+        font-weight: 300;
+        font-size: 3.5rem;
+      }
+    }
+  }
+
+  nav {
+    display: block;
+    float: right;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: $header-height;
+
+    ul {
+      display: block;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+
+      li {
+        margin: 0;
+        height: 100%;
+        line-height: $header-height;
+        display: inline-block;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        a {
+          text-decoration: none;
+          border-bottom: none;
+          color: white;
+          font-weight: 300;
+          font-size: 1.75rem;
+          padding-bottom: 3px;
+          @include transition(all .2s ease-in-out);
+
+          // &:hover, &:focus, &:active {
+          //   border-bottom: 2px solid white;
+          // }
+
+          &.blur {
+            color: transparent;
+            text-shadow: 0 0 3px rgba(255,255,255,1);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Masthead
+
+#masthead {
+  height: 600px;
+}
+
+.masthead-home-tagline {
+  position: absolute;
+  margin: 0 auto;
+  text-align: center;
+  top: 50%; left: 50%;
+  @include translate(-50%, -50%);
+
+  & > h1 {
+    font-weight: 100;
+  }
+}
+
+.darken-filter {
+  background-color: $nothingness;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+}
+
+// Parallax
+
+.parallax-wrap {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-img {
+  // Should this be 100%?
+  height: 110%;
+  width: 100%;
+  overflow: hidden;
+  background: url(/img/parallax.jpg);
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: cover;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  // -webkit-filter: blur(5px);
+  // -moz-filter: blur(5px);
+  // -o-filter: blur(5px);
+  // -ms-filter: blur(5px);
+  // filter: blur(5px);
+}
+
+.parallax-content {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
