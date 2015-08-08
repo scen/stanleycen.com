@@ -29,6 +29,7 @@
     }
 }());
 
+
 // Use native JS over jQuery for better performance.
 var Parallax = {
     SPEED_RATIO: 2.0,
@@ -36,14 +37,14 @@ var Parallax = {
 
     img_cache: [],
     wrap_cache: [],
-    offset_cache: [],
+    offset_top_cache: [],
     count: 0,
 
     init: function() {
         $('.parallax-img').each(function(idx) {
             Parallax.img_cache.push(this);
             Parallax.wrap_cache.push(this.parentNode);
-            Parallax.offset_cache.push(this.parentNode.offsetTop);
+            Parallax.offset_top_cache.push(this.parentNode.offsetTop);
             Parallax.count++;
         });
         Parallax._refresh_y_offsets();
@@ -53,7 +54,7 @@ var Parallax = {
         var scroll_y = window.pageYOffset;
         for (var i = 0; i < Parallax.count; i++) {
             var elem = Parallax.img_cache[i];
-            var offset = scroll_y - Parallax.offset_cache[i];
+            var offset = scroll_y - Parallax.offset_top_cache[i];
             var dist = offset / Parallax.SPEED_RATIO; // Clamp to [0, inf]?
             var scale = 1 + Math.max(offset / Parallax.SCALE_RATIO, 0);
             Parallax._translate_y_and_scale(elem, dist, scale);
@@ -71,7 +72,7 @@ var Parallax = {
 
     _refresh_y_offsets: function() {
         for (var i = 0; i < Parallax.count; i++) {
-            Parallax.offset_cache[i] = Parallax.wrap_cache[i].offsetTop;
+            Parallax.offset_top_cache[i] = Parallax.wrap_cache[i].offsetTop;
         }
     }
 };
@@ -109,8 +110,9 @@ $(document).ready(function() {
         }
     });
 
-    // use https://jschr.github.io/textillate/
+
     // use https://mango.github.io/slideout/
     // TODO: make a favicon
     // TODO: specificly extract the necessary classes from animate.css
+    // TODO: add dropbox font logo to timeline
 });

@@ -1,0 +1,148 @@
+// Comment out what's not needed.
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('/font/brandongrotesque/BrandonGrotesque-Thin.eot');
+  src: url('/font/brandongrotesque/BrandonGrotesque-Thin.eot?#iefix') format('embedded-opentype'),
+       url('/font/brandongrotesque/BrandonGrotesque-Thin.woff2') format('woff2'),
+       url('/font/brandongrotesque/BrandonGrotesque-Thin.woff') format('woff'),
+       url('/font/brandongrotesque/BrandonGrotesque-Thin.ttf') format('truetype'),
+       url('/font/brandongrotesque/BrandonGrotesque-Thin.svg#BrandonGrotesque-Thin') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('/font/brandongrotesque/BrandonGrotesque-ThinItalic.eot');
+  src: url('/font/brandongrotesque/BrandonGrotesque-ThinItalic.eot?#iefix') format('embedded-opentype'),
+       url('/font/brandongrotesque/BrandonGrotesque-ThinItalic.woff2') format('woff2'),
+       url('/font/brandongrotesque/BrandonGrotesque-ThinItalic.woff') format('woff'),
+       url('/font/brandongrotesque/BrandonGrotesque-ThinItalic.ttf') format('truetype'),
+       url('/font/brandongrotesque/BrandonGrotesque-ThinItalic.svg#BrandonGrotesque-ThinItalic') format('svg');
+  font-weight: 100;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('/font/brandongrotesque/BrandonGrotesque-Light.eot');
+  src: url('/font/brandongrotesque/BrandonGrotesque-Light.eot?#iefix') format('embedded-opentype'),
+       url('/font/brandongrotesque/BrandonGrotesque-Light.woff2') format('woff2'),
+       url('/font/brandongrotesque/BrandonGrotesque-Light.woff') format('woff'),
+       url('/font/brandongrotesque/BrandonGrotesque-Light.ttf') format('truetype'),
+       url('/font/brandongrotesque/BrandonGrotesque-Light.svg#BrandonGrotesque-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('/font/brandongrotesque/BrandonGrotesque-LightItalic.eot');
+  src: url('/font/brandongrotesque/BrandonGrotesque-LightItalic.eot?#iefix') format('embedded-opentype'),
+       url('/font/brandongrotesque/BrandonGrotesque-LightItalic.woff2') format('woff2'),
+       url('/font/brandongrotesque/BrandonGrotesque-LightItalic.woff') format('woff'),
+       url('/font/brandongrotesque/BrandonGrotesque-LightItalic.ttf') format('truetype'),
+       url('/font/brandongrotesque/BrandonGrotesque-LightItalic.svg#BrandonGrotesque-LightItalic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('/font/brandongrotesque/BrandonGrotesque-Regular.eot');
+  src: url('/font/brandongrotesque/BrandonGrotesque-Regular.eot?#iefix') format('embedded-opentype'),
+       url('/font/brandongrotesque/BrandonGrotesque-Regular.woff2') format('woff2'),
+       url('/font/brandongrotesque/BrandonGrotesque-Regular.woff') format('woff'),
+       url('/font/brandongrotesque/BrandonGrotesque-Regular.ttf') format('truetype'),
+       url('/font/brandongrotesque/BrandonGrotesque-Regular.svg#BrandonGrotesque-Regular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('/font/brandongrotesque/BrandonGrotesque-RegularItalic.eot');
+  src: url('/font/brandongrotesque/BrandonGrotesque-RegularItalic.eot?#iefix') format('embedded-opentype'),
+       url('/font/brandongrotesque/BrandonGrotesque-RegularItalic.woff2') format('woff2'),
+       url('/font/brandongrotesque/BrandonGrotesque-RegularItalic.woff') format('woff'),
+       url('/font/brandongrotesque/BrandonGrotesque-RegularItalic.ttf') format('truetype'),
+       url('/font/brandongrotesque/BrandonGrotesque-RegularItalic.svg#BrandonGrotesque-RegularItalic') format('svg');
+  font-weight: 400;
+  font-style: italic;
+}
+
+// @font-face {
+//   font-family: 'BrandonGrotesque';
+//   src: url('/font/brandongrotesque/BrandonGrotesque-Medium.eot');
+//   src: url('/font/brandongrotesque/BrandonGrotesque-Medium.eot?#iefix') format('embedded-opentype'),
+//        url('/font/brandongrotesque/BrandonGrotesque-Medium.woff2') format('woff2'),
+//        url('/font/brandongrotesque/BrandonGrotesque-Medium.woff') format('woff'),
+//        url('/font/brandongrotesque/BrandonGrotesque-Medium.ttf') format('truetype'),
+//        url('/font/brandongrotesque/BrandonGrotesque-Medium.svg#BrandonGrotesque-Medium') format('svg');
+//   font-weight: 500;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'BrandonGrotesque';
+//   src: url('/font/brandongrotesque/BrandonGrotesque-MediumItalic.eot');
+//   src: url('/font/brandongrotesque/BrandonGrotesque-MediumItalic.eot?#iefix') format('embedded-opentype'),
+//        url('/font/brandongrotesque/BrandonGrotesque-MediumItalic.woff2') format('woff2'),
+//        url('/font/brandongrotesque/BrandonGrotesque-MediumItalic.woff') format('woff'),
+//        url('/font/brandongrotesque/BrandonGrotesque-MediumItalic.ttf') format('truetype'),
+//        url('/font/brandongrotesque/BrandonGrotesque-MediumItalic.svg#BrandonGrotesque-MediumItalic') format('svg');
+//   font-weight: 500;
+//   font-style: italic;
+// }
+
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('/font/brandongrotesque/BrandonGrotesque-Bold.eot');
+  src: url('/font/brandongrotesque/BrandonGrotesque-Bold.eot?#iefix') format('embedded-opentype'),
+       url('/font/brandongrotesque/BrandonGrotesque-Bold.woff2') format('woff2'),
+       url('/font/brandongrotesque/BrandonGrotesque-Bold.woff') format('woff'),
+       url('/font/brandongrotesque/BrandonGrotesque-Bold.ttf') format('truetype'),
+       url('/font/brandongrotesque/BrandonGrotesque-Bold.svg#BrandonGrotesque-Bold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('/font/brandongrotesque/BrandonGrotesque-BoldItalic.eot');
+  src: url('/font/brandongrotesque/BrandonGrotesque-BoldItalic.eot?#iefix') format('embedded-opentype'),
+       url('/font/brandongrotesque/BrandonGrotesque-BoldItalic.woff2') format('woff2'),
+       url('/font/brandongrotesque/BrandonGrotesque-BoldItalic.woff') format('woff'),
+       url('/font/brandongrotesque/BrandonGrotesque-BoldItalic.ttf') format('truetype'),
+       url('/font/brandongrotesque/BrandonGrotesque-BoldItalic.svg#BrandonGrotesque-BoldItalic') format('svg');
+  font-weight: 700;
+  font-style: italic;
+}
+
+// @font-face {
+//   font-family: 'BrandonGrotesque';
+//   src: url('/font/brandongrotesque/BrandonGrotesque-Black.eot');
+//   src: url('/font/brandongrotesque/BrandonGrotesque-Black.eot?#iefix') format('embedded-opentype'),
+//        url('/font/brandongrotesque/BrandonGrotesque-Black.woff2') format('woff2'),
+//        url('/font/brandongrotesque/BrandonGrotesque-Black.woff') format('woff'),
+//        url('/font/brandongrotesque/BrandonGrotesque-Black.ttf') format('truetype'),
+//        url('/font/brandongrotesque/BrandonGrotesque-Black.svg#BrandonGrotesque-Black') format('svg');
+//   font-weight: 900;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'BrandonGrotesque';
+//   src: url('/font/brandongrotesque/BrandonGrotesque-BlackItalic.eot');
+//   src: url('/font/brandongrotesque/BrandonGrotesque-BlackItalic.eot?#iefix') format('embedded-opentype'),
+//        url('/font/brandongrotesque/BrandonGrotesque-BlackItalic.woff2') format('woff2'),
+//        url('/font/brandongrotesque/BrandonGrotesque-BlackItalic.woff') format('woff'),
+//        url('/font/brandongrotesque/BrandonGrotesque-BlackItalic.ttf') format('truetype'),
+//        url('/font/brandongrotesque/BrandonGrotesque-BlackItalic.svg#BrandonGrotesque-BlackItalic') format('svg');
+//   font-weight: 900;
+//   font-style: italic;
+// }

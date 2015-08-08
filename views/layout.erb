@@ -13,7 +13,6 @@
 			<meta name="Description" content="Hi there! I'm Stanley Cen, a computer science enthusiast studying Course 6 at MIT. I love making stuff and here you'll find my projects and their stories.">
 		<% end %>
 		<link rel="author" href="/humans.txt" />
-		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,300,700' rel='stylesheet' type='text/css'>
 		<link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet" type="text/css"/>
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
@@ -47,12 +46,12 @@ var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-4253037-6"]),_gaq.push(["_setDoma
 				</div>
 				<section id="masthead">
 					<div class="parallax-wrap">
-						<div class="parallax-img"><div class="darken-filter"></div></div>
+						<div class="parallax-img home-parallax-img"><div class="darken-filter"></div></div>
 						<div class="parallax-content">
 							<div class="masthead-home-tagline">
-								<div class=>
-									<h3 class="animated slideInDown"><%= GREETINGS.sample %> I'm Stanley, an&hellip;</h3>
-									<h1 class="animated slideInDown">mit 2018 + dropbox intern + builder of things.</h1>
+								<div class>
+									<h3 class="animated slideInDown"><em><%= GREETINGS.last %></em> :<span class="paren">)</span></h3>
+									<h1 class="animated slideInDown">I'm <strong>Stanley</strong>, a freshman@mit, intern@dropbox, and builder of things.</h1>
 								</div>
 							</div>
 							<div id="scroll-notifier">
@@ -60,43 +59,162 @@ var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-4253037-6"]),_gaq.push(["_setDoma
 						</div>
 					</div>
 				</section>
-				<section style="height: 1000px">
-				</section>
-				<!-- <header id="header" class="hide-nav">
-					<a class="navicon-button">
-						<div class="navicon"></div>
-					</a>
-					<h1><a href="<%= @nav == 'home' ? '#home' : '/'%>">stanley cen</a></h1>
-					<nav>
-						<ul>
-							<li><a href="<%= nav_url(@nav,'projects') %>" class="<%= get_nav_classes 'projects' %>">projects</a></li>
-							<li><a href="<%= nav_url(@nav,'blog')%>" class="<%= get_nav_classes 'blog' %>">blog</a></li>
-							<li><a href="<%= @nav == 'home' ? '#about' : '/#about'%>" class="<%= get_nav_classes 'about' %>">about</a></li>
-							<li><a href="<%= @nav == 'home' ? '#contact' : '/#contact'%>" class="<%= get_nav_classes 'contact' %>">contact</a></li>
-							<li><a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a></li>
+				<section id="content-wrap">
+					<div class="body-text">
+						<h1>Who am I?</h1>
+						<p>I'm a freshman at MIT, and I'm passionate about computer science. I've spent the better part of my life (10+ years and counting!)
+							programming, and I don't plan on slowing down anytime soon.</p>
+
+						<p>I've explored and learned a whole lot since then. Game hacking, mobile dev, algorithms, reverse engineering, computer vision, web dev, robotics, machine learning&hellip; if you can name it,
+						 I've probably (at least) dabbled in it.</p>
+
+						 <p>For your enjoyment, here's a (reverse) timeline of selected milestones in my life as a software engineer:</p>
+					</div>
+					<div class="timeline-wrap">
+						<ul class="timeline">
+							<li>
+								<time>
+									<span>
+										Freshman Year
+									</span>
+									<span>
+										Summer '15
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>Dropbox &mdash; Software Engineering Internship</h2>
+									<span class="more">
+										<p>I worked on Dropbox's new contacts infrastructure containing billions of contacts. Improved aggregation, search quality, and relevance.</p>
+									</span>
+								</div>
+							</li>
+							<li>
+								<time>
+									<span>
+										Freshman Year
+									</span>
+									<span>
+										January '15
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>NASDAQ &mdash; Data Science Externship</h2>
+									<span class="more">
+										<p>A team 4 fellow MIT students and I built, tested, and pipelined a statistical model using R and Python to predict customer cancellations.</p>
+									</span>
+								</div>
+							</li>
+							<li>
+								<time>
+									<span>
+										High School
+									</span>
+									<span>
+										2010 &ndash; 2014
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>Competitive programming</h2>
+									<span class="more">
+										<p>I was a <a href="http://usaco.org/">USA Computing Olympiad</a> finalist in <a href="http://usaco.org/index.php?page=finalists12">2012</a> and <a href="http://usaco.org/index.php?page=finalists13">2013</a>. Lots and lots of algorithms.</p>
+									</span>
+								</div>
+							</li>
+							<li>
+								<time>
+									<span>
+										High School
+									</span>
+									<span>
+										2013
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>MIT CSAIL &mdash; Research</h2>
+									<span class="more">
+										<p>Conducted research on visualization strategies in collaborative temporal planning through the prestigious <a href="http://www.cee.org/news/research-science-institute-mit-hosts-81-high-school-students">Research Science Institute</a> program at the MIT Computer Science and Artificial Intelligence Laboratory.</p>
+									</span>
+								</div>
+							</li>
+							<li>
+								<time>
+									<span>
+										Life
+									</span>
+									<span>
+										2005 &ndash; now
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>Learning, hacking, building, and more learning</h2>
+									<span class="more">
+										<p>Must. Learn. Everything. 100+ random side projects.</p>
+									</span>
+								</div>
+							</li>
+							<li>
+								<time>
+									<span>
+										3<sup>rd</sup> grade
+									</span>
+									<span>
+										Mar '05
+									</span>
+								</time>
+								<div class="waypoint"></div>
+								<div class="label">
+									<h2>Started learning how to program</h2>
+									<span class="more">
+										<p>When &amp; where it all began! I taught myself by reading <i>C: How to Program</i> by Deitel.</p>
+									</span>
+								</div>
+							</li>
 						</ul>
-					</nav>
-				</header>
-				<div id="contentall">
-					<%= "<div style='height:52px'></div>" if @nav != 'home' %>
-					<%= yield %>
-				</div>
-				<footer>
-					<% if @nav == 'home' %>
-					<% end %>
-					<div class="bar">
-						<div class="wrapper">
-							<span class="copyleft">
-								Designed with &lt;3 by Stanley Cen
-							</span>
-							<span class="latest-commit">
-								<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>Running latest commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">
-			                <%= get_commit_sha[0...7] %></a> <%= get_commit_time.to_pretty %>: <%= '"' + get_commit_msg.split(/\n/).first + '"' %><% end %>
-							</span>
+					</div>
+					<div class="body-text">
+						<p>Like what you see? I'm always looking for <strong>awesome &amp; fun</strong> opportunities. I'd love to hear from
+						you! Hit me up <a href="<%= @nav == 'home' ? '#contact' : '/#contact'%>">here</a>. If you're looking for cool side projects, keep scrolling&hellip;
+						</p>
+					</div>
+				</section>
+				<!-- <section class="parallax2">
+					<div class="parallax-wrap">
+						<div class="parallax-img parallax2-img"><div class="darken-filter"></div></div>
+						<div class="parallax-content">
+							<h1>I make dank software using monads.</h1>
 						</div>
 					</div>
-				</footer> -->
+				</section> -->
+				<section id="content-wrap" style="height: 1000px">
+					<div class="body-text">
+						<p>10 years of hacking and pixel pushing...</p>
+					</div>
+				</section>
+			<!-- 	<section class="parallax2">
+					<div class="parallax-wrap">
+						<div class="parallax-img parallax2-img"><div class="darken-filter"></div></div>
+						<div class="parallax-content">
+							<h1>I make dank software using monads.</h1>
+						</div>
+					</div>
+				</section> -->
 			</div>
 		</div>
+		<footer>
+			<div class="wrapper">
+				<div class="copyleft">
+					Designed with &lt;3 by Stanley Cen
+				</div>
+				<div class="latest-commit">
+					<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>Running latest commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">
+                <%= get_commit_sha[0...7] %></a> (<%= get_commit_time.to_pretty %>): <%= '"' + get_commit_msg.split(/\n/).first + '"' %><% end %>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
