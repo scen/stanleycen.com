@@ -14,7 +14,7 @@ enable :sessions
 
 DEFAULT_WIDTH = 300
 CLOUDINARY_BASE = 'http://res.cloudinary.com/hazdcamql/image/upload/'
-GREETINGS = ['Hey there!', 'Hello there!', 'Hi there!']
+GREETINGS = ['Hey there!', 'Hello there!', 'Hi there!', 'Hellooo there!']
 
 helpers do
   def format_post(source)

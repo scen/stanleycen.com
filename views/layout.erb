@@ -16,12 +16,13 @@
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,300,700' rel='stylesheet' type='text/css'>
 		<link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet" type="text/css"/>
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
 		<link href="/main.css" rel="stylesheet" type="text/css"/>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" defer></script>
-		<script src="/jquery.mobiledetect.js" defer></script>
+		<script src="/js/jquery.mobiledetect.js" defer></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" defer></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.45/jquery.form.min.js" defer></script>
-		<script src="/main.js" defer></script>
+		<script src="/js/main.js" defer></script>
 	    <script type="text/javascript">
 var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-4253037-6"]),_gaq.push(["_setDomainName","stanleycen.com"]),_gaq.push(["_trackPageview"]),function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}();var _paq=_paq||[];_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){var e="http://lake.stanleycen.com:8080/";_paq.push(["setTrackerUrl",e+"piwik.php"]),_paq.push(["setSiteId",1]);var a=document,p=a.createElement("script"),t=a.getElementsByTagName("script")[0];p.type="text/javascript",p.async=!0,p.defer=!0,p.src=e+"piwik.js",t.parentNode.insertBefore(p,t)}();window.heap=window.heap||[],heap.load=function(t,e){window.heap.appid=t,window.heap.config=e;var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(t){return function(){heap.push([t].concat(Array.prototype.slice.call(arguments,0)))}},p=["identify","track"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])}; heap.load("3908329247");
 		</script>
@@ -49,7 +50,12 @@ var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-4253037-6"]),_gaq.push(["_setDoma
 						<div class="parallax-img"><div class="darken-filter"></div></div>
 						<div class="parallax-content">
 							<div class="masthead-home-tagline">
-								<h1>Hello, world!</h1>
+								<div class=>
+									<h3 class="animated slideInDown"><%= GREETINGS.sample %> I'm Stanley, an&hellip;</h3>
+									<h1 class="animated slideInDown">mit 2018 + dropbox intern + builder of things.</h1>
+								</div>
+							</div>
+							<div id="scroll-notifier">
 							</div>
 						</div>
 					</div>
