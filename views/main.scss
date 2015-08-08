@@ -163,7 +163,7 @@ body {
   height: 110%;
   width: 100%;
   overflow: hidden;
-  background: url(/img/parallax.jpg);
+  background: url(/img/parallax1.jpg);
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: cover;
@@ -171,11 +171,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  // -webkit-filter: blur(5px);
-  // -moz-filter: blur(5px);
-  // -o-filter: blur(5px);
-  // -ms-filter: blur(5px);
-  // filter: blur(5px);
 }
 
 .parallax-content {

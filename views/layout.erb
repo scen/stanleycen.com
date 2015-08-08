@@ -35,9 +35,9 @@ var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-4253037-6"]),_gaq.push(["_setDoma
 						<div class="name"><a href="/"><h1>stanley</h1><h2>cen</h2></a></div>
 						<nav>
 							<ul>
+								<li><a href="<%= @nav == 'home' ? '#about' : '/#about'%>" class="<%= get_nav_classes 'about' %>">about</a></li>
 								<li><a href="<%= nav_url(@nav,'projects') %>" class="<%= get_nav_classes 'projects' %>">projects</a></li>
 								<li><a href="<%= nav_url(@nav,'blog')%>" class="<%= get_nav_classes 'blog' %>">blog</a></li>
-								<li><a href="<%= @nav == 'home' ? '#about' : '/#about'%>" class="<%= get_nav_classes 'about' %>">about</a></li>
 								<li><a href="<%= @nav == 'home' ? '#contact' : '/#contact'%>" class="<%= get_nav_classes 'contact' %>">contact</a></li>
 								<li><a href="http://github.com/scen/" class="<%= get_nav_classes 'github' %>">github</a></li>
 							</ul>
