@@ -71,6 +71,7 @@ var Parallax = {
     },
 
     _refresh_y_offsets: function() {
+        console.log("refreshing offsets");
         for (var i = 0; i < Parallax.count; i++) {
             Parallax.offset_top_cache[i] = Parallax.wrap_cache[i].offsetTop;
         }
@@ -85,11 +86,11 @@ $(document).ready(function() {
     });
 
     function on_raf() {
-        window.requestAnimationFrame(on_raf);
+        requestAnimationFrame(on_raf);
 
         Parallax.update();
     }
-    window.requestAnimationFrame(on_raf);
+    requestAnimationFrame(on_raf);
 
     $('header > nav > ul > li > a').hover(function() {
         // enter
@@ -99,16 +100,16 @@ $(document).ready(function() {
         $(this).parent().siblings('li').children('a').removeClass('blur');
     });
 
-    var scroll_notifier = $('#scroll-notifier')[0];
+    // var scroll_notifier = $('#scroll-notifier')[0];
 
-    $(window).scroll(function() {
-        if (window.pageYOffset > 0) {
-            scroll_notifier.style.display = 'none';
-        }
-        else {
-            scroll_notifier.style.display = 'block';
-        }
-    });
+    // $(window).scroll(function() {
+    //     if (window.pageYOffset > 0) {
+    //         scroll_notifier.style.display = 'none';
+    //     }
+    //     else {
+    //         scroll_notifier.style.display = 'block';
+    //     }
+    // });
 
 
     // use https://mango.github.io/slideout/

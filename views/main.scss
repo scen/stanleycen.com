@@ -254,22 +254,14 @@ footer {
   height: 29px;
   background: url(/img/scroll.png) no-repeat center center;
   display: block;
-  -webkit-animation: bounce-fade 2s infinite; /* Safari 4+ */
-  -moz-animation:    bounce-fade 2s infinite; /* Fx 5+ */
-  -o-animation:      bounce-fade 2s infinite; /* Opera 12+ */
-  animation:        bounce-fade 2s infinite; /* IE 10+ */
+  // -webkit-animation: bounce-fade 2s infinite; /* Safari 4+ */
+  // -moz-animation:    bounce-fade 2s infinite; /* Fx 5+ */
+  // -o-animation:      bounce-fade 2s infinite; /* Opera 12+ */
+  // animation:        bounce-fade 2s infinite; /* IE 10+ */
 }
 
 // Home content
 
-.parallax2 {
-  height: 500px;
-}
-
-.parallax2-img {
-  background: url(/img/parallax1.jpg);
-  height: 1000px !important;
-}
 
 // Parallax
 
