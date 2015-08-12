@@ -5,11 +5,12 @@ CUserCmd is a class that holds player buttons, viewangles, position, and other m
 This circular buffer is part of the CInput class, which we can get the global instance of by reversing `CHLClient->IN_ActivateMouse()`. The first instruction in this virtual function references a pointer to an instance of CInput, and we can get this pointer by doing the following:
 
 
-    \cpp
-    void *pClient = 0xDEADBEEF; //you should already have this pointer
-    DWORD **pClientVtable = *(DWORD ***)(*pClient); //client+0x0 contains the vtable pointer
-    DWORD *pIN_ACTIVATEMOUSE = pClientVtable[16]; //16th vfunc
-    CInput *pgInput = *(CInput **)(pIN_ACTIVATEMOUSE + 0x2);
+```cpp
+void *pClient = 0xDEADBEEF; //you should already have this pointer
+DWORD **pClientVtable = *(DWORD ***)(*pClient); //client+0x0 contains the vtable pointer
+DWORD *pIN_ACTIVATEMOUSE = pClientVtable[16]; //16th vfunc
+CInput *pgInput = *(CInput **)(pIN_ACTIVATEMOUSE + 0x2);
+```
 
 <!--more-->
 
@@ -22,50 +23,51 @@ From this we can see first of all, the size of the CUserCmd structure has increa
 We can also see the location where the circular buffer is stored, but I'll explain that after this segment:
 
 
-    \cpp
-    .text:102480C0 ; int __thiscall CInput__GetUserCmd(void *this, int nSlot, signed int sequence_number)
-    .text:102480C0 CInput__GetUserCmd proc near            ; DATA XREF: .rdata:105F2C74o
-    .text:102480C0                                         ; .rdata:1061F4B4o
-    .text:102480C0
-    .text:102480C0 nSlot           = dword ptr  8
-    .text:102480C0 sequence_number = dword ptr  0Ch
-    .text:102480C0
-    .text:102480C0                 push    ebp
-    .text:102480C1                 mov     ebp, esp
-    .text:102480C3                 mov     eax, [ebp+nSlot]
-    .text:102480C6                 push    esi
-    .text:102480C7                 cmp     eax, 0FFFFFFFFh ; CMP -1
-    .text:102480CA                 jnz     short loc_102480D1
-    .text:102480CC                 lea     esi, [ecx+38h]
-    .text:102480CF                 jmp     short loc_102480DB
-    .text:102480D1 ; ---------------------------------------------------------------------------
-    .text:102480D1
-    .text:102480D1 loc_102480D1:                           ; CODE XREF: CInput__GetUserCmd+Aj
-    .text:102480D1                 imul    eax, 0D4h
-    .text:102480D7                 lea     esi, [eax+ecx+38h]
-    .text:102480DB
-    .text:102480DB loc_102480DB:                           ; CODE XREF: CInput__GetUserCmd+Fj
-    .text:102480DB                 mov     ecx, [ebp+sequence_number]
-    .text:102480DE                 mov     eax, 1B4E81B5h
-    .text:102480E3                 imul    ecx
-    .text:102480E5                 sar     edx, 4
-    .text:102480E8                 mov     eax, edx
-    .text:102480EA                 shr     eax, 1Fh
-    .text:102480ED                 add     edx, eax
-    .text:102480EF                 imul    edx, 96h        ; MULTIPLAYER_BACKUP = 150 decimal
-    .text:102480F5                 mov     eax, ecx
-    .text:102480F7                 sub     eax, edx
-    .text:102480F9                 imul    eax, 64h        ; sizeof(CUserCmd) = 100
-    .text:102480FC                 add     eax, [esi+0ACh]
-    .text:10248102                 xor     edx, edx
-    .text:10248104                 cmp     [eax+4], ecx
-    .text:10248107                 pop     esi
-    .text:10248108                 setnz   dl
-    .text:1024810B                 dec     edx
-    .text:1024810C                 and     eax, edx
-    .text:1024810E                 pop     ebp
-    .text:1024810F                 retn    8
-    .text:1024810F CInput__GetUserCmd endp
+```cpp
+.text:102480C0 ; int __thiscall CInput__GetUserCmd(void *this, int nSlot, signed int sequence_number)
+.text:102480C0 CInput__GetUserCmd proc near            ; DATA XREF: .rdata:105F2C74o
+.text:102480C0                                         ; .rdata:1061F4B4o
+.text:102480C0
+.text:102480C0 nSlot           = dword ptr  8
+.text:102480C0 sequence_number = dword ptr  0Ch
+.text:102480C0
+.text:102480C0                 push    ebp
+.text:102480C1                 mov     ebp, esp
+.text:102480C3                 mov     eax, [ebp+nSlot]
+.text:102480C6                 push    esi
+.text:102480C7                 cmp     eax, 0FFFFFFFFh ; CMP -1
+.text:102480CA                 jnz     short loc_102480D1
+.text:102480CC                 lea     esi, [ecx+38h]
+.text:102480CF                 jmp     short loc_102480DB
+.text:102480D1 ; ---------------------------------------------------------------------------
+.text:102480D1
+.text:102480D1 loc_102480D1:                           ; CODE XREF: CInput__GetUserCmd+Aj
+.text:102480D1                 imul    eax, 0D4h
+.text:102480D7                 lea     esi, [eax+ecx+38h]
+.text:102480DB
+.text:102480DB loc_102480DB:                           ; CODE XREF: CInput__GetUserCmd+Fj
+.text:102480DB                 mov     ecx, [ebp+sequence_number]
+.text:102480DE                 mov     eax, 1B4E81B5h
+.text:102480E3                 imul    ecx
+.text:102480E5                 sar     edx, 4
+.text:102480E8                 mov     eax, edx
+.text:102480EA                 shr     eax, 1Fh
+.text:102480ED                 add     edx, eax
+.text:102480EF                 imul    edx, 96h        ; MULTIPLAYER_BACKUP = 150 decimal
+.text:102480F5                 mov     eax, ecx
+.text:102480F7                 sub     eax, edx
+.text:102480F9                 imul    eax, 64h        ; sizeof(CUserCmd) = 100
+.text:102480FC                 add     eax, [esi+0ACh]
+.text:10248102                 xor     edx, edx
+.text:10248104                 cmp     [eax+4], ecx
+.text:10248107                 pop     esi
+.text:10248108                 setnz   dl
+.text:1024810B                 dec     edx
+.text:1024810C                 and     eax, edx
+.text:1024810E                 pop     ebp
+.text:1024810F                 retn    8
+.text:1024810F CInput__GetUserCmd endp
+```
 
 
 Looking at this disassembly here is the equivalent C++ code I have reversed (compacted by adding a few constants together)

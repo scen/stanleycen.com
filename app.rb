@@ -16,13 +16,23 @@ DEFAULT_WIDTH = 300
 CLOUDINARY_BASE = 'http://res.cloudinary.com/hazdcamql/image/upload/'
 GREETINGS = ['Hey there!', 'Hello there!', 'Hi there!', 'Hellooo there!']
 
+HOME_MASTHEAD_IMG = "/img/parallax1.jpg"
+
+BLOG_DEFAULT_MASTHEAD_IMG = "/img/parallax.jpg"
+BLOG_POST_DEFAULT_MASTHEAD_IMG = "/img/parallax.jpg"
+
+PROJECTS_DEFAULT_MASTHEAD_IMG = "/img/parallax.jpg"
+PROJECT_POST_DEFAULT_MASTHEAD_IMG = "/img/parallax.jpg"
+
+
 helpers do
   def format_post(source)
     source = (source.split("<!--more-->").map { |s| s.strip }.join("\n") || source).strip
-    html = markdown source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$))*/) { |snippet|
-      lang, *source = snippet.lines.to_a
-      Pygments.highlight source.map { |x| x[4..-1] }.join("\n"), lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
-    }
+    # content = source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$))*/) { |snippet|
+    #   lang, *source = snippet.lines.to_a
+    #   Pygments.highlight source.map { |x| x[4..-1] }.join("\n"), lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
+    # }
+    html = MarkdownService.call source
     noko = Nokogiri::HTML.fragment(html)
     noko.css('photo').each do |photo|
       if photo.attribute('cloudinary')
@@ -174,7 +184,7 @@ end
 get '/' do
   @title = nil
   @nav = "home"
-  @header_img = 'parallax.jpg' # TODO: fix this
+  @header_img = HOME_MASTHEAD_IMG
   session[:salt] = SecureRandom.base64 # set salt on initial GET
   erb :index
 end
@@ -183,13 +193,14 @@ get '/blog/?' do
   @posts = Post.all
   @title = "Blog"
   @nav = "blog"
+  @header_img = BLOG_DEFAULT_MASTHEAD_IMG
   erb :blog
 end
 
 get '/blog/:slug/?' do |slug|
   @post = Post.find(slug)
   @title = @post.title
-  @header_img = @post.header_img
+  @header_img = @post.header_img || BLOG_POST_DEFAULT_MASTHEAD_IMG
   @nav = "blog"
   erb :blog_post
 end
@@ -197,6 +208,7 @@ end
 get '/projects/?' do
   @nav = "projects"
   @title = "Projects"
+  @header_img = PROJECTS_DEFAULT_MASTHEAD_IMG
   erb :projects_all
 end
 
@@ -204,7 +216,7 @@ get '/project/:slug/?' do |slug|
   @proj = Project.find(slug)
   @title = @proj.title
   @nav = "projects"
-  @header_img = @proj.header_img
+  @header_img = @proj.header_img || PROJECT_POST_DEFAULT_MASTHEAD_IMG
   erb :project
 end
 

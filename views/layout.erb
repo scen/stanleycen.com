@@ -10,13 +10,18 @@
         </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 		<% if @nav == 'home' %>
-			<meta name="Description" content="Hi there! I'm Stanley Cen, a computer science enthusiast studying Course 6 at MIT. I love making stuff and here you'll find my projects and their stories.">
+			<meta name="Description" content="Helloo there! I'm Stanley Cen, freshman at MIT studying computer science and an intern at Dropbox!">
 		<% end %>
 		<link rel="author" href="/humans.txt" />
 		<link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet" type="text/css"/>
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
 		<link href="/main.css" rel="stylesheet" type="text/css"/>
+		<style type="text/css">
+			.masthead-parallax-img {
+				background: url("<%= @header_img %>");
+			}
+		</style>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" defer></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" defer></script>
 		<script src="/js/main.js" defer></script>
@@ -44,16 +49,27 @@ var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-4253037-6"]),_gaq.push(["_setDoma
 				</div>
 				<section id="masthead">
 					<div class="parallax-wrap">
-						<div class="parallax-img home-parallax-img"><div class="darken-filter"></div></div>
+						<div class="parallax-img masthead-parallax-img"><div class="darken-filter"></div></div>
 						<div class="parallax-content">
-							<div class="masthead-home-tagline">
-								<div class>
-									<h3 class="animated slideInDown"><em><%= GREETINGS.last %></em> :<span class="paren">)</span></h3>
-									<h1 class="animated slideInDown">I'm <strong>Stanley</strong>, a freshman@mit, intern@dropbox, and builder of things.</h1>
+							<% case @nav
+							   when 'home' %>
+								<div class="masthead-home-tagline">
+									<div class>
+										<h3 class="animated slideInDown"><em><%= GREETINGS.last %></em> :<span class="paren">)</span></h3>
+										<h1 class="animated slideInDown">I'm <strong>Stanley</strong>, a freshman@mit, intern@dropbox, and builder of things.</h1>
+									</div>
 								</div>
-							</div>
-			<!-- 				<div id="scroll-notifier">
-							</div> -->
+							<% when 'blog' %>
+								<% if @post # if we're browsing to a specific post %>
+									<div class="blog-masthead">
+										<div class>
+											<h1 class="animated slideInDown"><%= @post.title %></h1>
+										</div>
+									</div>
+								<% else %>
+									Ayylmao
+								<% end %>
+							<% end %>
 						</div>
 					</div>
 				</section>

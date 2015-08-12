@@ -26,7 +26,12 @@ class Post
 
       next unless content =~ /\A# (.*)$/
 
-      result << (Post.new slug: slug, title: $1, content: $'.strip, created_at: created_at, header_img: arr[2])
+      header_img = nil
+      if arr.length >= 3
+        header_img = arr[2]
+      end
+
+      result << (Post.new slug: slug, title: $1, content: $'.strip, created_at: created_at, header_img: header_img)
     end
   end
 

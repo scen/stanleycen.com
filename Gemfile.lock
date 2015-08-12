@@ -51,8 +51,10 @@ GEM
       rack (>= 1.0)
     rake (10.1.0)
     rdiscount (2.1.6)
+    redcarpet (3.3.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rouge (1.9.1)
     rubyzip (0.9.9)
     sass (3.2.10)
     sinatra (1.4.3)
@@ -82,6 +84,8 @@ DEPENDENCIES
   rack-test
   rake
   rdiscount
+  redcarpet
+  rouge
   sass
   sinatra
   uglifier

@@ -219,6 +219,32 @@ footer {
   }
 }
 
+.blog-masthead {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  padding-left: 80px;
+  padding-right: 80px;
+
+  & > div {
+    position: relative;
+    width: 100%;
+    max-width: $content-max-width;
+    margin: 0 auto;
+    top: 50%;
+    @include transform(translateY(-50%));
+
+
+    h1 {
+      font-weight: 100;
+
+      strong {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
 .darken-filter {
   // background-color: rgb(41, 136, 196);
   background-color: $nothingness;
@@ -277,9 +303,9 @@ footer {
   height: 110%;
   width: 100%;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: center 0;
-  background-size: cover;
+  background-repeat: no-repeat !important;
+  background-position: center 0 !important;
+  background-size: cover !important;
   margin: 0 auto;
   position: absolute;
   top: 0;
@@ -520,4 +546,19 @@ ul.timeline {
       }
     }
   }
+}
+
+// Code highlighting
+
+.highlight > code {
+  background-color: #fff;
+  font-size: 1.5rem;
+}
+
+code {
+  // font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+  // font-family: monospace;
+  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+  font-size: 2rem;
+  // font-size: 75% !important;
 }

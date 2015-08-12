@@ -116,4 +116,6 @@ $(document).ready(function() {
     // TODO: make a favicon
     // TODO: specificly extract the necessary classes from animate.css
     // TODO: add dropbox font logo to timeline
+    // TODO: fix a href styles
+    // TODO: fix pygments css theme
 });
