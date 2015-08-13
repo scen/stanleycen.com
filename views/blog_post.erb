@@ -3,4 +3,4 @@
         <%= @post.cache_full ||= format_post @post.content %>
     </div>
 </section>
-<style><%= @post.cache_css ||= Rouge::Themes::Base16.mode(:light).render(scope: '.highlight') %></style>
+<style><%= @post.cache_css ||= Rouge::Theme.find('base16.solarized').render(scope: '.highlight') %></style>

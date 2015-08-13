@@ -100,6 +100,8 @@ $(document).ready(function() {
         $(this).parent().siblings('li').children('a').removeClass('blur');
     });
 
+    $('a.popout-lightbox').fluidbox();
+
     // var scroll_notifier = $('#scroll-notifier')[0];
 
     // $(window).scroll(function() {
@@ -118,4 +120,8 @@ $(document).ready(function() {
     // TODO: add dropbox font logo to timeline
     // TODO: fix a href styles
     // TODO: fix pygments css theme
+    // TODO: convert all blog posts to new format...
+    // TODO: fix highlight
+    // TODO: read http://stackoverflow.com/questions/21099528/multiple-files-on-cdn-vs-one-file-locally
+    // TODO: fix fucking fluidbox vendor anims
 });

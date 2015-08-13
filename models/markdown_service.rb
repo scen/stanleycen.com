@@ -22,7 +22,7 @@ class MarkdownService
   private
 
   def markdown_renderer
-    Redcarpet::Markdown.new(Renderer, autolink: true, tables: true, fenced_code_blocks: true)
+    Redcarpet::Markdown.new(Renderer, autolink: true, tables: true, fenced_code_blocks: true, disable_indented_code_blocks: true, strikethrough: true, no_intra_emphasis: true, superscript: true, quote: true)
   end
 
   def render

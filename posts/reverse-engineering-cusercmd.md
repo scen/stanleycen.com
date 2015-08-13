@@ -1,6 +1,6 @@
 # Reverse Engineering CUserCmd in Counter Strike: Global Offensive
 
-CUserCmd is a class that holds player buttons, viewangles, position, and other movement specific data. These user commands are stored in a circular buffer, where they are then sent to the server. In Counter Strike: Global Offensive however, these data structures have changed as well as some intrinsics.
+`CUserCmd` is a class that holds player buttons, viewangles, position, and other movement specific data. These user commands are stored in a circular buffer, where they are then sent to the server. In Counter Strike: Global Offensive however, these data structures have changed as well as some intrinsics.
 
 This circular buffer is part of the CInput class, which we can get the global instance of by reversing `CHLClient->IN_ActivateMouse()`. The first instruction in this virtual function references a pointer to an instance of CInput, and we can get this pointer by doing the following:
 
@@ -73,29 +73,31 @@ We can also see the location where the circular buffer is stored, but I'll expla
 Looking at this disassembly here is the equivalent C++ code I have reversed (compacted by adding a few constants together)
 
 
-    \cpp
-    CUserCmd* GetUserCmd(void *thisptr, int nSlot, int sequence_number)
-    {
-        CUserCmd *pCircularBuffer = 0;
-        if (nSlot == -1)
-            pCircularBuffer = (CUserCmd *)((char *)thisptr + 0xE4);
-        else
-            pCircularBuffer = (CUserCmd *)((char *)thisptr + (nSlot * 212) + 0xE4);
-        return &pCircularBuffer[sequence_number % 150];
-    }
+```cpp
+CUserCmd* GetUserCmd(void *thisptr, int nSlot, int sequence_number)
+{
+    CUserCmd *pCircularBuffer = 0;
+    if (nSlot == -1)
+        pCircularBuffer = (CUserCmd *)((char *)thisptr + 0xE4);
+    else
+        pCircularBuffer = (CUserCmd *)((char *)thisptr + (nSlot * 212) + 0xE4);
+    return &pCircularBuffer[sequence_number % 150];
+}
+```
 
 As you can see, the circular buffer is stored at `gInput + 0xE4` and has a size of `150`.
 
 Now by hooking CreateMove, you can alter the viewangles of your player, your buttons, and anything else. But there's a catch: You can't just directly modify the command now, since Valve inserted a verification system for these commands. We can deduce a `CVerifiedUserCmd` structure as follows:
 
 
-    \cpp
-    class CInput
-    {
-        //...
-        CUserCmd *pCircBuf;
-        CVerifiedUserCmd *pCircBuf2;
-        //...
-    };
+```cpp
+class CInput
+{
+    //...
+    CUserCmd *pCircBuf;
+    CVerifiedUserCmd *pCircBuf2;
+    //...
+};
+```
 
-Since we reversed that pCircBuf was at the 0xE4 offset, we can deduce that pCircBuf2 is at 0xE8. Now we can easily modify the values by modifying the command, copying it to the CVerifiedUserCmd buffer and recalculating the CRC32 value.
+Since we reversed that `pCircBuf` was at the `0xE4` offset, we can deduce that `pCircBuf2` is at `0xE8`. Now we can easily modify the values by modifying the command, copying it to the `CVerifiedUserCmd` buffer and recalculating the CRC32 value.

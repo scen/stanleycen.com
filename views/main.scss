@@ -1,5 +1,6 @@
 @import 'mixins';
 @import 'fonts';
+// @import 'highlight';
 
 /*
 SASS can name breakpoints for media queries!!
@@ -30,13 +31,13 @@ body {
 #page-outer {
   // TODO, maybe remove padding for all so its flush
   padding-bottom: 40px;
-  padding-top: $page-top-padding;
+  // padding-top: $page-top-padding;
 
   // TODO: should these be fixed?
   // padding-left: 4%;
   // padding-right: 4%;
-  padding-left: 40px;
-  padding-right: 40px;
+  // padding-left: 40px;
+  // padding-right: 40px;
 }
 
 // Sync padding and other props with #page-outer!
@@ -339,8 +340,9 @@ footer {
   margin: 0 auto;
 
   h1, h2, h3 {
-    // font-weight: 400;
-    font-weight: 700;
+    font-weight: 400;
+    // font-weight: 500;
+    // font-weight: 700;
     color: #4c4c4c;
   }
 
@@ -349,6 +351,15 @@ footer {
     font-weight: 300;
     line-height: 3.7rem;
     color: #666;
+  }
+
+  a {
+    color: #1FC370;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    &:hover {
+      color: #3de08d;
+    }
   }
 }
 
@@ -559,6 +570,54 @@ code {
   // font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
   // font-family: monospace;
   font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  background-color: #f3f3f3;
   // font-size: 75% !important;
+}
+
+// Lightbox
+
+div.photo-wrap {
+  position: relative;
+  margin: 0 auto;
+
+  .photo {
+    margin: 0 auto;
+
+    a.lightbox {
+      border-bottom: none !important;
+
+      cursor: -webkit-zoom-in;
+      cursor: -moz-zoom-in;
+      cursor: zoom-in;
+
+      &.fluidbox-opened {
+        cursor: -webkit-zoom-out;
+        cursor: -moz-zoom-out;
+        cursor: zoom-out;
+      }
+    }
+  }
+
+  div.caption {
+    position: absolute;
+    left: -172px;
+    width: 125px;
+    text-align: right;
+    color: #666;
+    font-style: italic;
+    font-size: 1.8rem;
+    font-weight: 300;
+    top: 0;
+    margin-top: 0;
+
+    &:before {
+      width: 25%;
+      margin-left: 75%;
+      border-top: 1px solid rgba(0,0,0,0.15);
+      display: block;
+      content: "";
+      margin-bottom: 10px;
+    }
+  }
 }

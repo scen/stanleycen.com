@@ -34,7 +34,7 @@ helpers do
     # }
     html = MarkdownService.call source
     noko = Nokogiri::HTML.fragment(html)
-    noko.css('photo').each do |photo|
+    noko.css('div.photo').each do |photo|
       if photo.attribute('cloudinary')
         img_name = photo.attribute('src')
         title = photo.text || ""
@@ -69,10 +69,15 @@ helpers do
         div['style'] = ('max-width: ' + width.to_s + 'px') unless noresize
         img['style'] = ('max-width: 100%') unless noresize
 
+        outer_div = Nokogiri::XML::Node.new 'div', noko
+        outer_div['style'] = 'width: 100%'
+        outer_div['class'] = 'photo-wrap'
+
         a << img
         div << a
-        div << caption unless title == ''
-        photo.replace div
+        outer_div << div
+        outer_div << caption unless title == ''
+        photo.replace outer_div
       else
         raise NotImplementedError
       end
