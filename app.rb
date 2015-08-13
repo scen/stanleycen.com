@@ -67,7 +67,7 @@ helpers do
         end
         img['alt'] = title
         div['style'] = ('max-width: ' + width.to_s + 'px') unless noresize
-        img['style'] = ('max-width: 100%') unless noresize
+        img['style'] = ('max-width: 100%')
 
         outer_div = Nokogiri::XML::Node.new 'div', noko
         outer_div['style'] = 'width: 100%'

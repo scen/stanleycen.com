@@ -1,20 +1,20 @@
 # Facebook Messaging Analytics
 
-Check out the newer android equivalent [here](/blog/facebook-messaging-analytics-android)!
+P.S. there's an Android version [here](/blog/facebook-messaging-analytics-android)!
 
 A couple of days ago I had an urge to look at my activity over Facebook messaging, a service I use quite often. Facebook doesn't provide an interface to easily view information about my chats, nor do they provide a method to easily and quickly download your up-to-date chat data.
 
 I wrote a open-source and purely client-side tool to download all my data through the Facebook Graph API and compute statistics on it to provide insights into my chatting activity (GitHub repository as well as installation instructions are available [here](/project/facebook-messaging-analytics)). Here are a few examples of what it can show right now:
 
-<photo cloudinary src="wordcloud_pardki.png">Word cloud</photo>
+<div class="photo" noresize cloudinary src="wordcloud_pardki.png">Word cloud</div>
 
 <!--more-->
 
-<photo cloudinary src="distribution_cuk8tr.png">Message distribution</photo>
+<div class="photo" noresize cloudinary src="distribution_cuk8tr.png">Message distribution</div>
 
-<photo cloudinary src="trends_z0fvlo.png">Trends over time</photo>
+<div class="photo" noresize cloudinary src="trends_z0fvlo.png">Trends over time</div>
 
-<photo cloudinary src="mostactive_icmony.png">Most active time</photo>
+<div class="photo" noresize cloudinary src="mostactive_icmony.png">Most active time</div>
 
 
 In order to download all of the messages, I had to use the Facebook API. The Facebook Graph API is slow and generally hard to use. You have to traverse each conversation page-by-page, loading at most 25 messages per API call. Facebook also limits API calls to around 300 per 600 seconds for this specific table. In order to store the sheer amount (8 MB+) of text data, I store the collected data as a JSON string inside of a permanent sandboxed file system (it won't fit into `localStorage`). As a result, only Google Chrome is supported at this time. The user can download the collected data as a file into the actual filesystem and upload a backup data file into the tool.

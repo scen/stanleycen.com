@@ -124,4 +124,8 @@ $(document).ready(function() {
     // TODO: fix highlight
     // TODO: read http://stackoverflow.com/questions/21099528/multiple-files-on-cdn-vs-one-file-locally
     // TODO: fix fucking fluidbox vendor anims
+    // TODO: responsive design for the blog
+    // TODO: change triple ### to double ## in the blog posts
+    // TODO: why is safari fucked up
+    // URGENT TODO: debug firefox requestAnimationFrame fuckery
 });

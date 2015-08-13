@@ -4,7 +4,7 @@ During a contest one has to balance program efficiency and coding efficiency. So
 
 However, these data structures are ridiculously difficult to implement correctly and have many tricky cases to deal with. Many times the guaranteed `2 * log(n + 1)` upper-bound on the height of an RB-tree is unnecessary for a contest problem.
 
-<photo cloudinary noresize src="treap.png">A treap (Wikipedia)</photo>
+<div class="photo" cloudinary noresize src="treap.png">A treap (Wikipedia)</div>
 
 <!--more-->
 
@@ -15,28 +15,29 @@ One beautiful data structure offers the perfect balance between efficiency and i
 One way to insert a node is to ignore the heap keys at first. We insert the node where it should be according to the tree keys, then rotate the tree until the heap property is restored. Note that tree rotations maintain the in-order invariant.
 
 
-    \cpp
-    void insert(node *& n, int key)
-    {
-    	if (n == null)
-    	{
-    		n = createNode(key);
-    		return;
-    	}
-    	if (key < n->key)
-    	{
-    		insert(n->l, key);
-    		if (n->l->hkey > n->hkey)
-    			rotateRight(n);
-    	}
-    	else
-    	{
-    		insert(n->r, key);
-    		if (n->r->hkey > n->hkey)
-    			rotateLeft(n);
-    	}
-    	update(n);
-    }
+```cpp
+void insert(node *& n, int key)
+{
+	if (n == null)
+	{
+		n = createNode(key);
+		return;
+	}
+	if (key < n->key)
+	{
+		insert(n->l, key);
+		if (n->l->hkey > n->hkey)
+			rotateRight(n);
+	}
+	else
+	{
+		insert(n->r, key);
+		if (n->r->hkey > n->hkey)
+			rotateLeft(n);
+	}
+	update(n);
+}
+```
 
 
 ### Deletion
@@ -44,39 +45,40 @@ One way to insert a node is to ignore the heap keys at first. We insert the node
 We delete a node as normal. If it has no children we simply remove it. If it has one child, we replace the node with the child. Otherwise we pick the child with the higher heap key, rotate the tree, and recursively delete the node in whatever branch the it ends up in (caused by the tree rotation).
 
 
-    \cpp
-    void remove(node *& n, int key)
-    {
-    	if (n == null) return;
-    	if (n->key == key)
-    	{
-    		if (n->l == null && n->r == null)
-    		{
-    			delete n;
-    			n = null;
-    			return;
-    		}
-    		if (n->l->hkey > n->r->hkey)
-    		{
-    			rotateRight(n);
-    			remove(n->r, key);
-    		}
-    		else
-    		{
-    			rotateLeft(n);
-    			remove(n->l, key);
-    		}
-    	}
-    	else if (key < n->key)
-    	{
-    		remove(n->l, key);
-    	}
-    	else
-    	{
-    		remove(n->r, key);
-    	}
-    	update(n);
-    }
+```cpp
+void remove(node *& n, int key)
+{
+	if (n == null) return;
+	if (n->key == key)
+	{
+		if (n->l == null && n->r == null)
+		{
+			delete n;
+			n = null;
+			return;
+		}
+		if (n->l->hkey > n->r->hkey)
+		{
+			rotateRight(n);
+			remove(n->r, key);
+		}
+		else
+		{
+			rotateLeft(n);
+			remove(n->l, key);
+		}
+	}
+	else if (key < n->key)
+	{
+		remove(n->l, key);
+	}
+	else
+	{
+		remove(n->r, key);
+	}
+	update(n);
+}
+```
 
 
 ### Closing thoughts

@@ -3,6 +3,7 @@ require 'rouge/plugins/redcarpet'
 class MarkdownService
   class Renderer < Redcarpet::Render::HTML
     include Rouge::Plugins::Redcarpet
+    include Redcarpet::Render::SmartyPants
   end
 
   attr_reader :markdown

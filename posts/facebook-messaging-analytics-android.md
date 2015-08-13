@@ -4,19 +4,17 @@
 analyzing your Facebook messaging data. I tried to follow the Android UI guidelines
 as closely as possible and even emulated Google's new card interface! Here's a couple of screenshots:
 
-<photo width="150" cloudinary nolightbox src="a_z1rgtr.png">Daytime activity</photo>
+<div class="photo" width="300" cloudinary src="a_z1rgtr.png">Daytime activity</div>
 
-<!--more-->
+<div class="photo" width="300" cloudinary src="i_wpqqr4.png">Overview card</div>
+<div class="photo" width="300" cloudinary src="c_dbse7z.png">Character distribution</div>
+<div class="photo" width="300" cloudinary src="d_h6d0pn.png">Most active days</div>
+<div class="photo" width="300" cloudinary src="e_qk9d0s.png">Activity at night</div>
+<div class="photo" width="300" cloudinary src="f_eiuuoq.png">Message trends over time</div>
+<div class="photo" width="300" cloudinary src="g_ffy6cr.png">More trends over time</div>
+<div class="photo" width="300" cloudinary src="h_vduduk.png">Mobile activity</div>
 
-<photo width="150" cloudinary nolightbox src="i_wpqqr4.png">Overview card</photo>
-<photo width="150" cloudinary nolightbox src="c_dbse7z.png">Character distribution</photo>
-<photo width="150" cloudinary nolightbox src="d_h6d0pn.png">Most active days</photo>
-<photo width="150" cloudinary nolightbox src="e_qk9d0s.png">Activity at night</photo>
-<photo width="150" cloudinary nolightbox src="f_eiuuoq.png">Message trends over time</photo>
-<photo width="150" cloudinary nolightbox src="g_ffy6cr.png">More trends over time</photo>
-<photo width="150" cloudinary nolightbox src="h_vduduk.png">Mobile activity</photo>
-
-## Technical details
+### Technical details
 
 The "Cards UI" is essentially a custom `ListView` with a large transparent separator.
 The border is rendered through a ninepatch generated from a screenshot. Since I thought the current
@@ -28,7 +26,7 @@ couple of megabytes. In fact, much of the downloaded data is not yet utilized by
 including location data and attachments. When I have time in the future,  I'll be sure to add in the features
 I'm missing from the HTML/Javascript version.
 
-## Ending notes
+### Ending notes
 
 In these couple of days I've learned so much more about android programming. As a result, my code
 from the beginning of the project is much less than optimal since I didn't know much about the Android API.

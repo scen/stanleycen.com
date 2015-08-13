@@ -1,6 +1,7 @@
 @import 'mixins';
 @import 'fonts';
 // @import 'highlight';
+@import 'skeleton';
 
 /*
 SASS can name breakpoints for media queries!!
@@ -338,6 +339,11 @@ footer {
 .body-text {
   @include do_max_width();
   margin: 0 auto;
+  color: #666;
+  font-weight: 300;
+  font-size: 2.3rem;
+  line-height: 3.7rem;
+
 
   h1, h2, h3 {
     font-weight: 400;
@@ -347,10 +353,8 @@ footer {
   }
 
   p {
-    font-size: 2.3rem;
-    font-weight: 300;
-    line-height: 3.7rem;
-    color: #666;
+    // font-size: 2.3rem;
+    // line-height: 3.7rem;
   }
 
   a {
@@ -360,6 +364,23 @@ footer {
     &:hover {
       color: #3de08d;
     }
+  }
+
+  // Code highlighting
+
+  .highlight > code {
+    background-color: #fff;
+    font-size: 1.5rem;
+  }
+
+  code {
+    // font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+    // font-family: monospace;
+    font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    background-color: #f3f3f3;
+    // font-size: 75% !important;
   }
 }
 
@@ -559,21 +580,6 @@ ul.timeline {
   }
 }
 
-// Code highlighting
-
-.highlight > code {
-  background-color: #fff;
-  font-size: 1.5rem;
-}
-
-code {
-  // font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
-  // font-family: monospace;
-  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
-  font-size: 1.8rem;
-  background-color: #f3f3f3;
-  // font-size: 75% !important;
-}
 
 // Lightbox
 
@@ -583,6 +589,8 @@ div.photo-wrap {
 
   .photo {
     margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 
     a.lightbox {
       border-bottom: none !important;
@@ -596,6 +604,11 @@ div.photo-wrap {
         cursor: -moz-zoom-out;
         cursor: zoom-out;
       }
+
+      img {
+        display: block;
+        margin: 0 auto;
+      }
     }
   }
 
@@ -607,6 +620,7 @@ div.photo-wrap {
     color: #666;
     font-style: italic;
     font-size: 1.8rem;
+    line-height: 2rem;
     font-weight: 300;
     top: 0;
     margin-top: 0;
@@ -620,4 +634,14 @@ div.photo-wrap {
       margin-bottom: 10px;
     }
   }
+}
+
+q {
+  quotes: "“" "”" "‘" "’";
+}
+q:before {
+    content: open-quote;
+}
+q:after {
+    content: close-quote;
 }

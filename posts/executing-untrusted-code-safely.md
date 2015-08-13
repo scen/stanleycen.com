@@ -9,19 +9,20 @@ For my [online judge](/project/westview-coders), I have a sandbox environment wh
 One of the most effective ways would be to isolate the binary in a chroot jail. This isolates the binary into it's own "filesystem", and the code should theoretically not be able to escape, unless we left the binary running as root. For example, before I `fork()/execve()` into the target process, I could `chdir()`, `chroot()`, then drop permissions. The process would think that it's running in `/`.
 
 
-    \cpp
-    /* change to chroot dir */
-    if (0 != chdir(chroot_dir))
-    {
-    	kill (getpid (), SIGPIPE);
-    	error ("Cannot change to chroot dir");
-    }
-    /* chroot to judge dir  */
-    if (0 != chroot(chroot_dir))
-    {
-    	kill (getpid (), SIGPIPE);
-    	error ("Cannot chroot");
-    }
+```cpp
+/* change to chroot dir */
+if (0 != chdir(chroot_dir))
+{
+	kill (getpid (), SIGPIPE);
+	error ("Cannot change to chroot dir");
+}
+/* chroot to judge dir  */
+if (0 != chroot(chroot_dir))
+{
+	kill (getpid (), SIGPIPE);
+	error ("Cannot chroot");
+}
+```
 
 
 ### ptrace
