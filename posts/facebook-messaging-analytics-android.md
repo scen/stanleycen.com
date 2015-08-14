@@ -1,6 +1,6 @@
 # Android Facebook Messaging Analytics
 
-"For the past" five days I've been working on an open source Android application for
+For the past five days I've been working on an open source Android application for
 analyzing your Facebook messaging data. I tried to follow the Android UI guidelines
 as closely as possible and even emulated Google's new card interface! Here's a couple of screenshots:
 

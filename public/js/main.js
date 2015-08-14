@@ -100,7 +100,7 @@ $(document).ready(function() {
         $(this).parent().siblings('li').children('a').removeClass('blur');
     });
 
-    // $('a.popout-lightbox').fluidbox();
+    $('a.popout-lightbox').fluidbox();
 
     // var scroll_notifier = $('#scroll-notifier')[0];
 
