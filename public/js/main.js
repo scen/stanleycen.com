@@ -126,4 +126,6 @@ $(document).ready(function() {
     // TODO: responsive design for the blog
     // TODO: change triple ### to double ## in the blog posts
     // TODO: chrome idle cpu usage?
+    // TODO: move scripts to bottom of page
+    // TODO: combine js, css files
 });
