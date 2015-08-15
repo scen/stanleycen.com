@@ -2,6 +2,7 @@
 @import 'fonts';
 // @import 'highlight';
 @import 'skeleton';
+@import 'media-queries';
 
 /*
 SASS can name breakpoints for media queries!!
@@ -13,6 +14,8 @@ $header-height: 50px;
 $page-top-padding: 40px;
 
 $content-max-width: 850px;
+
+$header-collapse: 750px;
 
 // Colors
 
@@ -29,7 +32,7 @@ body {
   background: $selection-col;
 }
 
-#page-outer {
+#container {
   // TODO, maybe remove padding for all so its flush
   padding-bottom: 40px;
   // padding-top: $page-top-padding;
@@ -41,7 +44,7 @@ body {
   // padding-right: 40px;
 }
 
-// Sync padding and other props with #page-outer!
+// Sync padding and other props with #container!
 footer {
   padding-left: 40px;
   padding-right: 40px;
@@ -102,7 +105,100 @@ footer {
   padding-right: 80px;
   padding-top: 50px;
 
+  @include max-screen($header-collapse) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 20px !important;
+  }
+
+  .navicon-button {
+    display: none;
+
+    @include max-screen($header-collapse) {
+      display: block !important;
+      float: left;
+      position: absolute;
+      width: 60px;
+      height: 52px;
+      cursor: pointer;
+      .x {
+        background: transparent !important;
+        -webkit-transform: scale(.7);
+        -moz-transform: scale(.7);
+        -ms-transform: scale(.7);
+        -o-transform: scale(.7);
+        transform: scale(.7);
+        &:after {
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          transform: rotate(45deg);
+          top: 0 !important;
+        }
+        &:before {
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+          top: 0 !important;
+        }
+      }
+      .navicon {
+        position: relative;
+        width: 2em;
+        height: .3125rem;
+        background: #fff;
+        border-radius: 2.5rem;
+        display: block;
+        position: absolute;
+        margin-top: 26px;
+        margin-left: 13px;
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -ms-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
+        &:after, &:before {
+          transition: .5s;
+          display: block;
+          content: "";
+          height: .3125rem;
+          width: 2em;
+          background: #fff;
+          position: absolute;
+          z-index: 2000;
+          border-radius: 1rem;
+        }
+        &:after { top: -.625rem; }
+        &:before { top: .625rem; }
+      }
+      // .no-touch &:hover {
+      //   -webkit-transition: .5s;
+      //   -moz-transition: .5s;
+      //   -ms-transition: .5s;
+      //   -o-transition: .5s;
+      //   transition: .5s;
+      //   background: #fff;
+      // }
+    }
+  }
+
   & > .name {
+    float: left;
+    @include max-screen($header-collapse) {
+      display: block !important;
+      margin: 0 auto;
+      float: none !important;
+      a {
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    }
     display: inline;
 
     a {
@@ -126,6 +222,10 @@ footer {
   }
 
   nav {
+    @include max-screen($header-collapse) {
+      display: none !important;
+    }
+
     display: block;
     float: right;
     margin: 0;
@@ -170,6 +270,131 @@ footer {
     }
   }
 }
+
+// Pushy
+
+nav.pushy {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+
+    li {
+      padding-left: 20px;
+      margin: 0 auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      a {
+        text-decoration: none;
+        border-bottom: none;
+        color: #bbb;
+        font-weight: 300;
+        font-size: 2rem;
+        padding-bottom: 3px;
+        @include transition(all .2s ease-in-out);
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.pushy{
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    top: 0;
+    z-index: 9999;
+    background: $nothingness;
+    font-size: 0.9em;
+    font-weight: bold;
+    -webkit-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
+    -moz-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
+    box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; /* enables momentum scrolling in iOS overflow elements */
+}
+
+
+/* Menu Movement */
+
+.pushy-left{
+    -webkit-transform: translate3d(-200px,0,0);
+    -moz-transform: translate3d(-200px,0,0);
+    -ms-transform: translate3d(-200px,0,0);
+    -o-transform: translate3d(-200px,0,0);
+    transform: translate3d(-200px,0,0);
+}
+
+.pushy-open{
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.container-push, .push-push{
+    -webkit-transform: translate3d(200px,0,0);
+    -moz-transform: translate3d(200px,0,0);
+    -ms-transform: translate3d(200px,0,0);
+    -o-transform: translate3d(200px,0,0);
+    transform: translate3d(200px,0,0);
+}
+
+/* Menu Transitions */
+
+.pushy, #container, .push{
+    -webkit-transition: -webkit-transform .2s cubic-bezier(.16, .68, .43, .99);
+    -moz-transition: -moz-transform .2s cubic-bezier(.16, .68, .43, .99);
+    -o-transition: -o-transform .2s cubic-bezier(.16, .68, .43, .99);
+    transition: transform .2s cubic-bezier(.16, .68, .43, .99);
+}
+
+/* Site Overlay */
+
+.site-overlay{
+    display: none;
+}
+
+.pushy-active .site-overlay{
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9998;
+    background-color: rgba(0,0,0,0.5);
+    -webkit-animation: fade 500ms;
+    -moz-animation: fade 500ms;
+    -o-animation: fade 500ms;
+    animation: fade 500ms;
+}
+
+@keyframes fade{
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-moz-keyframes fade{
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes fade{
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-o-keyframes fade{
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 
 // Masthead
 

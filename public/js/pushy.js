@@ -70,8 +70,9 @@ $(function() {
 		menuBtn.click(function() {
 			togglePushy();
 		});
+		window.fuck=togglePushy;
 		//close menu when clicking site overlay
-		siteOverlay.click(function(){ 
+		siteOverlay.click(function(){
 			togglePushy();
 		});
 	}else{
@@ -94,7 +95,7 @@ $(function() {
 		});
 
 		//close menu when clicking site overlay
-		siteOverlay.click(function(){ 
+		siteOverlay.click(function(){
 			if (state) {
 				openPushyFallback();
 				state = false;
