@@ -1,13 +1,17 @@
-<div id="blog_internal">
-	<div class="header parallax">
-		<h1 class="header">Blog</h1>
+<!-- Maybe add header sized parallax here :) -->
+<section id="no-masthead-img">
+    <div class="parallax-wrap">
+        <div class="parallax-img masthead-parallax-img"><div class="darken-filter"></div></div>
+        </div>
+    </div>
+</section>
+<section id='content-wrap' class="blog-all">
+	<div class='posts-wrap'>
+		<% @posts.each do |(slug, post)| %>
+			<article class='blog-masonry-post'>
+				<h1><%= post.title %></h1>
+				<time><%= post.created_at.strftime("%B %d, %Y") %></time>
+			</article>
+		<% end %>
 	</div>
-	<% @posts.each do |post| %>
-			<div class="content">
-	        <%= erb :_post, locals: {post: post.last, abbrev: true} %>
-			</div>
-			<div class="controls bottom">
-				<span><a class="btn read-more" href="<%= post_slug_url post.last.slug %>">Continue reading</a></span>
-			</div>
-	<% end %>
-</div>
+</section>

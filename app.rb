@@ -18,8 +18,8 @@ GREETINGS = ['Hey there!', 'Hello there!', 'Hi there!', 'Hellooo there!']
 
 HOME_MASTHEAD_IMG = "/img/parallax1.jpg"
 
-BLOG_DEFAULT_MASTHEAD_IMG = "/img/parallax.jpg"
-BLOG_POST_DEFAULT_MASTHEAD_IMG = "/img/parallax.jpg"
+BLOG_DEFAULT_MASTHEAD_IMG = "/img/parallax7.jpg"
+BLOG_POST_DEFAULT_MASTHEAD_IMG = "/img/parallax6.jpg"
 
 PROJECTS_DEFAULT_MASTHEAD_IMG = "/img/parallax.jpg"
 PROJECT_POST_DEFAULT_MASTHEAD_IMG = "/img/parallax.jpg"

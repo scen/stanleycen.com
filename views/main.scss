@@ -101,14 +101,17 @@ footer {
   left: 0;
   right: 0;
 
+  // These are synced with #no-mastheader-img.
   padding-left: 80px;
   padding-right: 80px;
   padding-top: 50px;
+  padding-bottom: 50px;
 
   @include max-screen($header-collapse) {
     padding-left: 20px !important;
     padding-right: 20px !important;
     padding-top: 20px !important;
+    padding-bottom: 20px !important;
   }
 
   .navicon-button {
@@ -400,11 +403,22 @@ nav.pushy {
 
 #masthead {
   height: 85vh;
+  min-height: 600px;
   max-height: 1300px;
 }
 
 .home-parallax-img {
   background: url(/img/parallax1.jpg);
+}
+
+// Synced with #header padding and height.
+#no-masthead-img {
+  height: $header-height + 100px; // 2*50px padding
+
+  @include max-screen($header-collapse) {
+    height: ($header-height + 40px) !important;
+  }
+
 }
 
 .masthead-home-tagline {
@@ -869,4 +883,23 @@ q:before {
 }
 q:after {
     content: close-quote;
+}
+
+// Blog
+
+.blog-masonry-post {
+    h1 {
+      font-size: 2.3rem;
+    }
+}
+
+.blog-all {
+  // background-color: $nothingness !important;
+  background-color: white;
+}
+
+.posts-wrap {
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: none !important;
 }
