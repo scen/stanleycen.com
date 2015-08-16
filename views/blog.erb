@@ -6,12 +6,14 @@
     </div>
 </section>
 <section id='content-wrap' class="blog-all">
-	<div class='posts-wrap'>
+	<div class='posts-wrap body-text'>
 		<% @posts.each do |(slug, post)| %>
-			<article class='blog-masonry-post'>
-				<h1><%= post.title %></h1>
-				<time><%= post.created_at.strftime("%B %d, %Y") %></time>
-			</article>
+			<div class='blog-masonry-post'>
+				<article>
+					<h1><%= post.title %></h1>
+					<time><%= post.created_at.strftime("%B %d, %Y") %></time>
+				</article>
+			</div>
 		<% end %>
 	</div>
 </section>

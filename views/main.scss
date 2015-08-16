@@ -888,18 +888,44 @@ q:after {
 // Blog
 
 .blog-masonry-post {
+  // box-shadow: 0 0 25px 5px #ddd;
+  width: 33.33%;
+  display: inline;
+
+  @include max-screen(1400px) {
+    width: 50%;
+  }
+
+  article {
+    margin: 7px;
+    font-weight: 300px;
+    height: 450px;
+    background-color: white;
+    @include box-shadow(0, 0, 25px, 5px, #ccc);
+    @include border-radius(5px);
+    padding: 10px;
+
     h1 {
-      font-size: 2.3rem;
+      font-size: 2.5rem;
     }
+
+    time {
+      font-size: 2rem;
+    }
+  }
 }
 
 .blog-all {
   // background-color: $nothingness !important;
-  background-color: white;
+  background-color: white !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
 }
 
 .posts-wrap {
   margin: 0 auto !important;
-  width: 100% !important;
+  width: auto !important;
   max-width: none !important;
 }

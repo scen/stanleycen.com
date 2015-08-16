@@ -187,12 +187,36 @@ function pushy_init() {
     });
 }
 
+function debounce(func, wait, immediate) {
+    var timeout, args, context, timestamp, result;
+    return function() {
+        context = this;
+        args = arguments;
+        timestamp = new Date();
+        var later = function() {
+            var last = (new Date()) - timestamp;
+            if (last < wait) {
+                timeout = setTimeout(later, wait - last);
+            } else {
+                timeout = null;
+                if (!immediate) {
+                    result = func.apply(context, args);
+                }
+            }
+        };
+        var callNow = immediate && !timeout;
+        if (!timeout) {
+            timeout = setTimeout(later, wait);
+        }
+        if (callNow) {
+            result = func.apply(context, args);
+        }
+        return result;
+    };
+}
+
 $(document).ready(function() {
     Parallax.init();
-
-    $(window).resize(function(evt) {
-        Parallax._refresh_y_offsets();
-    });
 
     function on_raf() {
         requestAnimationFrame(on_raf);
@@ -216,19 +240,19 @@ $(document).ready(function() {
     pushy_init();
 
 
-    // var scroll_notifier = $('#scroll-notifier')[0];
+    $posts = $('.posts-wrap').masonry({
+        itemSelector: '.blog-masonry-post',
+    });
+    var debounced_masonry = debounce(function() {
+        $posts.masonry();
+    }, 300);
 
-    // $(window).scroll(function() {
-    //     if (window.pageYOffset > 0) {
-    //         scroll_notifier.style.display = 'none';
-    //     }
-    //     else {
-    //         scroll_notifier.style.display = 'block';
-    //     }
-    // });
+    $(window).resize(function(evt) {
+        Parallax._refresh_y_offsets();
+        debounced_masonry();
+    });
 
 
-    // use https://mango.github.io/slideout/
     // TODO: make a favicon
     // TODO: specificly extract the necessary classes from animate.css
     // TODO: add dropbox font logo to timeline
@@ -242,4 +266,5 @@ $(document).ready(function() {
     // TODO: chrome idle cpu usage?
     // TODO: move scripts to bottom of page
     // TODO: combine js, css files
+    // TOOD: ho2tomake the blgo paddings all equal (side and center?) fuq, since margins/paddings are counted twice in the middle.
 });
