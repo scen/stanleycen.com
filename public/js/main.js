@@ -1,3 +1,6 @@
+// Since firefox sucks. transform: scale is hella slow
+var IS_FIREFOX = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1);
+
 // requestAnimationFrame polyfill
 (function () {
     var lastTime = 0,
@@ -62,7 +65,10 @@ var Parallax = {
     },
 
     _translate_y_and_scale:  function(elm, dist, scale) {
-        var transform = 'translate3d(0,' + dist + 'px, 0)';// scale3d(' + scale + ',' + scale + ', 1)';
+        var transform = 'translate3d(0,' + dist + 'px, 0) scale3d(' + scale + ',' + scale + ', 1)';
+        if (IS_FIREFOX) {
+            transform += " rotate(0.01deg)";
+        }
         elm.style['-webkit-transform'] = transform;
         elm.style['-moz-transform'] = transform;
         elm.style['-ms-transform'] = transform;

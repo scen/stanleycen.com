@@ -692,6 +692,7 @@ ul.timeline {
   margin: 0;
   // 2.5rem is the <p> margin-bottom
   margin-top: $timeline_extend_up + 2.5rem;
+  margin-bottom: $timeline_extend_up + 2.5rem;
   list-style: none;
   position: relative;
   // Line
@@ -699,7 +700,7 @@ ul.timeline {
     content: "";
     position: absolute;
     top: -$timeline_extend_up;
-    bottom: 0;
+    bottom: -$timeline_extend_up;
     width: 10px;
     background: $timeline_line_col;
     left: 20%;
@@ -976,7 +977,7 @@ q:after {
         width: 100%;
         background-image: url(/img/parallax1.jpg);
         height: 300px;
-        @include transition(all .1s ease-in-out);
+        @include transition(all .3s ease-in-out);
         div {
           @include border-radius(5px);
         }
