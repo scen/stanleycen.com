@@ -9,10 +9,21 @@
 	<div class='posts-wrap body-text'>
 		<% @posts.each do |(slug, post)| %>
 			<div class='blog-masonry-post'>
-				<article>
-					<h1><%= post.title %></h1>
-					<time><%= post.created_at.strftime("%B %d, %Y") %></time>
-				</article>
+				<div class='post-wrap'>
+					<a class='wrap' href="<%= post_slug_url slug %>">
+						<article>
+								<div class='metadata'>
+									<div>
+										<h1><%= post.title %></h1>
+										<time><%= post.created_at.strftime("%B %d, %Y") %></time>
+									</div>
+								</div>
+								<div class='post-header'>
+									<div class='darken-filter'></div>
+								</div>
+						</article>
+					</a>
+				</div>
 			</div>
 		<% end %>
 	</div>

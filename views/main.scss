@@ -478,10 +478,12 @@ nav.pushy {
 
     h1, h4 {
       font-weight: 100;
+      -webkit-font-smoothing: subpixel-antialiased;
     }
 
     h4 {
       font-size: 2rem;
+      -webkit-font-smoothing: subpixel-antialiased;
     }
   }
 }
@@ -892,25 +894,93 @@ q:after {
   width: 33.33%;
   display: inline;
 
-  @include max-screen(1400px) {
-    width: 50%;
+  a.wrap {
+    display: block !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    color: white !important;
+    position: relative;
+    z-index: 1000000;
   }
 
-  article {
-    margin: 7px;
-    font-weight: 300px;
-    height: 450px;
-    background-color: white;
-    @include box-shadow(0, 0, 25px, 5px, #ccc);
+  @include max-screen(1400px) {
+    width: 50% !important;
+  }
+
+  @include max-screen(880px) {
+    width: 100% !important;
+  }
+
+  @include min-screen(1800px) {
+    width: 25% !important;
+  }
+
+  @include min-screen(3000px) {
+    width: 20% !important;
+  }
+  .post-wrap {
+    position: relative;
     @include border-radius(5px);
-    padding: 10px;
 
-    h1 {
-      font-size: 2.5rem;
-    }
+    article {
+      z-index: 9999;
+      position: relative;
+      margin-right: 40px;
+      margin-bottom: 40px;
 
-    time {
-      font-size: 2rem;
+      @include max-screen(630px) {
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      font-weight: 300px;
+      height: 300px;
+      overflow: hidden;
+      background-color: white;
+      @include box-shadow(0, 0, 25px, 5px, #888);
+      @include border-radius(5px);
+
+
+      .metadata {
+        @include border-radius(5px);
+        position: absolute;
+        z-index: 1000;
+        height: 300px;
+        width: 100%;
+
+        div {
+          position: relative;
+          top: 50%;
+          margin: 0 auto;
+          padding-left: 10px;
+          padding-right: 10px;
+          @include transform(translateY(-50%));
+        }
+
+        h1 {
+          font-size: 2.5rem;
+          color: white;
+          font-weight: 100;
+          -webkit-font-smoothing: subpixel-antialiased;
+        }
+
+        time {
+          font-size: 1.5rem;
+          color: white;
+          font-weight: 100;
+          -webkit-font-smoothing: subpixel-antialiased;
+        }
+      }
+
+      .post-header {
+        @include border-radius(5px);
+        width: 100%;
+        background-image: url(/img/parallax1.jpg);
+        height: 300px;
+        @include transition(all .1s ease-in-out);
+        div {
+          @include border-radius(5px);
+        }
+      }
     }
   }
 }
@@ -919,9 +989,13 @@ q:after {
   // background-color: $nothingness !important;
   background-color: white !important;
   padding-left: 40px !important;
-  padding-right: 40px !important;
+  // padding-right: 40px !important;
   padding-top: 40px !important;
-  padding-bottom: 40px !important;
+  @include max-screen(630px) {
+    padding-left: 10px !important;
+    padding-top: 10px !important;
+  }
+  padding-bottom: 0 !important;
 }
 
 .posts-wrap {

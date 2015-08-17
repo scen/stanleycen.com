@@ -62,7 +62,7 @@ var Parallax = {
     },
 
     _translate_y_and_scale:  function(elm, dist, scale) {
-        var transform = 'translate3d(0,' + dist + 'px, 0) scale3d(' + scale + ',' + scale + ', 1)';
+        var transform = 'translate3d(0,' + dist + 'px, 0)';// scale3d(' + scale + ',' + scale + ', 1)';
         elm.style['-webkit-transform'] = transform;
         elm.style['-moz-transform'] = transform;
         elm.style['-ms-transform'] = transform;
@@ -239,8 +239,9 @@ $(document).ready(function() {
     $('body').append($('nav').clone().addClass('pushy pushy-left'));
     pushy_init();
 
+    $posts = $('.posts-wrap');
 
-    $posts = $('.posts-wrap').masonry({
+    $posts = $posts.masonry({
         itemSelector: '.blog-masonry-post',
     });
     var debounced_masonry = debounce(function() {
@@ -250,6 +251,16 @@ $(document).ready(function() {
     $(window).resize(function(evt) {
         Parallax._refresh_y_offsets();
         debounced_masonry();
+    });
+
+    $('.blog-masonry-post article').hover(function() {
+        var img = $(this).find('.post-header')[0];
+        Parallax._translate_y_and_scale(img, 0, 1.2);
+        // $(this).css('cursor', 'pointer');
+    }, function() {
+        var img = $(this).find('.post-header')[0];
+        Parallax._translate_y_and_scale(img, 0, 1);
+        // $(this).css('cursor', 'pointer');
     });
 
 
@@ -266,5 +277,5 @@ $(document).ready(function() {
     // TODO: chrome idle cpu usage?
     // TODO: move scripts to bottom of page
     // TODO: combine js, css files
-    // TOOD: ho2tomake the blgo paddings all equal (side and center?) fuq, since margins/paddings are counted twice in the middle.
+    // TODO: why the fuck is scale so slow on firefox. shoudl we disable for firefox?
 });
