@@ -39,19 +39,19 @@ var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-4253037-6"]),_gaq.push(["_setDoma
 				</div>
 				<%= yield %>
 			</div>
+			<footer>
+				<div class="wrapper">
+					<div class="copyleft">
+						Designed with &lt;3 by Stanley Cen
+					</div>
+					<div class="latest-commit">
+						<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>Deployed revision <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">
+	                <%= get_commit_sha[0...7] %></a> (<time datetime="<%= get_commit_time %>"><%= get_commit_time.strftime("%B %d, %Y")%></time>)<% end %>
+					</div>
+				</div>
+			</footer>
 		</div>
 		<div class="site-overlay"></div>
-		<footer>
-			<div class="wrapper">
-				<div class="copyleft">
-					Designed with &lt;3 by Stanley Cen
-				</div>
-				<div class="latest-commit">
-					<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>Running latest commit <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">
-                <%= get_commit_sha[0...7] %></a> (<%= get_commit_time.to_pretty %>): <%= '"' + get_commit_msg.split(/\n/).first + '"' %><% end %>
-				</div>
-			</div>
-		</footer>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 		<script src="/js/jquery.fluidbox.min.js" type="text/javascript" charset="utf-8"></script>
