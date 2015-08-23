@@ -394,4 +394,5 @@ $(document).ready(function() {
     // TODO: move scripts to bottom of page
     // TODO: combine js, css files
     // TODO: why the fuck is scale so slow on firefox. shoudl we disable for firefox?
+    // TODO: optimize parallax3
 });

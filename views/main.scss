@@ -52,8 +52,8 @@ footer {
   margin: 0 auto;
   font-weight: 100;
   font-size: 2rem;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
   position: relative;
 
   .wrapper {
@@ -1043,4 +1043,35 @@ q:after {
   margin: 0 auto !important;
   width: auto !important;
   max-width: none !important;
+}
+
+
+#about {
+
+}
+
+#contact {
+  height: 600px;
+  position: relative;
+  .contact-img {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-repeat: no-repeat !important;
+      background-position: center 0 !important;
+      background-size: cover !important;
+      background: url(/img/parallax3.jpg);
+      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  .stuff {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
