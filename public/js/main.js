@@ -327,6 +327,29 @@ function humanized_time_span(date, ref_date, date_formats, time_units) {
   return render_date(get_format());
 }
 
+jQuery.easing['jswing'] = jQuery.easing['swing'];
+jQuery.extend( jQuery.easing,
+{
+    def: 'easeOutQuad',
+    swing: function (x, t, b, c, d) {
+        //alert(jQuery.easing.default);
+        return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+    },
+    easeInOutExpo: function (x, t, b, c, d) {
+        if (t==0) return b;
+        if (t==d) return b+c;
+        if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
+        return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
+    },
+});
+
+function scrollTo(to) {
+    console.log("scrollTo", to);
+    $('html, body').stop().animate({
+        scrollTop: $(to).offset().top
+        }, 500, 'easeInOutExpo');
+}
+
 $(document).ready(function() {
     Parallax.init();
 
@@ -415,6 +438,20 @@ $(document).ready(function() {
             }
         });
     });
+
+    $("nav li a").click(function(event) {
+        console.log("click");
+        var $a = $(this);
+        if ($a.attr('href') != null && $a.attr('href')[0] == '#') {
+            scrollTo($a.attr('href'));
+            event.preventDefault();
+        }
+    });
+
+    if (location.hash != "" && location.hash[0] == '#') {
+        scrollTo(location.hash);
+        // history.pushState("", document.title, window.location.pathname);
+    }
 
     // TODO: make a favicon
     // TODO: specificly extract the necessary classes from animate.css
