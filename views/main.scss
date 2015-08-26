@@ -85,10 +85,21 @@ footer {
       #heart {
         // animation: heartbeat 1.4s linear infinite;
       }
+
+      @include max-screen(780px) {
+        float: none !important;
+        margin: 0 auto !important;
+        display: block !important;
+        text-align: center;
+      }
     }
     .latest-commit {
       float: right;
       overflow: auto;
+
+      @include max-screen(780px) {
+        display: none !important;
+      }
     }
   }
 }

@@ -450,7 +450,7 @@ $(document).ready(function() {
 
     if (location.hash != "" && location.hash[0] == '#') {
         scrollTo(location.hash);
-        // history.pushState("", document.title, window.location.pathname);
+        history.pushState("", document.title, window.location.pathname);
     }
 
     // TODO: make a favicon
