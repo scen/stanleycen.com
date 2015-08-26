@@ -401,7 +401,7 @@ $(document).ready(function() {
     });
 
     var $time = $('footer time');
-    $time.text(humanized_time_span($time.attr('datetime')));
+    $time.text(humanized_time_span(+$time.attr('datetime')));
 
     function contact_response(success) {
         $('#contact_form input, #contact_form textarea, #contact_form button').prop('disabled', success);

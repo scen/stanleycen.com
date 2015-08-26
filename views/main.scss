@@ -1156,6 +1156,11 @@ q:after {
       textarea {
         min-height: 37px*4; //4 * line height
       }
+      button {
+        &:hover:disabled {
+          border-color: white !important;
+        }
+      }
       input, textarea {
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -1168,7 +1173,7 @@ q:after {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         padding: 6px;
-        &:focus {
+        &:focus:enabled {
           outline: none;
           border: 1px solid #78dba9;
         }
