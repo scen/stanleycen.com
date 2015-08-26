@@ -139,6 +139,31 @@
 	<div class="stuff">
 		<div class="wrap">
 			<div class='body-text'>
+				<h1>Contact me!</h1>
+				<div id="contact_form">
+					<form action="/contact" method="POST">
+						<input type="hidden" name="salt" id="salt" value="<%= session[:salt] %>" />
+						<ul>
+							<li id="send-error"><span>Sorry! An error occured while sending.</span></li>
+							<li>
+								<input autocomplete="off" type="text" id="name" name="name" placeholder="name" required/>
+							</li>
+							<li>
+								<input autocomplete="off" type="email" id="email" name="email" placeholder="email" required/>
+							</li>
+							<li>
+								<input autocomplete="off" type="text" id="subject" name="subject" placeholder="subject" required/>
+							</li>
+							<li>
+								<textarea autocomplete="off" id="message" name="message" placeholder="message" required></textarea>
+							</li>
+							<li>
+								<button id="submit_message" type="submit" class="submit">Send</button>
+							</li>
+						</ul>
+					</form>
+				</div>
+				<!-- <h1>&hellip;or check me out on&hellip;</h1> -->
 			</div>
 		</div>
 	</div>
