@@ -36,7 +36,7 @@ var IS_FIREFOX = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1);
 // Use native JS over jQuery for better performance.
 var Parallax = {
     SPEED_RATIO: 2.0,
-    SCALE_RATIO: 5000.0,
+    SCALE_RATIO: 3500.0,
 
     img_cache: [],
     wrap_cache: [],

@@ -10,19 +10,19 @@
 		<% @posts.each do |(slug, post)| %>
 			<div class='blog-masonry-post'>
 				<div class='post-wrap'>
-					<a class='wrap' href="<%= post_slug_url slug %>">
-						<article>
-								<div class='metadata'>
-									<div>
-										<h1><%= post.title %></h1>
-										<time><%= post.created_at.strftime("%B %d, %Y") %></time>
-									</div>
+					<article>
+						<a class='wrap' href="<%= post_slug_url slug %>">
+							<div class='metadata'>
+								<div>
+									<h1><%= post.title %></h1>
+									<time><%= post.created_at.strftime("%B %d, %Y") %></time>
 								</div>
-								<div class='post-header'>
-									<div class='darken-filter'></div>
-								</div>
-						</article>
-					</a>
+							</div>
+							<div class='post-header'>
+								<div class='darken-filter'></div>
+							</div>
+						</a>
+					</article>
 				</div>
 			</div>
 		<% end %>
