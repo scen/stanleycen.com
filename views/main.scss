@@ -1074,17 +1074,20 @@ q:after {
 #contact {
   position: relative;
   .contact-img {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      background: url(/img/city.jpg);
-      background-repeat: no-repeat !important;
-      background-position: center center !important;
-      background-size: cover !important;
-      margin: 0 auto;
-      position: absolute;
-      top: 0;
-      left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: url(/img/city.jpg);
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .darken-filter {
+      opacity: .8;
+    }
   }
   .stuff {
     color: white;
