@@ -380,6 +380,42 @@ $(document).ready(function() {
     var $time = $('footer time');
     $time.text(humanized_time_span($time.attr('datetime')));
 
+    function contact_response(success) {
+        $('#contact_form input, #contact_form textarea, #contact_form button').prop('disabled', success);
+        if (success) {
+            $('#contact_form .thanks').show();
+            $('#contact_form .error').hide();
+        } else {
+            $('#contact_form .thanks').hide();
+            $('#contact_form .error').show();
+        }
+    }
+
+    $('#contact_form > form').submit(function(evt) {
+        evt.preventDefault();
+        $.ajax({
+            type: 'POST',
+            headers: {
+                'X-Parse-Application-Id': "Vy1PuWd7wo8waGjlUCkOS88VZhhskOyueZyjiRXR",
+                'X-Parse-REST-API-Key': "gzdK9mMNsyVtHAjhmLnmn29jFZN8zGRFTcHyC817"
+            },
+            url: "https://api.parse.com/1/functions/sendEmail",
+            contentType: 'text/plain',
+            data: JSON.stringify({
+                name: $('#name').val(),
+                email: $('#email').val(),
+                subject: $('#subject').val(),
+                message: $('#message').val(),
+            }),
+            success: function(res, status, xhr) {
+                contact_response(res.result === 'ok');
+            },
+            error: function(xhr, status, error) {
+                contact_response(false);
+            }
+        });
+    });
+
     // TODO: make a favicon
     // TODO: specificly extract the necessary classes from animate.css
     // TODO: add dropbox font logo to timeline

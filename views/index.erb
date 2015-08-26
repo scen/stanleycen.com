@@ -139,10 +139,10 @@
 	<div class="stuff">
 		<div class="wrap">
 			<div class='body-text'>
-				<h1>Contact me!</h1>
+				<h1>Let's get in touch!</h1>
 				<div id="contact_form">
-					<form action="/contact" method="POST">
-						<input type="hidden" name="salt" id="salt" value="<%= session[:salt] %>" />
+					<form>
+						<input type="hidden" name="salt" id="salt" />
 						<ul>
 							<li id="send-error"><span>Sorry! An error occured while sending.</span></li>
 							<li>
@@ -158,7 +158,7 @@
 								<textarea autocomplete="off" id="message" name="message" placeholder="message" required></textarea>
 							</li>
 							<li>
-								<button id="submit_message" type="submit" class="submit">Send</button>
+								<button id="submit_message" type="submit" class="submit">Send</button><span class='thanks'>Thanks for the message!</span><span class='error'>Something went wrong! Try again?</span>
 							</li>
 						</ul>
 					</form>

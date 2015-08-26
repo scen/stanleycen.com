@@ -1103,6 +1103,24 @@ q:after {
 #contact_form {
   margin-top: 1.4em;
 
+
+  .thanks, .error {
+    line-height: 38px; // this is the button height. so it's v-centered with it.
+    margin-left: 30px;
+    display: none;
+  }
+  .thanks {
+    color: #78dba9;
+  }
+
+  .error {
+    color: #DE7E72;
+  }
+
+  form {
+    margin-bottom: 0 !important;
+  }
+
   #send-error {
     display: none;
   }
@@ -1118,11 +1136,14 @@ q:after {
     list-style: none;
     margin: 0 auto;
     padding: 0;
+    li:last-child {
+      margin-bottom: 0 !important;
+    }
     li {
       margin: 0 auto;
       margin-bottom: .8em;
       textarea {
-        min-height: 100px;
+        min-height: 37px*4; //4 * line height
       }
       input, textarea {
         -webkit-appearance: none;
@@ -1131,7 +1152,7 @@ q:after {
         background: none;
         width: 100%;
         border: 1px solid white;
-        border-radius: 2px;
+        border-radius: 3px;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;

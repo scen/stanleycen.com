@@ -42,11 +42,11 @@ var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-4253037-6"]),_gaq.push(["_setDoma
 			<footer>
 				<div class="wrapper">
 					<div class="copyleft">
-						Made with <span id='heart'>♥</span> by Stanley
+						Made with <span id='heart'>♥</span> by Stanley.
 					</div>
 					<div class="latest-commit">
 						<% if !is_heroku? or (is_heroku? and $heroku and $last_commit and $the_commit) %>Deployed revision <a href="https://github.com/scen/stanleycen.com/commit/<%= get_commit_sha %>">
-	                <%= get_commit_sha[0...7] %></a> (<time datetime="<%= get_commit_time %>"><%= get_commit_time.strftime("%B %d, %Y")%></time>)<% end %>
+	                <%= get_commit_sha[0...7] %></a> (<time datetime="<%= get_commit_time %>"><%= get_commit_time.strftime("%B %d, %Y")%></time>).<% end %>
 					</div>
 				</div>
 			</footer>
