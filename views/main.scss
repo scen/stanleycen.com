@@ -915,25 +915,31 @@ div.photo-wrap {
   }
 
   div.caption {
-    position: absolute;
-    left: -172px;
-    width: 125px;
-    text-align: right;
-    color: #666;
+    position: relative;
     font-style: italic;
     font-size: 1.8rem;
     line-height: 2rem;
     font-weight: 300;
-    top: 0;
-    margin-top: 0;
+    margin: 0 auto;
+    text-align: center;
 
-    &:before {
-      width: 25%;
-      margin-left: 75%;
-      border-top: 1px solid rgba(0,0,0,0.15);
-      display: block;
-      content: "";
-      margin-bottom: 10px;
+    @include min-screen(1240px) {
+      position: absolute;
+      left: -172px;
+      width: 125px;
+      text-align: right !important;
+      color: #666;
+      top: 0;
+      margin-top: 0;
+
+      &:before {
+        width: 25%;
+        margin-left: 75%;
+        border-top: 1px solid rgba(0,0,0,0.15);
+        display: block;
+        content: "";
+        margin-bottom: 10px;
+      }
     }
   }
 }
@@ -1171,7 +1177,7 @@ q:after {
         background: none;
         width: 100%;
         border: 1px solid white;
-        border-radius: 3px;
+        // border-radius: 3px;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -1181,7 +1187,9 @@ q:after {
           border: 1px solid #78dba9;
         }
         @include placeholder {
-          color: #ccc;
+          color: #ddd;
+          font-weight: 100;
+          -webkit-font-smoothing: subpixel-antialiased;
         }
       }
     }
