@@ -993,7 +993,7 @@ q:after {
         margin-right: 10px;
         margin-bottom: 10px;
       }
-      font-weight: 300px;
+      font-weight: 300;
       height: 300px;
       overflow: hidden;
       background-color: white;
@@ -1035,7 +1035,7 @@ q:after {
       .post-header {
         @include border-radius(5px);
         width: 100%;
-        background-image: url(/img/parallax1.jpg);
+        background-image: url(/img/blog.jpg);
         height: 300px;
         @include transition(all .3s ease-in-out);
         div {
@@ -1184,3 +1184,143 @@ q:after {
     }
   }
 }
+
+// animate.css
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY,
+.animated.bounceIn,
+.animated.bounceOut {
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+}
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+
+// Fluidbox
+
+@-webkit-keyframes fluidboxLoading {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotateX(0) rotateY(0); }
+  50% {
+    -webkit-transform: translate(-50%, -50%) rotateX(-180deg) rotateY(0); }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotateX(-180deg) rotateY(-180deg); } }
+@keyframes fluidboxLoading {
+  0% {
+    transform: translate(-50%, -50%) rotateX(0) rotateY(0); }
+  50% {
+    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(0); }
+  100% {
+    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(-180deg); } }
+.fluidbox {
+  outline: none; }
+
+.fluidbox-overlay {
+  background-color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  cursor: -webkit-zoom-out;
+  cursor: -moz-zoom-out;
+  cursor: zoom-out;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* Transition time for overlay is halved to ensure that flickering doesn't happen */
+  transition: all 0.125s ease-in-out 0.125s; }
+
+.fluidbox-wrap {
+  background-position: center center;
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+  transition: all 0.25s ease-in-out;
+  /* To prevent flickering, we delay the showing of the image */ }
+  .fluidbox-closed .fluidbox-wrap img {
+    transition: opacity 0s ease-in-out 0.25s; }
+
+.fluidbox-ghost {
+  background-size: 100% 100%;
+  background-position: center center;
+  position: absolute;
+  -webkit-transition-property: opacity, -webkit-transform;
+  -moz-transition-property: opacity, -moz-transform;
+  -o-transition-property: opacity, -o-transform;
+  transition-property: opacity, transform;
+  transition-duration: 0s, 0.25s;
+  transition-delay: 0.25s, 0s; }
+  .fluidbox-opened .fluidbox-ghost {
+    transition-delay: 0s, 0s; }
+
+.fluidbox-loader {
+  perspective: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; }
+  .fluidbox-loader::before {
+    /* You can replace this with any color you want, or even a loading gif if desired */
+    background-color: rgba(255, 255, 255, 0.85);
+    content: '';
+    transform-style: preserve-3d;
+    transition: all 0.25s ease-in-out;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+    padding-bottom: 20%; }
+
+.fluidbox-loading .fluidbox-loader::before {
+  -webkit-animation: fluidboxLoading 1s 0s infinite ease-in-out forwards;
+  animation: fluidboxLoading 1s 0s infinite ease-in-out forwards;
+  opacity: 1; }
