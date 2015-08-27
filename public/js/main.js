@@ -428,6 +428,8 @@ $(document).ready(function() {
 
     $('#contact_form > form').submit(function(evt) {
         evt.preventDefault();
+        $('#contact_form .thanks').hide();
+        $('#contact_form .error').hide();
         $.ajax({
             type: 'POST',
             headers: {
