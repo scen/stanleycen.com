@@ -443,6 +443,7 @@ $(document).ready(function() {
                 email: $('#email').val(),
                 subject: $('#subject').val(),
                 message: $('#message').val(),
+                host: window.location.hostname,
             }),
             success: function(res, status, xhr) {
                 contact_response(res.result === 'ok');

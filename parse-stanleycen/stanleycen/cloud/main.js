@@ -7,6 +7,12 @@ Parse.Cloud.define("sendEmail", function(request, response) {
     var email = request.params.email;
     var subject = request.params.subject;
     var message = request.params.message;
+    var hostname = request.params.hostname;
+
+    if (hostname !== 'stanleycen.com') {
+      response.error('nope');
+      return;
+    }
 
     var regex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     if (!regex.test(email)) {
