@@ -4,6 +4,9 @@ var IS_FIREFOX = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1);
 // requestAnimationFrame appears to be fubar
 var IS_SAFARI_IOS_7 = navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i);
 
+// the addressbar on android chrome screws up the vh unit.
+var IS_ANDROID_MOBILE = /(android)/i.test(navigator.userAgent.toLowerCase()) && /(mobile)/i.test(navigator.userAgent.toLowerCase());
+
 // requestAnimationFrame polyfill
 (function () {
     var lastTime = 0,
@@ -395,9 +398,31 @@ $(document).ready(function() {
         $posts.masonry();
     }, 300);
 
+    function manually_set_masthead_height() {
+        console.log("manually_set_masthead_height");
+        if (IS_ANDROID_MOBILE) {
+            // Synced with #masthead rule in css
+            $("#masthead").height(0.91 * $(window).height());
+        }
+    }
+
+    manually_set_masthead_height();
+
+    var is_post_orientationchange = false;
+
     $(window).resize(function(evt) {
         Parallax._refresh_y_offsets();
         debounced_masonry();
+        if (is_post_orientationchange && IS_ANDROID_MOBILE) {
+            manually_set_masthead_height();
+            is_post_orientationchange = false;
+        }
+    });
+
+    $(window).on('orientationchange', function() {
+        console.log("orientationchange");
+        $("#masthead").removeAttr('style');
+        is_post_orientationchange = true;
     });
 
     $('.blog-masonry-post article').hover(function() {
