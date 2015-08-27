@@ -1,12 +1,10 @@
-<section id="masthead">
-    <div class="parallax-wrap">
-        <div class="parallax-img masthead-parallax-img"><div class="darken-filter"></div></div>
-        <div class="parallax-content">
-            <div class="blog-masthead">
-                <div class>
-                    <h1 class="animated slideInDown"><%= @post.title %></h1>
-                    <h4 class="animated slideInDown"><%= @post.created_at.strftime("%B %d, %Y") %></h4>
-                </div>
+<section id="masthead" class="parallax-wrap">
+    <div class="parallax-img masthead-parallax-img"><div class="darken-filter"></div></div>
+    <div class="parallax-content">
+        <div class="blog-masthead">
+            <div class>
+                <h1 class="animated slideInDown"><%= @post.title %></h1>
+                <h4 class="animated slideInDown"><%= @post.created_at.strftime("%B %d, %Y") %></h4>
             </div>
         </div>
     </div>
