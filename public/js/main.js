@@ -461,16 +461,9 @@ $(document).ready(function() {
     }
 
     // TODO: make a favicon
-    // TODO: specificly extract the necessary classes from animate.css
-    // TODO: add dropbox font logo to timeline
-    // TODO: fix a href styles
+    // WISHLIST: add dropbox font logo to timeline
     // TODO: fix pygments css theme
     // TODO: convert all blog posts to new format...
     // TODO: fix highlight
-    // TODO: read http://stackoverflow.com/questions/21099528/multiple-files-on-cdn-vs-one-file-locally
-    // TODO: responsive design for the blog
     // TODO: change triple ### to double ## in the blog posts
-    // TODO: chrome idle cpu usage?
-    // TODO: move scripts to bottom of page
-    // TODO: combine js, css files
 });

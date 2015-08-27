@@ -1113,7 +1113,7 @@ q:after {
       .body-text {
         color: white !important;
         h1, h2, h3, h4, h5, p {
-          color: white;
+          color: #ddd;
         }
       }
     }
@@ -1166,8 +1166,9 @@ q:after {
         min-height: 37px*4; //4 * line height
       }
       button {
+        border-color: #ddd;
         &:hover:disabled {
-          border-color: white !important;
+          border-color: #ddd !important;
         }
       }
       input, textarea {
@@ -1176,7 +1177,7 @@ q:after {
         appearance: none;
         background: none;
         width: 100%;
-        border: 1px solid white;
+        border: 1px solid #ddd;
         // border-radius: 3px;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -1189,6 +1190,7 @@ q:after {
         @include placeholder {
           color: #ddd;
           font-weight: 100;
+          font-size: 2rem;
           -webkit-font-smoothing: subpixel-antialiased;
         }
       }
