@@ -1,6 +1,9 @@
 // Since firefox sucks. transform: scale is hella slow
 var IS_FIREFOX = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1);
 
+// requestAnimationFrame appears to be fubar
+var IS_SAFARI_IOS_7 = navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i);
+
 // requestAnimationFrame polyfill
 (function () {
     var lastTime = 0,
@@ -360,12 +363,14 @@ function scrollTo(to) {
 $(document).ready(function() {
     Parallax.init();
 
-    function on_raf() {
-        requestAnimationFrame(on_raf);
+    if (!IS_SAFARI_IOS_7) {
+        function on_raf() {
+            requestAnimationFrame(on_raf);
 
-        Parallax.update();
+            Parallax.update();
+        }
+        requestAnimationFrame(on_raf);
     }
-    requestAnimationFrame(on_raf);
 
     $('header > nav > ul > li > a').hover(function() {
         // enter
