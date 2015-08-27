@@ -210,20 +210,20 @@ get '/blog/:slug/?' do |slug|
   erb :blog_post
 end
 
-get '/projects/?' do
-  @nav = "projects"
-  @title = "Projects"
-  @header_img = PROJECTS_DEFAULT_MASTHEAD_IMG
-  erb :projects_all
-end
+# get '/projects/?' do
+#   @nav = "projects"
+#   @title = "Projects"
+#   @header_img = PROJECTS_DEFAULT_MASTHEAD_IMG
+#   erb :projects_all
+# end
 
-get '/project/:slug/?' do |slug|
-  @proj = Project.find(slug)
-  @title = @proj.title
-  @nav = "projects"
-  @header_img = @proj.header_img || PROJECT_POST_DEFAULT_MASTHEAD_IMG
-  erb :project
-end
+# get '/project/:slug/?' do |slug|
+#   @proj = Project.find(slug)
+#   @title = @proj.title
+#   @nav = "projects"
+#   @header_img = @proj.header_img || PROJECT_POST_DEFAULT_MASTHEAD_IMG
+#   erb :project
+# end
 
 get '/about/?' do
   redirect '/#about'
