@@ -1,8 +1,8 @@
-     _           _                                     
- ___| |_ ___ ___| |___ _ _ ___ ___ ___ 
+     _           _
+ ___| |_ ___ ___| |___ _ _ ___ ___ ___
 |_ -|  _| .'|   | | -_| | |  _| -_|   |
 |___|_| |__,|_|_|_|___|_  |___|___|_|_|
-                      |___|                            
+                      |___|
 
 /* the humans responsible for building stanleycen.com */
 /* humanstxt.org */
@@ -11,17 +11,16 @@
 
 /* TEAM */
   Designer and Coder:                     Stanley Cen
-  Location:                               Portland, Oregon, USA
+  Location:                               Cambridge, MA, USA
 
 /* THANKS */
   Ruby
   Sinatra
   jQuery
   Sass
-  Fontello
-  Heroku
+  GitHub
+  Unsplash
 
 /* SITE */
-  Standards:                              HTML5, CSS3
-  Software:                               Sublime Text, Git
+  Software:                               Sublime Text 3, Git
   Last update:                            See github.com/scen/stanleycen.com

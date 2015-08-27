@@ -446,8 +446,7 @@ $(document).ready(function() {
         });
     });
 
-    $("nav li a").click(function(event) {
-        console.log("click");
+    $("nav li a, #contact-hear").click(function(event) {
         var $a = $(this);
         if ($a.attr('href') != null && $a.attr('href')[0] == '#') {
             scrollTo($a.attr('href'));
