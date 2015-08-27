@@ -465,4 +465,5 @@ $(document).ready(function() {
     // TODO: convert all blog posts to new format...
     // TODO: fix highlight
     // TODO: change triple ### to double ## in the blog posts
+    // TODO: Chrome address bar disappars/reappears while scrolling.
 });
