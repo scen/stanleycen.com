@@ -144,5 +144,5 @@ when 'deploy'
   git.push
 
 else
-  puts "Command not recognized."
+  puts "Command not recognized. Possible commands: build, commit, deploy."
 end
