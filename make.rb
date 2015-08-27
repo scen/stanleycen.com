@@ -13,7 +13,7 @@ require 'uglifier'
 require 'git'
 
 
-TOP_ROUTES = ['/', '/blog', '/projects']
+TOP_ROUTES = ['/', '/blog']#, '/projects']
 
 OUTPUT_DIR = 'scen.github.io/'
 
@@ -77,18 +77,18 @@ class Builder
     end
 
     # Projects.
-    puts "Projects"
-    mkdir(get_dir('project'))
-    Project.all.each do |slug, proj|
-      dd = 'project/' + slug
-      d = get_dir(dd)
-      mkdir(d)
-      res = get(dd)
-      raise "Non 200 response" if res.status != 200
-      File.open(get_index(d), 'w+') do |f|
-        f.write compressor.compress res.body
-      end
-    end
+    # puts "Projects"
+    # mkdir(get_dir('project'))
+    # Project.all.each do |slug, proj|
+    #   dd = 'project/' + slug
+    #   d = get_dir(dd)
+    #   mkdir(d)
+    #   res = get(dd)
+    #   raise "Non 200 response" if res.status != 200
+    #   File.open(get_index(d), 'w+') do |f|
+    #     f.write compressor.compress res.body
+    #   end
+    # end
 
     # CSS.
     puts "CSS"
