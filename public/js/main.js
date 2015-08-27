@@ -426,7 +426,30 @@ $(document).ready(function() {
         }
     }
 
-    var _0xe09d=["\x70\x72\x65\x76\x65\x6E\x74\x44\x65\x66\x61\x75\x6C\x74","\x50\x4F\x53\x54","\x56\x79\x31\x50\x75\x57\x64\x37\x77\x6F\x38\x77\x61\x47\x6A\x6C\x55\x43\x6B\x4F\x53\x38\x38\x56\x5A\x68\x68\x73\x6B\x4F\x79\x75\x65\x5A\x79\x6A\x69\x52\x58\x52","\x67\x7A\x64\x4B\x39\x6D\x4D\x4E\x73\x79\x56\x74\x48\x41\x6A\x68\x6D\x4C\x6E\x6D\x6E\x32\x39\x6A\x46\x5A\x4E\x38\x7A\x47\x52\x46\x54\x63\x48\x79\x43\x38\x31\x37","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x61\x70\x69\x2E\x70\x61\x72\x73\x65\x2E\x63\x6F\x6D\x2F\x31\x2F\x66\x75\x6E\x63\x74\x69\x6F\x6E\x73\x2F\x73\x65\x6E\x64\x45\x6D\x61\x69\x6C","\x74\x65\x78\x74\x2F\x70\x6C\x61\x69\x6E","\x76\x61\x6C","\x23\x6E\x61\x6D\x65","\x23\x65\x6D\x61\x69\x6C","\x23\x73\x75\x62\x6A\x65\x63\x74","\x23\x6D\x65\x73\x73\x61\x67\x65","\x73\x74\x72\x69\x6E\x67\x69\x66\x79","\x72\x65\x73\x75\x6C\x74","\x6F\x6B","\x61\x6A\x61\x78","\x73\x75\x62\x6D\x69\x74","\x23\x63\x6F\x6E\x74\x61\x63\x74\x5F\x66\x6F\x72\x6D\x20\x3E\x20\x66\x6F\x72\x6D"];$(_0xe09d[16])[_0xe09d[15]](function(_0x5088x1){_0x5088x1[_0xe09d[0]]();$[_0xe09d[14]]({type:_0xe09d[1],headers:{"\x58\x2D\x50\x61\x72\x73\x65\x2D\x41\x70\x70\x6C\x69\x63\x61\x74\x69\x6F\x6E\x2D\x49\x64":_0xe09d[2],"\x58\x2D\x50\x61\x72\x73\x65\x2D\x52\x45\x53\x54\x2D\x41\x50\x49\x2D\x4B\x65\x79":_0xe09d[3]},url:_0xe09d[4],contentType:_0xe09d[5],data:JSON[_0xe09d[11]]({name:$(_0xe09d[7])[_0xe09d[6]](),email:$(_0xe09d[8])[_0xe09d[6]](),subject:$(_0xe09d[9])[_0xe09d[6]](),message:$(_0xe09d[10])[_0xe09d[6]]()}),success:function(_0x5088x2,_0x5088x3,_0x5088x4){contact_response(_0x5088x2[_0xe09d[12]]===_0xe09d[13])},error:function(_0x5088x4,_0x5088x3,_0x5088x5){contact_response(false)}});});
+    $('#contact_form > form').submit(function(evt) {
+        evt.preventDefault();
+        $.ajax({
+            type: 'POST',
+            headers: {
+                'X-Parse-Application-Id': "Vy1PuWd7wo8waGjlUCkOS88VZhhskOyueZyjiRXR",
+                'X-Parse-REST-API-Key': "gzdK9mMNsyVtHAjhmLnmn29jFZN8zGRFTcHyC817"
+            },
+            url: "https://api.parse.com/1/functions/sendEmail",
+            contentType: 'text/plain',
+            data: JSON.stringify({
+                name: $('#name').val(),
+                email: $('#email').val(),
+                subject: $('#subject').val(),
+                message: $('#message').val(),
+            }),
+            success: function(res, status, xhr) {
+                contact_response(res.result === 'ok');
+            },
+            error: function(xhr, status, error) {
+                contact_response(false);
+            }
+        });
+    });
 
     $("nav li a, #contact-hear").click(function(event) {
         var $a = $(this);
