@@ -12,6 +12,7 @@ Parse.Cloud.define("sendEmail", function(request, response) {
     if (!regex.test(email)) {
       console.log("invalid email address", email);
       response.error('nope');
+      return;
     }
 
     sendgrid.sendEmail({
