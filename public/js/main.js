@@ -420,9 +420,10 @@ $(document).ready(function() {
     });
 
     $(window).on('orientationchange', function() {
-        console.log("orientationchange");
-        $("#masthead").removeAttr('style');
-        is_post_orientationchange = true;
+        if (IS_ANDROID_MOBILE) {
+            $("#masthead").removeAttr('style');
+            is_post_orientationchange = true;
+        }
     });
 
     $('.blog-masonry-post article').hover(function() {
