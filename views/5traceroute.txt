@@ -1,0 +1,163 @@
+6.033 Handson 5: Traceroute
+---------------------------
+
+1)
+
+    www.csail.mit.edu had a 100% success rate with stats (min, max, avg):
+
+        rtt min/avg/max/mdev = 0.621/0.881/1.699/0.321 ms
+
+
+    www.berkeley.edu had a 100% success rate with stats:
+
+        rtt min/avg/max/mdev = 89.912/90.033/90.232/0.251 ms
+
+    www.unsw.edu.au had a 100% success rate with stats:
+
+        rtt min/avg/max/mdev = 274.255/274.325/274.435/0.052 ms
+
+    www.kyoto-u.ac.jp had a 100% success rate with stats:
+
+        rtt min/avg/max/mdev = 176.511/176.731/177.250/0.277 ms
+
+2)
+
+    The differences in min round trip time is explained by the
+    geographic distances between the athena cluster located
+    here in Cambridge and the remote server. For example,
+    the CSAIL website might be on the same network, so we
+    get an extremely low rtt. However, we can guess
+    that the UNSW website is hosted in the Oceania region
+    so our ping packets and their responses have to traverse a longer
+    distance.
+
+3)
+
+    www.csail.mit.edu
+        56 bytes:
+            rtt min/avg/max/mdev = 0.658/0.764/0.967/0.100 ms
+        512 bytes:
+            rtt min/avg/max/mdev = 0.679/0.806/1.002/0.084 ms
+        1024 bytes:
+            rtt min/avg/max/mdev = 0.683/0.820/1.039/0.123 ms
+        2056 bytes:
+            rtt min/avg/max/mdev = 2.191/2.865/3.762/0.403 ms
+
+    www.kyoto-u.ac.jp
+        56 bytes:
+            rtt min/avg/max/mdev = 176.599/176.970/177.622/0.624 ms
+        512 bytes:
+            rtt min/avg/max/mdev = 176.694/177.394/182.733/1.791 ms
+        1024 bytes:
+            rtt min/avg/max/mdev = 176.636/177.205/180.026/1.108 ms
+        2056 bytes:
+            rtt min/avg/max/mdev = 176.700/176.932/177.346/0.419 ms
+
+    The min/avg/max round trip times to www.csail.mit.edu changes
+    significantly more relative to the same statistics for
+    www.kyoto-u.ac.jp (which didn't change much at all).
+    This is probably due to the fact that
+    the rtt to Japan is dominated by the amount of time it
+    needs to simply travel through the cables, as opposed
+    to the packets to MIT, where processing the packets and forwarding
+    them dominates more
+
+4)
+
+    www.microsoft.com had 100% successful response rate.
+
+    www.wits.ac.za had a 0% successful response rate. Presumably,
+    since the web server on port 80 is responding to HTTP requests,
+    the server either does not support these ping ICMP packets,
+    or explictly blocks them, or just doesn't respond to them
+    as a matter of policy.
+
+5)
+
+    IP packets have a TTL, which is decremented every time a
+    router/server processes it and sends it off to the next
+    one. Therefore, we send a packet to the destination and increase
+    TTL every iteration, so we can find where the packet ends up
+    at each hop.
+
+6)
+
+    MIT -> Stanford
+
+         1  18.9.64.3 (18.9.64.3)  0.516 ms  0.611 ms  0.835 ms
+         2  BACKBONE-RTR-1.MIT.EDU (18.168.1.1)  0.582 ms  0.570 ms  0.658 ms
+         3  DMZ-RTR-1-BACKBONE-RTR-1.MIT.EDU (18.192.1.1)  2.263 ms  2.367 ms  2.362 ms
+         4  NY32-RTR-1-DMZ-RTR-1.MIT.EDU (18.192.5.2)  7.288 ms  7.390 ms  7.382 ms
+         5  aofasdn1-mit.es.net (198.124.216.97)  7.488 ms  7.780 ms  8.210 ms
+         6  washcr5-ip-a-aofacr5.es.net (134.55.36.34)  12.165 ms  12.142 ms  12.291 ms
+         7  chiccr5-ip-a-washcr5.es.net (134.55.36.45)  29.303 ms  29.563 ms  30.285 ms
+         8  kanscr5-ip-a-chiccr5.es.net (134.55.43.82)  40.272 ms  40.392 ms  40.729 ms
+         9  denvcr5-ip-a-kanscr5.es.net (134.55.49.57)  50.831 ms  50.927 ms  51.158 ms
+        10  sacrcr5-ip-a-denvcr5.es.net (134.55.50.201)  71.769 ms  72.050 ms  72.329 ms
+        11  sunncr5-ip-a-sacrcr5.es.net (134.55.40.6)  74.342 ms  74.396 ms  74.407 ms
+        12  rtr-border2-p2p-sunn-cr5.slac.stanford.edu (192.68.191.234)  74.690 ms  75.032 ms  75.050 ms
+        13  * * *
+        14  * * *
+        15  * * *
+        16  * * *
+        17  * * *
+        18  * * *
+        19  * * *
+        20  * * *
+        21  * * *
+        22  * * *
+        23  * * *
+        24  * * *
+        25  * * *
+        26  * * *
+        27  * * *
+        28  * * *
+        29  * * *
+        30  * * *
+
+    Stanford -> MIT
+
+        Executing exec(traceroute -m 30 -q 3 18.9.64.17)
+        traceroute to 18.9.64.17 (18.9.64.17), 30 hops max, 40 byte packets
+         1  134.79.197.131 (134.79.197.131)  1.017 ms  2.294 ms  0.687 ms
+         2  rtr-core2-p2p-serv01-02.slac.stanford.edu (134.79.254.61)  0.459 ms  0.327 ms  0.394 ms
+         3  rtr-fwcore2-trust-p2p-core2.slac.stanford.edu (134.79.254.146)  0.709 ms  0.772 ms  0.674 ms
+         4  rtr-core2-p2p-fwcore2-untrust.slac.stanford.edu (134.79.254.149)  1.049 ms  1.053 ms  0.957 ms
+         5  rtr-border1-p2p-core2.slac.stanford.edu (134.79.252.137)  0.946 ms  0.836 ms rtr-border1-p2p-core1.slac.stanford.edu (134.79.252.133)  0.958 ms
+         6  rtr-border2-p2p-border1.slac.stanford.edu (192.68.191.253)  1.566 ms  1.561 ms  1.520 ms
+         7  sunncr5-ip-c-slac.slac.stanford.edu (192.68.191.233)  1.749 ms  5.041 ms  1.659 ms
+         8  sacrcr5-ip-a-sunncr5.es.net (134.55.40.5)  4.326 ms  4.200 ms  4.477 ms
+         9  denvcr5-ip-a-sacrcr5.es.net (134.55.50.202)  27.141 ms  25.286 ms  25.319 ms
+        10  kanscr5-ip-a-denvcr5.es.net (134.55.49.58)  35.993 ms  37.713 ms  35.860 ms
+        11  chiccr5-ip-a-kanscr5.es.net (134.55.43.81)  46.763 ms  46.768 ms  46.531 ms
+        12  washcr5-ip-a-chiccr5.es.net (134.55.36.46)  63.845 ms  63.798 ms  63.753 ms
+        13  * * *
+        14  198.124.216.98 (198.124.216.98)  69.407 ms  69.189 ms  69.390 ms
+        15  * * *
+        16  backbone-rtr-1-dmz-rtr-1.mit.edu (18.192.1.2)  75.487 ms  75.478 ms  75.569 ms
+        17  oc11-rtr-1-backbone-2.mit.edu (18.168.1.41)  75.289 ms  76.534 ms  75.458 ms
+        18  mass-toolpike.mit.edu (18.9.64.17)  75.348 ms  75.327 ms  75.270 ms
+        traceroute -m 30 -q 3 18.9.64.17 took 32secs. Total time=32secs. user=nobody
+
+7)
+
+    The switches/routers pick different paths/hops to each destination, depending on what the BGP
+    decides based on different metrics.
+
+8)
+
+    Traceroute shows asterisks when the router times out. In this case, it's because of
+    black home routers, which are routers that are configured specifically to not respond to
+    ICMP messages.
+
+9)
+
+    3 is MIT
+
+10)
+
+    3356, 10578, 16631
+
+11)
+
+    40 minutes

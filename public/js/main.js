@@ -90,7 +90,6 @@ var Parallax = {
     },
 
     _refresh_y_offsets: function() {
-        console.log("refreshing offsets");
         for (var i = 0; i < Parallax.count; i++) {
             Parallax.offset_top_cache[i] = Parallax.wrap_cache[i].offsetTop;
         }
@@ -467,7 +466,6 @@ $(document).ready(function() {
         history.pushState("", document.title, window.location.pathname);
     }
 
-    // TODO: make a favicon
     // WISHLIST: add dropbox font logo to timeline
     // TODO: fix pygments css theme
     // TODO: convert all blog posts to new format...
