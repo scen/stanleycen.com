@@ -22,5 +22,4 @@
   Unsplash
 
 /* SITE */
-  Software:                               Sublime Text 3, Git
   Last update:                            See github.com/scen/stanleycen.com
