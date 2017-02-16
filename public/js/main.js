@@ -78,7 +78,8 @@ var Parallax = {
     },
 
     _translate_y_and_scale:  function(elm, dist, scale) {
-        var transform = 'translate3d(0,' + dist + 'px, 0) scale3d(' + scale + ',' + scale + ', 1)';
+        // var transform = 'translate3d(0,' + dist + 'px, 0) scale3d(' + scale + ',' + scale + ', 1)';
+        var transform = 'translate3d(0,' + dist + 'px, 0)';
         if (IS_FIREFOX) {
             transform += " rotate(0.01deg)";
         }
