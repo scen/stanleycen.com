@@ -16,6 +16,7 @@ $page-top-padding: 40px;
 $content-max-width: 850px;
 
 $header-collapse: 750px;
+$floating-page-collapse: 1200px;
 
 // Colors
 
@@ -35,13 +36,13 @@ body {
 #container {
   // TODO, maybe remove padding for all so its flush
   // padding-bottom: 40px;
-  // padding-top: $page-top-padding;
+  padding-top: $page-top-padding;
+  padding-left: $page-top-padding;
+  padding-right: $page-top-padding;
 
-  // TODO: should these be fixed?
-  // padding-left: 4%;
-  // padding-right: 4%;
-  // padding-left: 40px;
-  // padding-right: 40px;
+  @media screen and (max-width: $floating-page-collapse) {
+    padding: 0 !important;
+  }
 }
 
 // @keyframes heartbeat {
