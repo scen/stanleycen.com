@@ -699,6 +699,24 @@ nav.pushy {
   }
 }
 
+#divider {
+  height: 400px;
+}
+
+.divide-img {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: url(/a.jpg);
+    background-repeat: no-repeat !important;
+    background-position: center bottom !important;
+    background-size: cover !important;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
 // Timeline
 
 $timeline_line_col: #bbedd4;
