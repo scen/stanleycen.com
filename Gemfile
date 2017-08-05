@@ -1,17 +1,6 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem "sinatra"
-gem "pygments.rb"
-gem "rdiscount"
-gem "sass"
-gem "git"
-gem "heroku"
-gem "octokit"
-gem "rake"
-gem "nokogiri"
-gem "mail"
-gem "rack-test"
-gem "htmlcompressor"
-gem "uglifier"
-gem "redcarpet"
-gem "rouge"
+gem 'middleman', '~> 4.2'
+gem 'middleman-autoprefixer', '~> 2.7'
+gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
+gem 'wdm', '~> 0.1', platforms: [:mswin, :mingw]

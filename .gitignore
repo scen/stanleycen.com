@@ -1,1 +1,5 @@
-scen.github.io/
+.bundle
+.cache
+.DS_Store
+.sass-cache
+build/
