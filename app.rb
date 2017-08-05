@@ -194,6 +194,10 @@ get '/' do
   erb :index
 end
 
+get '/music/?' do
+
+end
+
 get '/blog/?' do
   @posts = Post.all
   @title = "Blog"

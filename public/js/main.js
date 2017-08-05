@@ -378,9 +378,19 @@ $(document).ready(function() {
     $('header > nav > ul > li > a').hover(function() {
         // enter
         $(this).parent().siblings('li').children('a').addClass('blur');
+        $("#header > .name").find("*").addClass('blur');
     }, function() {
         // exit
         $(this).parent().siblings('li').children('a').removeClass('blur');
+        $("#header > .name").find("*").removeClass('blur');
+    });
+
+    $('#header > .name > a').hover(function() {
+        // enter
+        $("header > nav > ul > li > a").addClass('blur');
+    }, function() {
+        // exit
+        $("header > nav > ul > li > a").removeClass('blur');
     });
 
     $('a.popout-lightbox').fluidbox();

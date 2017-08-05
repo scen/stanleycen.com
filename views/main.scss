@@ -35,7 +35,6 @@ body {
 
 #container {
   // TODO, maybe remove padding for all so its flush
-  // padding-bottom: 40px;
   padding-top: $page-top-padding;
   padding-left: $page-top-padding;
   padding-right: $page-top-padding;
@@ -240,6 +239,13 @@ footer {
         color: white;
         font-weight: 700;
         font-size: 4rem;
+
+        @include transition(all .2s ease-in-out);
+
+        &.blur {
+          color: transparent !important;
+          text-shadow: 0 0 10px rgba(255,255,255,1);
+        }
       }
 
       h2 {
@@ -247,6 +253,13 @@ footer {
         color: white;
         font-weight: 300;
         font-size: 4rem;
+
+        @include transition(all .2s ease-in-out);
+
+        &.blur {
+          color: transparent !important;
+          text-shadow: 0 0 10px rgba(255,255,255,1);
+        }
       }
     }
   }
