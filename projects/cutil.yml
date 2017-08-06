@@ -1,9 +1,0 @@
-title: "Contest Utility"
-slug: "cutil"
-summary: >
-  This utility streamlines the process of creating, compiling, and testing programming contest solutions. It also wraps test data generation.
-content: >
-  This utility streamlines the process of creating, compiling, and testing programming contest solutions. It also wraps test data generation.
-tags:
-  - ruby
-repo: "http://github.com/scen/cutil/"

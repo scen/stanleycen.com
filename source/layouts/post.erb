@@ -1,0 +1,19 @@
+<% wrap_layout :layout do %>
+    <section id="masthead" class="parallax-wrap">
+        <div class="parallax-img masthead-parallax-img"><div class="darken-filter"></div></div>
+        <div class="parallax-content">
+            <div class="blog-masthead">
+                <div class>
+                    <h1 class=""><%= current_article.title %></h1>
+                    <h4 class=""><%= current_article.date.strftime("%B %d, %Y") %></h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-wrap">
+        <div class="body-text">
+            <%= yield %>
+        </div>
+    </section>
+    <style><%= Rouge::Theme.find('base16.solarized').render(scope: '.highlight') %></style>
+<% end %>

@@ -1,0 +1,33 @@
+<!-- Maybe add header sized parallax here :) -->
+<section id="masthead" class="parallax-wrap">
+        <div class="parallax-img masthead-parallax-img"><div class="darken-filter"></div></div>
+        <div class="parallax-content">
+            <div class="blog-list-masthead">
+                <div class>
+                    <h1 class="">blog.</h1>
+                    <h4 class=""><em>&ldquo;i&rsquo;m significant!&hellip; screamed the dust speck.&rdquo; &mdash; calvin &amp; hobbes</em></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="content-wrap blog-all">
+    <div class='posts-wrap body-text'>
+        <% blog('blog').articles.each do |article| %>
+            <div class='blog-post'>
+                <article>
+                    <div class='post-details'>
+                        <div class='metadata'>
+                            <time><%= article.date.strftime("%B %d, %Y") %></time>
+                            <h1><%= article.title %></h1>
+                        </div>
+                    </div>
+                    <!-- <div class='post-image'>
+                    </div> -->
+                    <div class='summary'>
+                        <%= article.summary %>
+                    </div>
+                </article>
+            </div>
+        <% end %>
+    </div>
+</section>

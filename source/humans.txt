@@ -1,0 +1,10 @@
+hello there! -stanley
+
+/* humanstxt.org */
+
+/* thanks */
+  Ruby
+  Middleman
+
+/* site */
+  Last update: See https://github.com/scen/stanleycen.com

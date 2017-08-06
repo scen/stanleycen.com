@@ -1,9 +1,31 @@
+require 'git'
+
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true
+
 # Activate and configure extensions
 # https://middlemanapp.com/advanced/configuration/#configuring-extensions
 
 activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
+
+activate :blog do |blog|
+  blog.name = "blog"
+  blog.prefix = "blog"
+  blog.layout = "post"
+  blog.permalink = "{year}/{title}.html"
+end
+
+activate :blog do |blog|
+  blog.name = "hikes"
+  blog.prefix = "hike"
+  blog.permalink = "{year}/{title}.html"
+end
+
+activate :directory_indexes
+activate :syntax
+
 
 # Layouts
 # https://middlemanapp.com/basics/layouts/
@@ -31,11 +53,25 @@ page '/*.txt', layout: false
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 
-# helpers do
-#   def some_helper
-#     'Helping'
-#   end
-# end
+$git = Git.open(Dir.pwd)
+
+helpers do
+  def get_nav_classes nav
+    nav
+  end
+
+  def get_commit_sha
+    return $git.log.first.sha
+  end
+
+  def get_commit_msg
+    return $git.log.first.message
+  end
+
+  def get_commit_time
+    return $git.log.first.date
+  end
+end
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
