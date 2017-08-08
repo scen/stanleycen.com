@@ -1,4 +1,6 @@
 require 'git'
+require 'tzinfo'
+Time.zone = 'US/Pacific'
 
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true
@@ -15,12 +17,15 @@ activate :blog do |blog|
   blog.prefix = "blog"
   blog.layout = "post"
   blog.permalink = "{year}/{title}.html"
+  blog.default_extension = ".markdown.erb"
 end
 
 activate :blog do |blog|
   blog.name = "hikes"
   blog.prefix = "hike"
+  blog.layout = "hike"
   blog.permalink = "{year}/{title}.html"
+  blog.default_extension = ".markdown.erb"
 end
 
 activate :directory_indexes
@@ -55,6 +60,8 @@ page '/*.txt', layout: false
 
 $git = Git.open(Dir.pwd)
 
+$markdown_renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+
 helpers do
   def get_nav_classes nav
     nav
@@ -70,6 +77,62 @@ helpers do
 
   def get_commit_time
     return $git.log.first.date
+  end
+
+  def image(args)
+    partial(:image, :locals => args)
+  end
+
+  def get_header_image current_page
+    if current_page.data.header_img
+      return url_for current_page.data.header_img
+    else current_page.path.start_with?('')
+      return '/img/default_blog_header.jpg'
+    end
+  end
+
+  def get_hike_title hike
+    prefix = ''
+    if !hike.data[:park].nil?
+      prefix = hike.data[:park]
+    elsif !hike.data[:area].nil?
+      prefix = hike.data[:area]
+    end
+
+    if not prefix.empty?
+      prefix = prefix + ": "
+    end
+    return prefix + hike.title
+  end
+
+  def article_body_minus_summary article
+    summary = article.summary
+    body = article.body
+    print summary
+    print body
+    raise "body doesn't start with summary" unless body.start_with?(summary)
+    body.slice!(summary)
+    return body
+  end
+
+  def render_hike_info hike
+    partial(:hike_info, :locals => {:hike => hike})
+  end
+
+
+  def hike_maybe_show_row(name, value, unit="")
+    if !unit.blank?
+        unit = ' ' + unit
+    end
+    if !value.blank?
+      return partial(:hike_info_row, :locals => {:name => name, :data => value.to_s + unit})
+    end
+    return ""
+  end
+
+  def markdown_to_html md
+    return "" if md.nil?
+    $markdown_renderer.render(md)
   end
 end
 

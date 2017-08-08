@@ -1,11 +1,11 @@
 ---
 
-title: "Reverse Engineering CUserCmd in Counter Strike: Global Offensive"
+title: "Reverse engineering CUserCmd in Counter Strike: Global Offensive"
 tags: reverse-engineering
 
 ---
+READMORE
 `CUserCmd` is a class that holds player buttons, viewangles, position, and other movement specific data. These user commands are stored in a circular buffer, where they are then sent to the server. In Counter Strike: Global Offensive however, these data structures have changed as well as some intrinsics.
-
 This circular buffer is part of the CInput class, which we can get the global instance of by reversing `CHLClient->IN_ActivateMouse()`. The first instruction in this virtual function references a pointer to an instance of CInput, and we can get this pointer by doing the following:
 
 
@@ -15,8 +15,6 @@ DWORD **pClientVtable = *(DWORD ***)(*pClient); //client+0x0 contains the vtable
 DWORD *pIN_ACTIVATEMOUSE = pClientVtable[16]; //16th vfunc
 CInput *pgInput = *(CInput **)(pIN_ACTIVATEMOUSE + 0x2);
 ```
-
-<!--more-->
 
 Once we get this pointer, we can disassemble `pgInput->GetUserCmd(int, int)`. (The function now takes 2 parameters, rather than one, but after taking a look at it you should just pass `0` or `1` into the function). After dumping the virtual table in IDA, we see that `GetUserCmd` is now at vtable index `8`. We can get the pointer to the function like above, then disassemble it in IDA (or OllyDbg).
 

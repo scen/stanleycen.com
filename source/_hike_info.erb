@@ -1,0 +1,19 @@
+<%
+@hike = locals[:hike].data
+%>
+<h1>Info</h1>
+<div>
+<table>
+    <tbody>
+        <%= hike_maybe_show_row('Park', @hike[:park]) %>
+        <%= hike_maybe_show_row('Area', @hike[:area]) %>
+        <%= hike_maybe_show_row('Distance', @hike[:miles], 'mi') %>
+        <%= hike_maybe_show_row('Starting elevation', @hike[:elevation], 'ft') %>
+        <%= hike_maybe_show_row('Elevation gain', @hike[:elevation_gain], 'ft') %>
+        <%= hike_maybe_show_row('Type', @hike[:trail_type]) %>
+        <%= hike_maybe_show_row('Trailhead', @hike[:trailhead]) %>
+        <%= hike_maybe_show_row('Rating', @hike[:rating]) %>
+    </tbody>
+</table>
+
+</div>

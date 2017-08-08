@@ -20,7 +20,7 @@
     <link href="/stylesheets/main.css" rel="stylesheet" type="text/css"/>
     <style type="text/css">
       .masthead-parallax-img {
-        background: url("<%= current_page.data.header_img || '/img/default_blog_header.jpg' %>");
+        background: url("<%= get_header_image(current_page) %>");
       }
     </style>
   </head>

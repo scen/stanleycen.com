@@ -1,0 +1,29 @@
+<% wrap_layout :layout do %>
+    <section id="masthead" class="parallax-wrap">
+        <div class="parallax-img masthead-parallax-img"><div class="darken-filter less"></div></div>
+        <div class="parallax-content">
+            <div class="blog-masthead">
+                <div class>
+                    <h1 class=""><%= get_hike_title current_article %></h1>
+                    <h4 class="">
+                        <%= current_article.date.strftime("%B %d, %Y") %>
+                        <% if current_article.data.key?('end_date') %>
+                            &mdash; <%= Date::parse(current_article.data.end_date).strftime("%B %d, %Y") %>
+                        <% end %>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-wrap">
+        <div class="body-text">
+            <%= markdown_to_html current_article.data.blurb %>
+        </div>
+        <div class="body-text">
+            <%= render_hike_info current_article %>
+        </div>
+        <div class="body-text">
+            <%= yield %>
+        </div>
+    </section>
+<% end %>

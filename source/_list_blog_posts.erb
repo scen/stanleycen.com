@@ -1,0 +1,23 @@
+<section class="content-wrap blog-all">
+    <div class='posts-wrap body-text'>
+        <% blog(locals[:blog]).articles.each do |article| %>
+            <div class='blog-post'>
+                <article>
+                    <div class='post-details'>
+                        <div class='metadata'>
+                            <time><%= article.date.strftime("%B %d, %Y") %></time>
+                            <h1><a href="<%= article.url %>"><%= article.title %></a></h1>
+                        </div>
+                    </div>
+                    <% if article.data.header_img %>
+                    <div class='post-image'>
+                    </div>
+                    <% end %>
+                    <div class='summary'>
+                        <%= article.summary %>
+                    </div>
+                </article>
+            </div>
+        <% end %>
+    </div>
+</section>

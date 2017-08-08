@@ -1,7 +1,8 @@
 ---
-title: DirectX 11 Hooking
+title: DirectX 11 hooking
 tags: reverse-engineering
 ---
+READMORE
 After hacking around with the Source Engine, and reversing random parts of it, I've decided to move on to more general `D3D11` hooking, which probably will be the next most commonly used DirectX API, like DirectX 9 was. (DirectX 10 was a failure.)
 
 Although I have experience with DirectX 9 hooking and rendering, DirectX 11 turned out to be completely different. Instead of having built in font and line interfaces, a person would have to either build his own, or use external libraries. For font rendering I used [FW1FontWrapper](http://fw1.codeplex.com/), but I wrote my own interfaces for drawing some primitives such as lines and rectangles.
@@ -15,5 +16,3 @@ There isn't much documentation on `D3D11` hooking, so I was on my own a lot of t
 2. However, games do not necessarily call `D3D11CreateDeviceAndSwapChain` (they call something else, I can't remember what at this moment, but calling that something else will result in a call to `D3D11CreateDeviceAndSwapChain` with a `NULL` pointer to the `swapChain`. The other method is to detour `CreateDXGIFactory` and `CreateDXGIFactory1`, then once that gets called, you detour `CreateSwapChain`. Then you can retrieve the `SwapChain` from there, and do a VMT hook on the `8th` function.
 
 Anyways, check out my open-source library [here](https://github.com/scen/ionlib) -- it has DX11 hooking and rendering capabilities.
-
-To be continued...

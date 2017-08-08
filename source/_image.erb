@@ -1,0 +1,15 @@
+<%
+@width = locals.key?(:width) ? locals[:width].to_s + 'px' : '100%'
+@url = locals.key?(:cloudinary) ? "http://res.cloudinary.com/hazdcamql/image/upload/" + locals[:cloudinary] : locals[:src]
+
+%>
+<div style="width: 100%" class="photo-wrap">
+    <div class="center hover expand photo" style="max-width: <%= @width %>;">
+        <a class="lightbox popout-lightbox" href="<%= @url %>" title="<%= locals[:caption] %>" target="_blank">
+            <img src="<%= @url %>" alt="<%= locals[:caption] %>" style="max-width: 100%">
+        </a>
+    </div>
+    <div class="caption">
+        <span><%= locals[:caption] %></span>
+    </div>
+</div>

@@ -26,6 +26,7 @@ $selection-col: #CEF1F7;
 body {
   background-color: $nothingness;
   font-family: "BrandonGrotesque", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 ::selection {
@@ -494,35 +495,35 @@ nav.pushy {
     h3 {
     }
 
-    // @include max-screen(900px) {
-    //   h1 {
-    //     font-size: 8rem*0.95 !important;
-    //   }
+    @include max-screen(900px) {
+      h1 {
+        font-size: 8rem*0.95 !important;
+      }
 
-    //   h3 {
-    //     font-size: 3rem*0.95 !important;
-    //   }
-    // }
+      h3 {
+        font-size: 3rem*0.95 !important;
+      }
+    }
 
-    // @include max-screen(500px) {
-    //   h1 {
-    //     font-size: 8rem*0.8 !important;
-    //   }
+    @include max-screen(500px) {
+      h1 {
+        font-size: 8rem*0.8 !important;
+      }
 
-    //   h3 {
-    //     font-size: 3rem*0.8 !important;
-    //   }
-    // }
+      h3 {
+        font-size: 3rem*0.8 !important;
+      }
+    }
 
-    // @include max-screen(350px) {
-    //   h1 {
-    //     font-size: 8rem*0.7 !important;
-    //   }
+    @include max-screen(350px) {
+      h1 {
+        font-size: 8rem*0.7 !important;
+      }
 
-    //   h3 {
-    //     font-size: 3rem*0.7 !important;
-    //   }
-    // }
+      h3 {
+        font-size: 3rem*0.7 !important;
+      }
+    }
 
     & > h3 {
       // font-size: 3rem;
@@ -556,6 +557,25 @@ nav.pushy {
 
     h1 {
       font-weight: 900;
+      font-size: 6rem;
+    }
+
+    @include max-screen(900px) {
+      h1 {
+        font-size: 6rem*0.95 !important;
+      }
+    }
+
+    @include max-screen(500px) {
+      h1 {
+        font-size: 6rem*0.8 !important;
+      }
+    }
+
+    @include max-screen(350px) {
+      h1 {
+        font-size: 6rem*0.7 !important;
+      }
     }
 
     h4 {
@@ -597,6 +617,12 @@ nav.pushy {
       color: #ddd;
     }
   }
+}
+
+
+
+.hikes-masthead {
+  background-image: url('/img/home/header2.jpg') !important;
 }
 
 .darken-filter {
@@ -984,6 +1010,7 @@ ul.timeline {
 div.photo-wrap {
   position: relative;
   margin: 0 auto;
+  margin-bottom: 30px;
 
   .photo {
     margin: 0 auto;
@@ -1019,7 +1046,7 @@ div.photo-wrap {
     margin: 0 auto;
     text-align: center;
 
-    @include min-screen(1240px) {
+    @include min-screen(1300px) {
       position: absolute;
       left: -172px;
       width: 125px;
@@ -1054,18 +1081,14 @@ q:after {
 
 .blog-post {
   // box-shadow: 0 0 25px 5px #ddd;
-  margin-bottom: 80px;
-  // border-bottom: 1px solid #ccc;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ccc;
 
-  &:after {
-    content : "";
-    position: absolute;
-    display: block;
-    height: 1px;
-    width: 50%;
-    padding-top: 40px;
-    left: 25%;
-    border-bottom: 1px solid #ccc;
+  &:last-child {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    border-bottom: 0 !important;
   }
 
   article {
@@ -1076,14 +1099,13 @@ q:after {
     // border: 2px solid #ccc;
 
     .post-image {
-      margin-top: 20px;
       width: 100%;
-      background-image: url(/img/home/header2.jpg);
       height: 400px;
       @include border-radius(5px);
       background-repeat: no-repeat !important;
       background-position: center center !important;
       background-size: cover !important;
+      margin-bottom: 20px;
     }
 
     .post-details {
@@ -1091,8 +1113,13 @@ q:after {
         // text-align: center;
         h1 {
           font-size: 3rem;
-          // font-weight: 700;
-          margin-bottom: 0px;
+          font-weight: 700;
+          a {
+            text-decoration: none;
+            color: #4c4c4c;
+            text-decoration: none !important;
+            border-bottom: none !important;
+          }
         }
 
         time {
@@ -1103,7 +1130,6 @@ q:after {
     }
 
     .summary {
-      padding-top: 30px;
       p:last-child {
         margin-bottom: 0 !important;
       }
@@ -1317,82 +1343,4 @@ q:after {
 
 // Fluidbox
 
-@-webkit-keyframes fluidboxLoading {
-  0% {
-    -webkit-transform: translate(-50%, -50%) rotateX(0) rotateY(0); }
-  50% {
-    -webkit-transform: translate(-50%, -50%) rotateX(-180deg) rotateY(0); }
-  100% {
-    -webkit-transform: translate(-50%, -50%) rotateX(-180deg) rotateY(-180deg); } }
-@keyframes fluidboxLoading {
-  0% {
-    transform: translate(-50%, -50%) rotateX(0) rotateY(0); }
-  50% {
-    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(0); }
-  100% {
-    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(-180deg); } }
-.fluidbox {
-  outline: none; }
-
-.fluidbox-overlay {
-  background-color: rgba(255, 255, 255, 0.85);
-  cursor: pointer;
-  cursor: -webkit-zoom-out;
-  cursor: -moz-zoom-out;
-  cursor: zoom-out;
-  opacity: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  /* Transition time for overlay is halved to ensure that flickering doesn't happen */
-  transition: all 0.125s ease-in-out 0.125s; }
-
-.fluidbox-wrap {
-  background-position: center center;
-  background-size: cover;
-  margin: 0 auto;
-  position: relative;
-  transition: all 0.25s ease-in-out;
-  /* To prevent flickering, we delay the showing of the image */ }
-  .fluidbox-closed .fluidbox-wrap img {
-    transition: opacity 0s ease-in-out 0.25s; }
-
-.fluidbox-ghost {
-  background-size: 100% 100%;
-  background-position: center center;
-  position: absolute;
-  -webkit-transition-property: opacity, -webkit-transform;
-  -moz-transition-property: opacity, -moz-transform;
-  -o-transition-property: opacity, -o-transform;
-  transition-property: opacity, transform;
-  transition-duration: 0s, 0.25s;
-  transition-delay: 0.25s, 0s; }
-  .fluidbox-opened .fluidbox-ghost {
-    transition-delay: 0s, 0s; }
-
-.fluidbox-loader {
-  perspective: 200px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0; }
-  .fluidbox-loader::before {
-    /* You can replace this with any color you want, or even a loading gif if desired */
-    background-color: rgba(255, 255, 255, 0.85);
-    content: '';
-    transform-style: preserve-3d;
-    transition: all 0.25s ease-in-out;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 20%;
-    padding-bottom: 20%; }
-
-.fluidbox-loading .fluidbox-loader::before {
-  -webkit-animation: fluidboxLoading 1s 0s infinite ease-in-out forwards;
-  animation: fluidboxLoading 1s 0s infinite ease-in-out forwards;
-  opacity: 1; }
+@-webkit-keyframes a{0%{-webkit-transform:translate(-50%,-50%) rotateX(0) rotateY(0);transform:translate(-50%,-50%) rotateX(0) rotateY(0)}50%{-webkit-transform:translate(-50%,-50%) rotateX(-180deg) rotateY(0);transform:translate(-50%,-50%) rotateX(-180deg) rotateY(0)}to{-webkit-transform:translate(-50%,-50%) rotateX(-180deg) rotateY(-180deg);transform:translate(-50%,-50%) rotateX(-180deg) rotateY(-180deg)}}@keyframes a{0%{-webkit-transform:translate(-50%,-50%) rotateX(0) rotateY(0);transform:translate(-50%,-50%) rotateX(0) rotateY(0)}50%{-webkit-transform:translate(-50%,-50%) rotateX(-180deg) rotateY(0);transform:translate(-50%,-50%) rotateX(-180deg) rotateY(0)}to{-webkit-transform:translate(-50%,-50%) rotateX(-180deg) rotateY(-180deg);transform:translate(-50%,-50%) rotateX(-180deg) rotateY(-180deg)}}.fluidbox{outline:none}.fluidbox__overlay{background-color:hsla(0,0%,100%,.85);cursor:pointer;cursor:zoom-out;opacity:0;pointer-events:none;position:fixed;top:-100%;left:0;bottom:-100%;right:0;-webkit-transition:all .5s ease-in-out;transition:all .5s ease-in-out}.fluidbox--opened .fluidbox__overlay{pointer-events:auto}.fluidbox__wrap{background-position:center center;background-size:cover;margin:0 auto;position:relative;-webkit-transition:all .5s ease-in-out;transition:all .5s ease-in-out}.fluidbox--closed .fluidbox__thumb,.fluidbox__thumb{-webkit-transition:opacity 0s ease-in-out 0s;transition:opacity 0s ease-in-out 0s}.fluidbox__ghost{background-size:100% 100%;background-position:center center;background-repeat:no-repeat;position:absolute;-webkit-transition:opacity 0s 0s,-webkit-transform .5s 0s;transition:opacity 0s 0s,-webkit-transform .5s 0s;transition:opacity 0s 0s,transform .5s 0s;transition:opacity 0s 0s,transform .5s 0s,-webkit-transform .5s 0s}.fluidbox--opened .fluidbox__ghost{cursor:pointer;cursor:zoom-out}.fluidbox--closed .fluidbox__ghost{-webkit-transition:opacity 0s .5s,-webkit-transform .5s 0s;transition:opacity 0s .5s,-webkit-transform .5s 0s;transition:opacity 0s .5s,transform .5s 0s;transition:opacity 0s .5s,transform .5s 0s,-webkit-transform .5s 0s}.fluidbox__loader{opacity:0;-webkit-perspective:200px;perspective:200px;pointer-events:none;position:absolute;top:0;left:0;bottom:0;right:0}.fluidbox__loader:before{background-color:hsla(0,0%,100%,.85);content:'';-webkit-transform-style:preserve-3d;transform-style:preserve-3d;position:absolute;top:50%;left:50%;width:20%;padding-bottom:20%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transition-property:-webkit-transform;transition-property:-webkit-transform;transition-property:transform;transition-property:transform,-webkit-transform;-webkit-transition-duration:.5s;transition-duration:.5s;-webkit-transition-delay:0s;transition-delay:0s}.fluidbox--loading .fluidbox__loader{opacity:1;-webkit-transition:opacity .5s ease-in-out .5s;transition:opacity .5s ease-in-out .5s}.fluidbox--loading .fluidbox__loader:before{-webkit-animation:a 1s 0s infinite ease-in-out forwards;animation:a 1s 0s infinite ease-in-out forwards}
