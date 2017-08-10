@@ -3,7 +3,7 @@ title: Hikes
 ---
 
 <section id="masthead" class="parallax-wrap">
-    <div class="parallax-img masthead-parallax-img hikes-masthead"><div class="darken-filter"></div></div>
+    <div class="parallax-img masthead-parallax-img hikes-masthead"><div class="darken-filter lessless"></div></div>
     <div class="parallax-content">
         <div class="blog-list-masthead">
             <div class>
@@ -14,30 +14,5 @@ title: Hikes
     </div>
 </section>
 <section class="content-wrap blog-all">
-    <div class='posts-wrap body-text'>
-        <% blog(:hikes).articles.each do |article| %>
-            <div class='blog-post'>
-                <article>
-                    <div class='post-details'>
-                        <div class='metadata'>
-                            <time>
-                            <%= article.date.strftime("%B %d, %Y") %>
-                            <% if article.data.key?('end_date') %>
-                                &mdash; <%= Date::parse(article.data.end_date).strftime("%B %d, %Y") %>
-                            <% end %>
-                            </time>
-                            <h1><a href="<%= article.url %>"><%= get_hike_title article %></a></h1>
-                        </div>
-                    </div>
-                    <% if article.data.header_img %>
-                    <div class='post-image' style="background-image: url('<%= url_for article.data.header_img %>');">
-                    </div>
-                    <% end %>
-                    <div class='summary'>
-                        <%= markdown_to_html article.data.blurb %>
-                    </div>
-                </article>
-            </div>
-        <% end %>
-    </div>
+    <%= partial(:list_hike_posts) %>
 </section>

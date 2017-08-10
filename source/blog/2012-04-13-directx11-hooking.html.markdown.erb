@@ -2,8 +2,11 @@
 title: DirectX 11 hooking
 tags: reverse-engineering
 ---
+a.k.a. how to write cheats for Battlefield 3.
+
 READMORE
-After hacking around with the Source Engine, and reversing random parts of it, I've decided to move on to more general `D3D11` hooking, which probably will be the next most commonly used DirectX API, like DirectX 9 was. (DirectX 10 was a failure.)
+
+After hacking around with the Source Engine, and reversing random parts of it, I've decided to move on to more general `D3D11` hooking, which probably will be the next most commonly used DirectX API, like DirectX 9 was.
 
 Although I have experience with DirectX 9 hooking and rendering, DirectX 11 turned out to be completely different. Instead of having built in font and line interfaces, a person would have to either build his own, or use external libraries. For font rendering I used [FW1FontWrapper](http://fw1.codeplex.com/), but I wrote my own interfaces for drawing some primitives such as lines and rectangles.
 

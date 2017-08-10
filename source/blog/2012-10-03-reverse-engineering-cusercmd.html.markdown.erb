@@ -4,7 +4,10 @@ title: "Reverse engineering CUserCmd in Counter Strike: Global Offensive"
 tags: reverse-engineering
 
 ---
+a.k.a how to get started writing an aimbot in CS:GO.
+
 READMORE
+
 `CUserCmd` is a class that holds player buttons, viewangles, position, and other movement specific data. These user commands are stored in a circular buffer, where they are then sent to the server. In Counter Strike: Global Offensive however, these data structures have changed as well as some intrinsics.
 This circular buffer is part of the CInput class, which we can get the global instance of by reversing `CHLClient->IN_ActivateMouse()`. The first instruction in this virtual function references a pointer to an instance of CInput, and we can get this pointer by doing the following:
 

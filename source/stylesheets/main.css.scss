@@ -612,7 +612,7 @@ nav.pushy {
     }
 
     h4 {
-      font-size: 2rem;
+      font-size: 3rem;
       font-weight: 100;
       color: #ddd;
     }
@@ -622,7 +622,7 @@ nav.pushy {
 
 
 .hikes-masthead {
-  background-image: url('/img/home/header2.jpg') !important;
+  background-image: url('/img/hike_header.jpg') !important;
 }
 
 .darken-filter {
@@ -635,6 +635,10 @@ nav.pushy {
 
 .darken-filter.less {
   opacity: 0.3 !important;
+}
+
+.darken-filter.lessless {
+  opacity: 0.25 !important;
 }
 
 .darken-filter.lessish {
@@ -1135,22 +1139,6 @@ q:after {
       }
     }
   }
-}
-
-.blog-all {
-  // // background-color: $nothingness !important;
-  // background-color: white !important;
-  // padding-left: 40px !important;
-  // // padding-right: 40px !important;
-  // padding-top: 40px !important;
-  // @include max-screen(630px) {
-  //   padding-left: 10px !important;
-  //   padding-top: 10px !important;
-  // }
-  // padding-bottom: 0 !important;
-}
-
-.posts-wrap {
 }
 
 
