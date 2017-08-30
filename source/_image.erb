@@ -1,12 +1,19 @@
 <%
-@width = locals.key?(:width) ? locals[:width].to_s + 'px' : '100%'
-@url = locals.key?(:cloudinary) ? "http://res.cloudinary.com/hazdcamql/image/upload/" + locals[:cloudinary] : locals[:src]
-
+@has_width = locals.key?(:width)
+@width = @has_width ? locals[:width].to_s + 'px' : '100%'
+@is_cloudinary = locals.key?(:cloudinary)
+@url = @is_cloudinary ? "http://res.cloudinary.com/hazdcamql/image/upload/" + locals[:cloudinary] : locals[:src]
+@no_thumbnail = locals[:no_thumbnail] || false
+@img_opts = {:alt => locals[:caption], :style => "max-width: 100%;"}
+# if !@no_thumbnail && !locals.key?(:cloudinary)
+#     # 850 is synced to the $content-max-width in main.scss
+#     @img_opts[:resize_to] = @has_width ? @width : "850"
+# end
 %>
 <div style="width: 100%" class="photo-wrap">
     <div class="center hover expand photo" style="max-width: <%= @width %>;">
         <a class="lightbox popout-lightbox" href="<%= @url %>" title="<%= locals[:caption] %>" target="_blank">
-            <img src="<%= @url %>" alt="<%= locals[:caption] %>" style="max-width: 100%">
+            <%= image_tag @url, @img_opts %>
         </a>
     </div>
     <div class="caption">

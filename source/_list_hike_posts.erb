@@ -12,10 +12,7 @@ end
                 <div class='post-details'>
                     <div class='metadata'>
                         <time>
-                        <%= article.date.strftime("%B %d, %Y") %>
-                        <% if article.data.key?('end_date') %>
-                            &mdash; <%= Date::parse(article.data.end_date).strftime("%B %d, %Y") %>
-                        <% end %>
+                        <%= render_hike_date article %>
                         </time>
                         <h1><a href="<%= article.url %>"><%= get_hike_title article %></a></h1>
                     </div>

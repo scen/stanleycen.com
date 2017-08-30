@@ -1,5 +1,7 @@
 require 'git'
 require 'tzinfo'
+require 'set'
+require 'RMagick'
 Time.zone = 'US/Pacific'
 
 set :markdown_engine, :redcarpet
@@ -31,7 +33,6 @@ end
 activate :directory_indexes
 activate :syntax
 
-
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
@@ -59,8 +60,8 @@ page '/*.txt', layout: false
 # https://middlemanapp.com/basics/helper-methods/
 
 $git = Git.open(Dir.pwd)
-
 $markdown_renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+$image_resize_cache = {}
 
 helpers do
   def get_nav_classes nav
@@ -119,6 +120,18 @@ helpers do
     partial(:hike_info, :locals => {:hike => hike})
   end
 
+  def render_hike_date hike
+    str = hike.date.strftime("%B %d, %Y")
+    if hike.data.key?('end_date')
+      str += " &mdash; " +  Date::parse(hike.data.end_date).strftime("%B %d, %Y")
+    elsif hike.data.key?('extra_dates')
+      e = hike.data.extra_dates
+      e.each do |date|
+        str += " + " + Date::parse(date).strftime("%B %d, %Y")
+      end
+    end
+    return str
+  end
 
   def hike_maybe_show_row(name, value, unit="")
     if !unit.blank?
@@ -133,6 +146,20 @@ helpers do
   def markdown_to_html md
     return "" if md.nil?
     $markdown_renderer.render(md)
+  end
+
+  def resize_image(dest_path, geometry_str="500x")
+    return dest_path if geometry_str.empty?
+    res = sitemap.find_resource_by_destination_path(dest_path)
+    path = app.source_dir + res.path
+    ext = path.extname
+    image = Magick::Image.read(path).first
+    image.change_geometry!(geometry_str) { |cols, rows, img|
+      img.resize!(cols, rows)
+      img.sharpen(0.5, 0.5)
+    }
+    new_path = path.sub_ext('').to_s + '.' + geometry_str + ext
+    image.write(new_path) { self.quality = 100 }
   end
 end
 

@@ -1,8 +1,8 @@
 <nav>
     <ul>
         <li><a href="<%= current_page.data.nav == 'home' ? '#about' : '/#about'%>" class="<%= get_nav_classes 'about' %>">about</a></li>
-        <li><a href="/blog" class="<%= get_nav_classes 'blog' %>">blog</a></li>
         <li><a href="/hikes" class="<%= get_nav_classes 'hikes' %>">hikes</a></li>
+        <li><a href="/blog" class="<%= get_nav_classes 'blog' %>">blog</a></li>
         <li><a href="/photography" class="<%= get_nav_classes 'photography' %>">photography</a></li>
         <li><a href="<%= current_page.data.nav == 'home' ? '#contact' : '/#contact'%>" class="<%= get_nav_classes 'contact' %>">contact</a></li>
     </ul>

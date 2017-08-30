@@ -13,6 +13,7 @@ SASS can name breakpoints for media queries!!
 $header-height: 50px;
 $page-top-padding: 40px;
 
+// should change the resize width in _image.erb, synced
 $content-max-width: 850px;
 
 $header-collapse: 750px;
@@ -619,8 +620,6 @@ nav.pushy {
   }
 }
 
-
-
 .hikes-masthead {
   background-image: url('/img/hike_header.jpg') !important;
 }
@@ -1104,7 +1103,7 @@ q:after {
 
     .post-image {
       width: 100%;
-      height: 400px;
+      height: 566.66px;
       @include border-radius(5px);
       background-repeat: no-repeat !important;
       background-position: center center !important;

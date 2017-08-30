@@ -6,10 +6,7 @@
                 <div class>
                     <h1 class=""><%= get_hike_title current_article %></h1>
                     <h4 class="">
-                        <%= current_article.date.strftime("%B %d, %Y") %>
-                        <% if current_article.data.key?('end_date') %>
-                            &mdash; <%= Date::parse(current_article.data.end_date).strftime("%B %d, %Y") %>
-                        <% end %>
+                        <%= render_hike_date current_article %>
                     </h4>
                 </div>
             </div>
