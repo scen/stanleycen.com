@@ -32,6 +32,8 @@ end
 
 activate :directory_indexes
 activate :syntax
+activate :minify_html
+
 
 # Layouts
 # https://middlemanapp.com/basics/layouts/
