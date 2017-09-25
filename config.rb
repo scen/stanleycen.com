@@ -57,6 +57,10 @@ page '/*.txt', layout: false
 #   },
 # )
 
+# Redirects
+redirect "mac-osx-code-injection/index.html", to: "blog/2013/mac-osx-code-injection/"
+redirect "directx11-hooking/index.html", to: "blog/2012/directx11-hooking/"
+
 # Helpers
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
