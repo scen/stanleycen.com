@@ -176,3 +176,7 @@ configure :build do
   activate :minify_css
   activate :minify_javascript
 end
+
+after_build do |builder|
+  FileUtils.cp_r 'source/googlec302829953b8e462.html', 'build/'
+end
