@@ -1,6 +1,8 @@
 stanleycen.com
 ==============
 
+UPDATE 2: Use the `middleman` command to test & build
+
 UPDATE: No longer a dynamic Ruby app! Run `make.rb` to generate a deployable static site.
 
 Random notes to make development easier:
