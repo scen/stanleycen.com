@@ -1,0 +1,83 @@
+<!doctype html> <html> <head> <title> Mac OS X code injection &amp; reverse engineering &mdash; Stanley Cen </title> <meta charset=UTF-8> <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> <link rel=dns-prefetch href="//cdnjs.cloudflare.com"> <link rel=dns-prefetch href="//ajax.googleapis.com"> <link type="text/plain" rel=author href="/humans.txt"/> <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel=stylesheet /> <link href="/stylesheets/main.css" rel=stylesheet /> <style>
+      .masthead-parallax-img {
+        background: url("/img/default_blog_header.jpg");
+      }
+    </style> <script>
+var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-4253037-6"]),_gaq.push(["_setDomainName","stanleycen.com"]),_gaq.push(["_trackPageview"]),function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}();
+    </script> </head> <body> <div id=container> <div id=page> <div class=rel> <header id=header class=maybe-hide-masthead> <a class=navicon-button><div class=navicon></div></a> <div class=name><a href="/"><h1>stanley</h1><h2>cen</h2></a></div> <nav> <ul> <li><a href="/#about" class=about>about</a></li> <li><a href="/hikes" class=hikes>hikes</a></li> <li><a href="/blog" class=blog>blog</a></li> <li><a href="/photography" class=photography>photography</a></li> <li><a href="/#contact" class=contact>contact</a></li> </ul> </nav> </header> </div> <section id=masthead class=parallax-wrap> <div class="parallax-img masthead-parallax-img"><div class=darken-filter></div></div> <div class=parallax-content> <div class=blog-masthead> <div class> <h1 class="">Mac OS X code injection &amp; reverse engineering</h1> <h4 class="">August 26, 2013</h4> </div> </div> </div> </section> <section class=content-wrap> <div class=body-text> <p>It turns out that injecting arbitrary native code into a process on OS X is almost as easy as it is on Windows.</p> <p></p> <p>I wrote a small utility based on the <code>rentzsch/mach_star</code> project called <a href="http://github.com/scen/osxinj">osxinj</a> which allows a user to inject a <code>.dylib</code> module into any running process. I also created <a href="http://github.com/scen/libembryo">libembryo</a>, a reverse engineering library for OS X.</p> <h3>Code injection</h3> <p>Essentially, we manually map some bootstrapping code into the target process that will then invoke <code>dyld</code> to load our module. In preparation, we first allocate a stack for the thread we&rsquo;ll eventually create in the target process and resolve all relative jump offsets. Since 32-bit jumps are relative, the operating system fixes these relative jumps when the module is not loaded at its preferred base address. We can fix these by looking at other segments in the Mach-O binary, namely <code>__jump_table</code> and/or <code>__symbol_stub</code>. Then, we alter the jump table in these sections by shifting each address by the module offset.</p> <p>After working bootstrap code is written to the target process, we pass our module&rsquo;s path and start a thread at the code base. The bootstrap code calls <code>dlopen</code> on the module path and <code>dyld</code> takes over by invoking the dylib&rsquo;s constructor.</p> <div style="width: 100%" class=photo-wrap> <div class="center hover expand photo" style="max-width: 100%;"> <a class="lightbox popout-lightbox" href="http://res.cloudinary.com/hazdcamql/image/upload/osxinj_yaxs7x.png" title="Injection logs from osxinj" target=_blank> <img src="http://res.cloudinary.com/hazdcamql/image/upload/osxinj_yaxs7x.png" alt="Injection logs from osxinj" style="max-width: 100%;"/> </a> </div> <div class=caption> <span>Injection logs from osxinj</span> </div> </div> <h3>Reverse engineering</h3> <p>Similar to my <a href="/project/ionlib">ionlib</a> project for Win32, <a href="/project/libembryo">libembryo</a> is a RE library for OS X. The interfaces should be cleaner and it supports many of the same features. Using this library, I wrote a program that can draw on any source engine/OpenGL application. The debug log is shown below.</p> <div style="width: 100%" class=photo-wrap> <div class="center hover expand photo" style="max-width: 100%;"> <a class="lightbox popout-lightbox" href="http://res.cloudinary.com/hazdcamql/image/upload/source_log_kbi3ny.png" title="Source engine injection/hooking logs" target=_blank> <img src="http://res.cloudinary.com/hazdcamql/image/upload/source_log_kbi3ny.png" alt="Source engine injection/hooking logs" style="max-width: 100%;"/> </a> </div> <div class=caption> <span>Source engine injection/hooking logs</span> </div> </div> </div> </section> <style>.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}</style> </div> <footer> <div class=wrapper> <div class=copyleft> Made with <span id=heart>♥</span> by <a href="/humans.txt">Stanley</a>. </div> <div class=latest-commit> Deployed revision <a href="https://github.com/scen/stanleycen.com/commit/4968d0ea4ab9c1cccc36809a608845570cb995aa"> 4968d0e</a> (<time datetime="1583801492000.0">March 09, 2020</time>). </div> </div> </footer> </div> <div class=site-overlay></div> <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> <script src="/js/main.js"></script> </body> </html>
