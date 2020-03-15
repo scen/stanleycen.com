@@ -1,3 +1,3 @@
 site:
-	@echo "building stanleycen.com/ ..."
-	middleman build --build-dir docs/
+	@echo "building..."
+	bundle exec middleman build --build-dir docs/
