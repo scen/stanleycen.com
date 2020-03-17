@@ -32,7 +32,9 @@ end
 
 activate :directory_indexes
 activate :syntax
-activate :minify_html
+activate :minify_html do |html|
+  html.remove_input_attributes = false
+end
 
 
 # Layouts
