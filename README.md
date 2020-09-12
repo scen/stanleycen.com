@@ -1,16 +1,8 @@
-stanleycen.com
-==============
+# stanleycen.com
 
-UPDATE 2: Use the `middleman` command to test & build
-
-UPDATE: No longer a dynamic Ruby app! Run `make.rb` to generate a deployable static site.
-
-Random notes to make development easier:
-- Sinatra (`ruby app.rb`) binds to `localhost`, not `0.0.0.0`. If we want to access the server from other devices on the same network (e.g. phones, tablets), we have to run `ruby app.rb -o 0.0.0.0`.
-- Use `rerun` to auto reload the server on file system changes.
+Use `make` to build.
 
 This project is released under the MIT License. The license text is provided at the bottom.
-
 
      The MIT License (MIT)
      Copyright (c) 2013 Stanley Cen
