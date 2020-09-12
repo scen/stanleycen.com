@@ -135,12 +135,12 @@ helpers do
 
   def render_hike_date hike
     str = hike.date.strftime("%B %d, %Y")
-    if hike.data.key?('end_date')
-      str += " &mdash; " +  Date::parse(hike.data.end_date).strftime("%B %d, %Y")
-    elsif hike.data.key?('extra_dates')
+    if hike.data.key?('end_date') && hike.data.end_date
+      str += " &mdash; " + hike.data.end_date.strftime("%B %d, %Y")
+    elsif hike.data.key?('extra_dates') && hike.data.extra_dates
       e = hike.data.extra_dates
       e.each do |date|
-        str += " + " + Date::parse(date).strftime("%B %d, %Y")
+        str += " + " + date.strftime("%B %d, %Y")
       end
     end
     return str
