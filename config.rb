@@ -129,16 +129,6 @@ helpers do
     return prefix + hike.title
   end
 
-  def article_body_minus_summary article
-    summary = article.summary
-    body = article.body
-    print summary
-    print body
-    raise "body doesn't start with summary" unless body.start_with?(summary)
-    body.slice!(summary)
-    return body
-  end
-
   def render_hike_info hike
     partial(:hike_info, :locals => {:hike => hike})
   end
