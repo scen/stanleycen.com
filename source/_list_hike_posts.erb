@@ -6,7 +6,10 @@ end
 %>
 
 <div class='posts-wrap body-text'>
-    <% @articles.each do |article| %>
+    <%
+    @articles.each do |article|
+    $current_article = article
+    %>
         <div class='blog-post'>
             <article>
                 <div class='post-details'>
@@ -18,7 +21,7 @@ end
                     </div>
                 </div>
                 <% if article.data.header_img %>
-                <div class='post-image' style="background-image: url('<%= url_for article.data.header_img %>');">
+                <div class='post-image' style="background-image: url('<%= url article.data.header_img %>');">
                 </div>
                 <% end %>
                 <div class='summary'>
@@ -26,5 +29,8 @@ end
                 </div>
             </article>
         </div>
-    <% end %>
+    <%
+    $current_article = nil
+    end
+    %>
 </div>

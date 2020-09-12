@@ -26,6 +26,7 @@ activate :blog do |blog|
   blog.name = "hikes"
   blog.prefix = "hike"
   blog.layout = "hike"
+  blog.sources = "{year}/{month}-{day}-{title}.html"
   blog.permalink = "{year}/{title}.html"
   blog.default_extension = ".markdown.erb"
 end
@@ -86,6 +87,19 @@ helpers do
 
   def get_commit_time
     return $git.log.first.date
+  end
+
+  # resolve relative urls from articles via a hacky global $current_article
+  def url url
+    if !url.start_with?('/') && $current_article
+      return url_for($current_article.path) + url
+    else
+      return url_for(url)
+    end
+  end
+
+  def img(path, caption, args={})
+    partial(:image, :locals => { :src => url(path), :caption => caption }.merge(args))
   end
 
   def image(args)

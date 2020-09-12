@@ -6,7 +6,10 @@ end
 %>
 
 <div class='posts-wrap body-text'>
-    <% @articles.each do |article| %>
+    <%
+    @articles.each do |article|
+    $current_article = article
+    %>
         <div class='blog-post'>
             <article>
                 <div class='post-details'>
@@ -24,5 +27,8 @@ end
                 </div>
             </article>
         </div>
-    <% end %>
+    <%
+    $current_article = nil
+    end
+    %>
 </div>
