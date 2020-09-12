@@ -29,6 +29,7 @@ activate :blog do |blog|
   blog.sources = "{year}/{month}-{day}-{title}.html"
   blog.permalink = "{year}/{title}.html"
   blog.default_extension = ".markdown.erb"
+  blog.new_article_template = File.expand_path('source/hike/template.markdown.erb', File.dirname(__FILE__))
 end
 
 activate :directory_indexes
